@@ -6,7 +6,8 @@
         "expandable-chapters-small",
         "katex",
         "sitemap",
-        "scripts"
+        "scripts",
+        "adsense"
     ],
     "pluginsConfig": {
         "ga": {
@@ -17,12 +18,15 @@
             "content": "66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"
         },
         "sitemap": {
-            "hostname": "https://cryptobook.nakov.com/"
+            "hostname": "https://cryptobook.xwave.app/"
         },
         "scripts": {
             "files": [
                 "./assets/js/repl.it-code-runner.js"
             ]
+        },
+        "adsense": {
+            "client": "ca-pub-6178635866936443"
         }
     },
     "pdf": {
@@ -32,6 +36,13 @@
             "bottom": 48,
             "left": 36,
             "right": 36
+        }
+    },
+    "links": {
+        "sidebar": {
+        "📄 Download PDF": "dist/cryptobook.pdf",
+        "📚 Download EPUB": "dist/cryptobook.epub",
+        "📱 Download MOBI": "dist/cryptobook.mobi"
         }
     }
 }

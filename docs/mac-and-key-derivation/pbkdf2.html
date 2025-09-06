@@ -1,0 +1,1409 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>PBKDF2 · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="modern-key-derivation-functions.html" />
+    
+    
+    <link rel="prev" href="kdf-deriving-key-from-password.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="dist/cryptobook.pdf" target="_blank" class="custom-link">📄 Download PDF</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.epub" target="_blank" class="custom-link">📚 Download EPUB</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.mobi" target="_blank" class="custom-link">📱 Download MOBI</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../preface.html">
+            
+                <a href="../preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cryptography-overview.html">
+            
+                <a href="../cryptography-overview.html">
+            
+                    
+                    Cryptography - Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cryptographic-hash-functions/">
+            
+                <a href="../cryptographic-hash-functions/">
+            
+                    
+                    Hash Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                <a href="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                    
+                    Crypto Hashes and Collisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                    
+                    Hash Functions: Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                <a href="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                    
+                    Secure Hash Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                    
+                    Hash Functions - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                <a href="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                    
+                    Exercises: Calculate Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                <a href="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                    
+                    Proof-of-Work Hash Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    MAC and Key Derivation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="hmac-and-key-derivation.html">
+            
+                <a href="hmac-and-key-derivation.html">
+            
+                    
+                    HMAC and Key Derivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="hmac-calculation-examples.html">
+            
+                <a href="hmac-calculation-examples.html">
+            
+                    
+                    HMAC Calculation - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="exercises-calculate-hmac.html">
+            
+                <a href="exercises-calculate-hmac.html">
+            
+                    
+                    Exercises: Calculate HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="kdf-deriving-key-from-password.html">
+            
+                <a href="kdf-deriving-key-from-password.html">
+            
+                    
+                    KDF: Deriving Key from Password
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.5" data-path="pbkdf2.html">
+            
+                <a href="pbkdf2.html">
+            
+                    
+                    PBKDF2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="modern-key-derivation-functions.html">
+            
+                <a href="modern-key-derivation-functions.html">
+            
+                    
+                    Modern Key Derivation Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="scrypt.html">
+            
+                <a href="scrypt.html">
+            
+                    
+                    Scrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="bcrypt.html">
+            
+                <a href="bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="linux-crypt.html">
+            
+                <a href="linux-crypt.html">
+            
+                    
+                    Linux crypt()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="argon2.html">
+            
+                <a href="argon2.html">
+            
+                    
+                    Argon2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="password-encryption.html">
+            
+                <a href="password-encryption.html">
+            
+                    
+                    Secure Password Storage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="exercises-password-encryption.html">
+            
+                <a href="exercises-password-encryption.html">
+            
+                    
+                    Exercises: Password Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../secure-random-generators/">
+            
+                <a href="../secure-random-generators/">
+            
+                    
+                    Secure Random Generators
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                <a href="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                    
+                    Pseudo-Random Numbers - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                <a href="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                    
+                    Secure Random Generators (CSPRNG)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                <a href="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                    
+                    Exercises: Pseudo-Random Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../key-exchange/">
+            
+                <a href="../key-exchange/">
+            
+                    
+                    Key Exchange and DHKE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                <a href="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                    
+                    Diffie–Hellman Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../key-exchange/dhke-examples.html">
+            
+                <a href="../key-exchange/dhke-examples.html">
+            
+                    
+                    DHKE - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                <a href="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                    
+                    Exercises: DHKE Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../encryption-symmetric-and-asymmetric.html">
+            
+                <a href="../encryption-symmetric-and-asymmetric.html">
+            
+                    
+                    Encryption: Symmetric and Asymmetric
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../symmetric-key-ciphers/">
+            
+                <a href="../symmetric-key-ciphers/">
+            
+                    
+                    Symmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                <a href="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                    
+                    Cipher Block Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                <a href="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                    
+                    Popular Symmetric Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                <a href="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                    
+                    The AES Cipher - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                <a href="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                    
+                    AES Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                <a href="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                    
+                    Ethereum Wallet Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                    
+                    Exercises: AES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                    
+                    ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                    
+                    Exercises: ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../asymmetric-key-ciphers/">
+            
+                <a href="../asymmetric-key-ciphers/">
+            
+                    
+                    Asymmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                <a href="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                    
+                    The RSA Cryptosystem - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                    
+                    RSA Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                    
+                    Exercises: RSA Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                <a href="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                    
+                    Elliptic Curve Cryptography (ECC)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                    
+                    ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                    
+                    ECDH Key Exchange - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                    
+                    Exercises: ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                    
+                    ECC Encryption / Decryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                    
+                    ECIES Hybrid Encryption Scheme
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="../asymmetric-key-ciphers/ecies-example.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-example.html">
+            
+                    
+                    ECIES Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                    
+                    Exercises: ECIES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../digital-signatures/">
+            
+                <a href="../digital-signatures/">
+            
+                    
+                    Digital Signatures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../digital-signatures/rsa-signatures.html">
+            
+                <a href="../digital-signatures/rsa-signatures.html">
+            
+                    
+                    RSA Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                    
+                    RSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                    
+                    Exercises: RSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                    
+                    ECDSA: Elliptic Curve Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                    
+                    ECDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                <a href="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                    
+                    Exercises: ECDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../digital-signatures/eddsa-and-ed25519.html">
+            
+                <a href="../digital-signatures/eddsa-and-ed25519.html">
+            
+                    
+                    EdDSA and Ed25519
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                    
+                    EdDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                    
+                    Exercises: EdDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../quantum-safe-cryptography/">
+            
+                <a href="../quantum-safe-cryptography/">
+            
+                    
+                    Quantum-Safe Cryptography
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                    
+                    Quantum-Safe Signatures - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                    
+                    Quantum-Safe Key Exchange - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                    
+                    Quantum-Safe Asymmetric Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../more-cryptographic-concepts/">
+            
+                <a href="../more-cryptographic-concepts/">
+            
+                    
+                    More Cryptographic Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                <a href="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                    
+                    Digital Certificates - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../more-cryptographic-concepts/tls-example.html">
+            
+                <a href="../more-cryptographic-concepts/tls-example.html">
+            
+                    
+                    TLS - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                <a href="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                    
+                    One-Time Passwords (OTP) - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../crypto-libraries-for-developers/">
+            
+                <a href="../crypto-libraries-for-developers/">
+            
+                    
+                    Crypto Libraries for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                    
+                    JavaScript Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                    
+                    Python Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                    
+                    C# Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                    
+                    Java Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../conclusion.html">
+            
+                <a href="../conclusion.html">
+            
+                    
+                    Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >PBKDF2</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="pbkdf2"><a name="pbkdf2" class="plugin-anchor" href="#pbkdf2"><i class="fa fa-link" aria-hidden="true"></i></a>PBKDF2</h1>
+<p><strong>PBKDF2</strong> is a simple cryptographic key derivation function, which is resistant to <a href="https://en.wikipedia.org/wiki/Dictionary\_attack" target="_blank">dictionary attacks</a> and <a href="https://en.wikipedia.org/wiki/Rainbow\_table" target="_blank">rainbow table attacks</a>. It is based on iteratively deriving <strong>HMAC</strong> many times with some padding. The <strong>PBKDF2</strong> algorithm is described in the Internet standard <a href="http://ietf.org/rfc/rfc2898.txt" target="_blank">RFC 2898 (PKCS #5)</a>.</p>
+<p><strong>PBKDF2</strong> takes several <strong>input parameters</strong> and produces the derived <strong>key</strong> as output:</p>
+<pre><code>key = pbkdf2(password, salt, iterations-count, hash-function, derived-key-len)
+</code></pre><p>Technically, the <strong>input data</strong> for <strong>PBKDF2</strong> consists of:</p>
+<ul>
+<li><code>password</code> – array of bytes / string, e.g. "<em>p@$Sw0rD~3</em>" (8-10 chars minimal length is recommended)</li>
+<li><code>salt</code> – securely-generated random bytes, e.g. "<em>df1f2d3f4d77ac66e9c5a6c3d8f921b6</em>" (minimum 64 bits, 128 bits is recommended)</li>
+<li><code>iterations-count</code>, e.g. 1024 iterations</li>
+<li><code>hash-function</code> for calculating <strong>HMAC</strong>, e.g. <code>SHA256</code></li>
+<li><code>derived-key-len</code> for the output, e.g. 32 bytes (256 bits)</li>
+</ul>
+<p>The <strong>output data</strong> is the <strong>derived key</strong> of requested length (e.g. 256 bits).</p>
+<h2 id="pbkdf2-and-number-of-iterations"><a name="pbkdf2-and-number-of-iterations" class="plugin-anchor" href="#pbkdf2-and-number-of-iterations"><i class="fa fa-link" aria-hidden="true"></i></a>PBKDF2 and Number of Iterations</h2>
+<p><strong>PBKDF2</strong> allows to configure the number of <strong>iterations</strong> and thus to configure the time required to derive the key.</p>
+<ul>
+<li><strong>Slower key derivation</strong> means high login time / slower decryption / etc. and <strong>higher resistance</strong> to password cracking attacks.</li>
+<li><strong>Faster key derivation</strong> means short login time / faster decryption / etc. and <strong>lower resistance</strong> to password cracking attacks.</li>
+<li><strong>PBKDF2</strong> is <strong>not resistant</strong> to <a href="https://security.stackexchange.com/questions/118147/how-are-gpus-used-in-brute-force-attacks" target="_blank">GPU attacks</a> (parallel password cracking using video cards) and to <a href="https://en.wikipedia.org/wiki/Custom\_hardware\_attack" target="_blank">ASIC attacks</a> (specialized password cracking hardware). This is the main motivation behind more modern KDF functions.</li>
+</ul>
+<h2 id="pbkdf2---example"><a name="pbkdf2---example" class="plugin-anchor" href="#pbkdf2---example"><i class="fa fa-link" aria-hidden="true"></i></a>PBKDF2 - Example</h2>
+<p>Try <strong>PBKDF2 key derivation</strong> online here: <a href="https://asecuritysite.com/encryption/PBKDF2z" target="_blank">https://asecuritysite.com/encryption/PBKDF2z</a>.</p>
+<p><img src="../.gitbook/assets/pbkdf2-calculator.png" alt=""></img></p>
+<p>Try to <strong>increase the iterations count</strong> to see how this affects the speed of key derivation.</p>
+<h2 id="pbkdf2-calculation-in-python---example"><a name="pbkdf2-calculation-in-python---example" class="plugin-anchor" href="#pbkdf2-calculation-in-python---example"><i class="fa fa-link" aria-hidden="true"></i></a>PBKDF2 Calculation in Python - Example</h2>
+<p>Now, we shall write some <strong>code in Python</strong> to derive a key from a password using the <strong>PBKDF2</strong> algorithm.</p>
+<p>Firstly, install the Python package <code>backports.pbkdf2</code> using the command:</p>
+<pre><code>pip install backports.pbkdf2
+</code></pre><p>Now, write the Python code to calculate PBKDF2:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os, binascii
+<span class="hljs-keyword">from</span> backports.pbkdf2 <span class="hljs-keyword">import</span> pbkdf2_hmac
+
+salt = binascii.unhexlify(<span class="hljs-string">'aaef2d3f4d77ac66e9c5a6c3d8f921d1'</span>)
+passwd = <span class="hljs-string">"p@$Sw0rD~1"</span>.encode(<span class="hljs-string">"utf8"</span>)
+key = pbkdf2_hmac(<span class="hljs-string">"sha256"</span>, passwd, salt, <span class="hljs-number">50000</span>, <span class="hljs-number">32</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Derived key:"</span>, binascii.hexlify(key))
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/PBKDF2-in-Python" target="_blank">https://repl.it/@nakov/PBKDF2-in-Python</a>.</p>
+<p>The <strong>PBKDF2</strong> calculation function takes several <strong>input parameters</strong>: <strong>hash function</strong> for the HMAC, the <strong>password</strong> (bytes sequence), the <strong>salt</strong> (bytes sequence), <strong>iterations</strong> count and the output <strong>key length</strong> (number of bytes for the derived key).</p>
+<p>The <strong>output</strong> from the above code execution is the following:</p>
+<pre><code>Derived key: b'52c5efa16e7022859051b1dec28bc65d9696a3005d0f97e506c42843bc3bdbc0'
+</code></pre><p>Try to change the number of <strong>iterations</strong> and see whether and how the <strong>execution time</strong> changes.</p>
+<h2 id="when-to-use-pbkdf2"><a name="when-to-use-pbkdf2" class="plugin-anchor" href="#when-to-use-pbkdf2"><i class="fa fa-link" aria-hidden="true"></i></a>When to Use PBKDF2?</h2>
+<p>Today <strong>PBKDF2</strong> is considered old-fashioned and less secure than modern KDF functions, so it is recommended to use <strong>Bcrypt</strong>, <strong>Scrypt</strong> or <strong>Argon2</strong> instead. We shall explain all these KDF functions in details later in this section.</p>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="kdf-deriving-key-from-password.html" class="navigation navigation-prev " aria-label="Previous page: KDF: Deriving Key from Password">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="modern-key-derivation-functions.html" class="navigation navigation-next " aria-label="Next page: Modern Key Derivation Functions">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"PBKDF2","level":"1.5.5","depth":2,"next":{"title":"Modern Key Derivation Functions","level":"1.5.6","depth":2,"path":"mac-and-key-derivation/modern-key-derivation-functions.md","ref":"mac-and-key-derivation/modern-key-derivation-functions.md","articles":[]},"previous":{"title":"KDF: Deriving Key from Password","level":"1.5.4","depth":2,"path":"mac-and-key-derivation/kdf-deriving-key-from-password.md","ref":"mac-and-key-derivation/kdf-deriving-key-from-password.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","meta","anchors","expandable-chapters-small","katex","sitemap","scripts","adsense"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"meta":{"name":"","content":"","data":[]},"scripts":{"files":["./assets/js/repl.it-code-runner.js"]},"search":{},"adsense":{"client":"ca-pub-6178635866936443"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"meta-single":{"name":"google-site-verification","content":"66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://cryptobook.xwave.app/"},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-11309924-27"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":48,"bottom":48},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"📄 Download PDF":"dist/cryptobook.pdf","📚 Download EPUB":"dist/cryptobook.epub","📱 Download MOBI":"dist/cryptobook.mobi"}},"gitbook":"*"},"file":{"path":"mac-and-key-derivation/pbkdf2.md","mtime":"2025-09-06T17:42:10.281Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-09-06T18:31:27.936Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-scripts/8e9b40f9a31c4018d1a4d23d8ad10c11-repl.it-code-runner.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -24,7 +24,7 @@
   * **org.web3j.crypto**– Ethereum style secp256k1 EC cryptography
   * **org.bouncycastle**– BouncyCastle crypto provider for Java
 
-```markup
+```java
 <dependency>
   <groupId>org.web3j</groupId>
   <artifactId>crypto</artifactId>

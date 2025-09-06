@@ -1,0 +1,1450 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Encryption: Symmetric and Asymmetric · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="symmetric-key-ciphers/" />
+    
+    
+    <link rel="prev" href="key-exchange/exercises-dhke-key-exchange.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="dist/cryptobook.pdf" target="_blank" class="custom-link">📄 Download PDF</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.epub" target="_blank" class="custom-link">📚 Download EPUB</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.mobi" target="_blank" class="custom-link">📱 Download MOBI</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="preface.html">
+            
+                <a href="preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="cryptography-overview.html">
+            
+                <a href="cryptography-overview.html">
+            
+                    
+                    Cryptography - Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="cryptographic-hash-functions/">
+            
+                <a href="cryptographic-hash-functions/">
+            
+                    
+                    Hash Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                <a href="cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                    
+                    Crypto Hashes and Collisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="cryptographic-hash-functions/hash-functions-applications.html">
+            
+                <a href="cryptographic-hash-functions/hash-functions-applications.html">
+            
+                    
+                    Hash Functions: Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                <a href="cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                    
+                    Secure Hash Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="cryptographic-hash-functions/hash-functions-examples.html">
+            
+                <a href="cryptographic-hash-functions/hash-functions-examples.html">
+            
+                    
+                    Hash Functions - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                <a href="cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                    
+                    Exercises: Calculate Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                <a href="cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                    
+                    Proof-of-Work Hash Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="mac-and-key-derivation/">
+            
+                <a href="mac-and-key-derivation/">
+            
+                    
+                    MAC and Key Derivation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                <a href="mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                    
+                    HMAC and Key Derivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                <a href="mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                    
+                    HMAC Calculation - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                <a href="mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                    
+                    Exercises: Calculate HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                <a href="mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                    
+                    KDF: Deriving Key from Password
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="mac-and-key-derivation/pbkdf2.html">
+            
+                <a href="mac-and-key-derivation/pbkdf2.html">
+            
+                    
+                    PBKDF2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                <a href="mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                    
+                    Modern Key Derivation Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="mac-and-key-derivation/scrypt.html">
+            
+                <a href="mac-and-key-derivation/scrypt.html">
+            
+                    
+                    Scrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="mac-and-key-derivation/bcrypt.html">
+            
+                <a href="mac-and-key-derivation/bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="mac-and-key-derivation/linux-crypt.html">
+            
+                <a href="mac-and-key-derivation/linux-crypt.html">
+            
+                    
+                    Linux crypt()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="mac-and-key-derivation/argon2.html">
+            
+                <a href="mac-and-key-derivation/argon2.html">
+            
+                    
+                    Argon2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="mac-and-key-derivation/password-encryption.html">
+            
+                <a href="mac-and-key-derivation/password-encryption.html">
+            
+                    
+                    Secure Password Storage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="mac-and-key-derivation/exercises-password-encryption.html">
+            
+                <a href="mac-and-key-derivation/exercises-password-encryption.html">
+            
+                    
+                    Exercises: Password Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="secure-random-generators/">
+            
+                <a href="secure-random-generators/">
+            
+                    
+                    Secure Random Generators
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                <a href="secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                    
+                    Pseudo-Random Numbers - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="secure-random-generators/secure-random-generators-csprng.html">
+            
+                <a href="secure-random-generators/secure-random-generators-csprng.html">
+            
+                    
+                    Secure Random Generators (CSPRNG)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                <a href="secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                    
+                    Exercises: Pseudo-Random Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="key-exchange/">
+            
+                <a href="key-exchange/">
+            
+                    
+                    Key Exchange and DHKE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="key-exchange/diffie-hellman-key-exchange.html">
+            
+                <a href="key-exchange/diffie-hellman-key-exchange.html">
+            
+                    
+                    Diffie–Hellman Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="key-exchange/dhke-examples.html">
+            
+                <a href="key-exchange/dhke-examples.html">
+            
+                    
+                    DHKE - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="key-exchange/exercises-dhke-key-exchange.html">
+            
+                <a href="key-exchange/exercises-dhke-key-exchange.html">
+            
+                    
+                    Exercises: DHKE Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="encryption-symmetric-and-asymmetric.html">
+            
+                <a href="encryption-symmetric-and-asymmetric.html">
+            
+                    
+                    Encryption: Symmetric and Asymmetric
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="symmetric-key-ciphers/">
+            
+                <a href="symmetric-key-ciphers/">
+            
+                    
+                    Symmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="symmetric-key-ciphers/cipher-block-modes.html">
+            
+                <a href="symmetric-key-ciphers/cipher-block-modes.html">
+            
+                    
+                    Cipher Block Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                <a href="symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                    
+                    Popular Symmetric Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                <a href="symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                    
+                    The AES Cipher - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                <a href="symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                    
+                    AES Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                <a href="symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                    
+                    Ethereum Wallet Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                <a href="symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                    
+                    Exercises: AES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                <a href="symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                    
+                    ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                <a href="symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                    
+                    Exercises: ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="asymmetric-key-ciphers/">
+            
+                <a href="asymmetric-key-ciphers/">
+            
+                    
+                    Asymmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                <a href="asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                    
+                    The RSA Cryptosystem - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                <a href="asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                    
+                    RSA Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                <a href="asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                    
+                    Exercises: RSA Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                <a href="asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                    
+                    Elliptic Curve Cryptography (ECC)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                <a href="asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                    
+                    ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                <a href="asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                    
+                    ECDH Key Exchange - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                <a href="asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                    
+                    Exercises: ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                <a href="asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                    
+                    ECC Encryption / Decryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                <a href="asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                    
+                    ECIES Hybrid Encryption Scheme
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="asymmetric-key-ciphers/ecies-example.html">
+            
+                <a href="asymmetric-key-ciphers/ecies-example.html">
+            
+                    
+                    ECIES Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                <a href="asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                    
+                    Exercises: ECIES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="digital-signatures/">
+            
+                <a href="digital-signatures/">
+            
+                    
+                    Digital Signatures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="digital-signatures/rsa-signatures.html">
+            
+                <a href="digital-signatures/rsa-signatures.html">
+            
+                    
+                    RSA Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="digital-signatures/rsa-sign-verify-examples.html">
+            
+                <a href="digital-signatures/rsa-sign-verify-examples.html">
+            
+                    
+                    RSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                <a href="digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                    
+                    Exercises: RSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                <a href="digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                    
+                    ECDSA: Elliptic Curve Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                <a href="digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                    
+                    ECDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                <a href="digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                    
+                    Exercises: ECDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="digital-signatures/eddsa-and-ed25519.html">
+            
+                <a href="digital-signatures/eddsa-and-ed25519.html">
+            
+                    
+                    EdDSA and Ed25519
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="digital-signatures/eddsa-sign-verify-examples.html">
+            
+                <a href="digital-signatures/eddsa-sign-verify-examples.html">
+            
+                    
+                    EdDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                <a href="digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                    
+                    Exercises: EdDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="quantum-safe-cryptography/">
+            
+                <a href="quantum-safe-cryptography/">
+            
+                    
+                    Quantum-Safe Cryptography
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                <a href="quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                    
+                    Quantum-Safe Signatures - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                <a href="quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                    
+                    Quantum-Safe Key Exchange - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                <a href="quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                    
+                    Quantum-Safe Asymmetric Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="more-cryptographic-concepts/">
+            
+                <a href="more-cryptographic-concepts/">
+            
+                    
+                    More Cryptographic Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="more-cryptographic-concepts/digital-certificates-example.html">
+            
+                <a href="more-cryptographic-concepts/digital-certificates-example.html">
+            
+                    
+                    Digital Certificates - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="more-cryptographic-concepts/tls-example.html">
+            
+                <a href="more-cryptographic-concepts/tls-example.html">
+            
+                    
+                    TLS - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                <a href="more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                    
+                    One-Time Passwords (OTP) - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="crypto-libraries-for-developers/">
+            
+                <a href="crypto-libraries-for-developers/">
+            
+                    
+                    Crypto Libraries for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                <a href="crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                    
+                    JavaScript Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                <a href="crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                    
+                    Python Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                <a href="crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                    
+                    C# Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                <a href="crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                    
+                    Java Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="conclusion.html">
+            
+                <a href="conclusion.html">
+            
+                    
+                    Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Encryption: Symmetric and Asymmetric</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="encryption-symmetric-and-asymmetric"><a name="encryption-symmetric-and-asymmetric" class="plugin-anchor" href="#encryption-symmetric-and-asymmetric"><i class="fa fa-link" aria-hidden="true"></i></a>Encryption: Symmetric and Asymmetric</h1>
+<p>In cryptography two major types of encryption schemes are widely used: <strong>symmetric encryption</strong> (where a single <strong>secret key</strong> is used to encrypt and decrypt data) and <strong>asymmetric encryption</strong> (where a public key cryptosystem is used and encryption and decryption is done using a <strong>pair of public and corresponding private key</strong>). Let's explain these fundamental crypto-concepts in details.</p>
+<h2 id="symmetric-encryption---concepts-and-algorithms"><a name="symmetric-encryption---concepts-and-algorithms" class="plugin-anchor" href="#symmetric-encryption---concepts-and-algorithms"><i class="fa fa-link" aria-hidden="true"></i></a>Symmetric Encryption - Concepts and Algorithms</h2>
+<p><strong>Symmetric encryption</strong> schemes use <strong>the same symmetric key</strong> (or password) to <strong>encrypt</strong> data and <strong>decrypt</strong> the encrypted data back to its original form:</p>
+<p><img src=".gitbook/assets/symmetric-encryption.png" alt=""></img></p>
+<p>Symmetric encryption usually combines several crypto algorithms into an <strong>symmetric encryption scheme</strong>, e.g. AES-256-CTR-HMAC-SHA256. The <strong>encryption scheme</strong> (cipher construction) may include: password to <strong>key derivation</strong> algorithm (with certain parameters) + <strong>symmetric cipher</strong> algorithm (with certain parameters) + <strong>cipher block mode</strong> algorithm + <strong>message authentication</strong> (MAC) algorithm. This means that <strong>the above shown diagram is simplified</strong> and does not fully represent the process.</p>
+<h3 id="secret-keys"><a name="secret-keys" class="plugin-anchor" href="#secret-keys"><i class="fa fa-link" aria-hidden="true"></i></a>Secret Keys</h3>
+<p>The <strong>secret key</strong> used to <strong>cipher</strong> (encrypt) and <strong>decipher</strong> (decrypt) data is typically of size 128, 192 or 256 bits and is sometimes referred as "<em><strong>encryption key</strong></em>" or "<em><strong>shared key</strong></em>", because both sending and receiving parties should know it.</p>
+<p>Most applications use a <a href="https://github.com/svetlin-nakov/practical-cryptography-for-developers/tree/34666e7576d7427e08bf3940a69214b0cda94676/content/part-1-blockchain-networks-concepts/blockchain-cryptography/blockchain-cryptography-overview/hmac-and-key-derivation.html" target="_blank"><strong>password-to-key-derivation</strong></a> scheme to extract a <strong>secret key</strong> from certain <strong>password</strong>, because users tend to remember passwords easier than binary data. Additionally, <strong>message authentication</strong> is often incorporated along with the encryption to provide <strong>integrity</strong> and <strong>authenticity</strong> (this encryption approach is known as "<a href="https://en.wikipedia.org/wiki/Authenticated\_encryption" target="_blank"><strong>authenticated encryption</strong></a>").</p>
+<p>How does a <strong>private key</strong> look like? Let's start from a simple example of <strong>256-bit secret key</strong>, encoded as <a href="https://en.wikipedia.org/wiki/Hexadecimal" target="_blank"><strong>hex string</strong></a>:</p>
+<pre><code>02c324648931b89e3e8a0fc42c96e8e3be2e42812986573a40d46563bceaf75110
+</code></pre><p>In many systems (e.g. public blockchains, PGP, OpenSSL and others) secret keys are encoded as <a href="https://en.wikipedia.org/wiki/Base58" target="_blank"><strong>base58</strong></a> or <a href="https://en.wikipedia.org/wiki/Base64" target="_blank"><strong>base64</strong></a> for shorter string representation.</p>
+<p>For example, the above key looks like this in <strong>base58</strong>:</p>
+<pre><code>pbPRqYDxnKZfs8j4KKiqYmx6nzipAjTJf1oCD1WKgy99
+</code></pre><p>The same key looks like this in <strong>base64</strong>:</p>
+<pre><code>AsMkZIkxuJ4+ig/ELJbo474uQoEphlc6QNRlY7zq91EQ
+</code></pre><p>In <strong>decimal</strong> system, the above key is the following integer number:</p>
+<pre><code>319849484316084980661994213716306415989897600164422912728298459349458028548368
+</code></pre><h3 id="modern-symmetric-encryption-algorithms"><a name="modern-symmetric-encryption-algorithms" class="plugin-anchor" href="#modern-symmetric-encryption-algorithms"><i class="fa fa-link" aria-hidden="true"></i></a>Modern Symmetric Encryption Algorithms</h3>
+<p>Widely used in modern cryptography <strong>symmetric encryption algorithms</strong> (ciphers) are: <a href="https://en.wikipedia.org/wiki/Advanced\_Encryption\_Standard" target="_blank"><strong>AES</strong></a> (AES-128, AES-192, AES-256), <a href="https://legacy.gitbook.com/book/svetlin-nakov/practical-blockchain-for-developers-the-big-book/edit" target="_blank"><strong>ChaCha20</strong></a>, <a href="https://en.wikipedia.org/wiki/Twofish" target="_blank"><strong>Twofish</strong></a>, <a href="https://en.wikipedia.org/wiki/International\_Data\_Encryption\_Algorithm" target="_blank"><strong>IDEA</strong></a>, <a href="https://en.wikipedia.org/wiki/Serpent\_\(cipher\" target="_blank"><strong>Serpent</strong></a>), <a href="https://en.wikipedia.org/wiki/Camellia\_\(cipher\" target="_blank"><strong>Camelia</strong></a>) and others. Most of them are <strong>block ciphers</strong> (encrypt data by blocks of fixed size, e.g. 128 bits), while others are <strong>stream ciphers</strong> (encrypt data byte by byte as a stream). Block ciphers can be turned into stream ciphers by using a technique called "<strong>cipher block mode</strong>".</p>
+<p>We shall give more details and code examples using the <strong>AES</strong> and <strong>ChaCha20</strong> algorithms a bit later.</p>
+<h3 id="symmetric-encryption---online-demo"><a name="symmetric-encryption---online-demo" class="plugin-anchor" href="#symmetric-encryption---online-demo"><i class="fa fa-link" aria-hidden="true"></i></a>Symmetric Encryption - Online Demo</h3>
+<p>In order to better understand the idea behind the symmetric encryption, you can play with some <strong>online symmetric encryption tool</strong> to encrypt and decrypt a sample message by sample secret key (or password). You can play a bit with this site: <a href="https://aesencryption.net" target="_blank"><strong>https://aesencryption.net</strong></a>.</p>
+<p><img src=".gitbook/assets/aesencryption.net.png" alt=""></img></p>
+<p>It demonstrates how we can encrypt and decrypt messages, using the <strong>AES cipher</strong> (with certain settings, more precisely AES-128-CBC) and certain password-to-key-derivation function. In the above example if we encrypt the text "<em><strong>secret msg</strong></em>" by the password "<em><strong>p@ss</strong></em>", we will get the <a href="https://en.wikipedia.org/wiki/Base64" target="_blank">base64-encoded</a> binary data "<em><strong>jVJwOBmH+qMqHdg22KwMyg==</strong></em>" as output. After decryption with the same secret key we get back the original text "<em><strong>secret msg</strong></em>".</p>
+<p>Note that the above encrypted text is dependent to many algorithm parameters and settings, so if you encrypt the same at another "<em>AES live example</em>" Web site, the result most likely will be different.</p>
+<p>Also note that the above mentioned Web site uses bad practices, old algorithms and weak cipher settings, so don't follow the code examples there.</p>
+<h2 id="public-key-cryptography---concepts"><a name="public-key-cryptography---concepts" class="plugin-anchor" href="#public-key-cryptography---concepts"><i class="fa fa-link" aria-hidden="true"></i></a>Public Key Cryptography - Concepts</h2>
+<p>Before introducing the <strong>asymmetric key encryption</strong> schemes and algorithms, we should first understand the concept of <strong>public key cryptography</strong> (asymmetric cryptography).</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Public-key\_cryptography" target="_blank"><strong>public key cryptography</strong></a> uses a different key to encrypt and decrypt data (or to sign and verify messages). Keys always come as <strong>public + private key pairs</strong>. <strong>Asymmetric cryptography</strong> deals with <strong>encrypting</strong> and <strong>decrypting</strong> messages using a public / private key, <strong>signing</strong> messages, <strong>verifying</strong> signatures and securely <strong>exchanging keys</strong>.</p>
+<p>Popular <strong>public-key cryptosystems</strong> (asymmetric crypto algorithms) like <strong>RSA</strong> (Rivest–Shamir–Adleman), <strong>ECC</strong> (elliptic curve cryptography), <strong>Diffie-Hellman</strong>, <strong>ECDH</strong>, <strong>ECDSA</strong> and <strong>EdDSA</strong>, are widely used in the modern cryptography and we shall demonstrate most of them in practice with code examples.</p>
+<h3 id="public-key-encryption--decryption"><a name="public-key-encryption--decryption" class="plugin-anchor" href="#public-key-encryption--decryption"><i class="fa fa-link" aria-hidden="true"></i></a>Public Key Encryption / Decryption</h3>
+<p><strong>Asymmetric encryption schemes</strong> use a pair of cryptographically related <strong>public</strong> and <strong>private keys</strong> to <strong>encrypt</strong> the data (by the public key) and <strong>decrypt</strong> the encrypted data back to its original forms (by the private key). Data <strong>encrypted by a public key</strong> is <strong>decrypted</strong> by the corresponding <strong>private key</strong>:</p>
+<p><img src=".gitbook/assets/public-key-cryptography-encrypt-decrypt.png" alt=""></img></p>
+<p>The encrypted data, obtained as result of encryption is called "<strong>ciphertext</strong>". The ciphertext is a binary sequence, unreadable by humans and by design cannot be decrypted without the decryption key.</p>
+<p><img src=".gitbook/assets/asymmetric-encryption-diagram.png" alt=""></img></p>
+<p>Note that <strong>the above shown diagram is highly simplified</strong> and does not fully represent the asymmetric encryption / decryption process. Typically, public-key cryptosystems can <strong>encrypt messages of limited length</strong> only and are slower than symmetric ciphers. For encrypting longer messages (e.g. PDF documents) usually a <strong>public-key encryption scheme</strong> (also known as <strong>hybrid encryption scheme</strong>) is used, which combines <strong>symmetric</strong> and <strong>asymmetric encryption</strong> like this:</p>
+<ul>
+<li>For the <strong>encryption</strong> a random symmetric key <code>sk</code> is generated, the message is symmetrically encrypted by <code>sk</code>, then <code>sk</code> is asymmetrically encrypted using the recipient's public key.</li>
+<li>For <strong>decryption</strong>, first the <code>sk</code> key is asymmetrically decrypted using the recipient's private key, then the ciphertext is decrypted symmetrically using <code>sk</code>.</li>
+</ul>
+<p>The above process is known as <a href="https://en.wikipedia.org/wiki/Key\_encapsulation" target="_blank"><strong>key encapsulation mechanism (KEM)</strong></a>: encapsulate an asymmetrically-encrypted random (ephemeral) symmetric key and use symmetric algorithm for the data encryption.</p>
+<p>Public key encryption can work also in the opposite scenario: <strong>encrypt data by a private key and decrypt it by the public key</strong>. Thus someone can prove that he is owner of certain private key, while revealing only its corresponding public key. This approach is used by some digital signature schemes.</p>
+<h3 id="signatures-asymmetric-signing--verification"><a name="signatures-asymmetric-signing--verification" class="plugin-anchor" href="#signatures-asymmetric-signing--verification"><i class="fa fa-link" aria-hidden="true"></i></a>Signatures: Asymmetric Signing / Verification</h3>
+<p>In the context of <a href="https://en.wikipedia.org/wiki/Digital\_signature" target="_blank"><strong>digital signatures</strong></a>, a message <strong>signed by a private key</strong> (digital signature) is later <strong>verified</strong> by the corresponding <strong>public key</strong>.</p>
+<p><img src=".gitbook/assets/public-key-cryptography-sign-verify.png" alt=""></img></p>
+<p><a href="digital-signatures"><strong>Digital signatures</strong></a> will be explained in more details later, but in short: a message can be <strong>signed</strong> by certain <strong>private key</strong> and the obtained <strong>signature</strong> can be later <strong>verified</strong> by the corresponding <strong>public key</strong>. A <strong>signed message</strong> cannot be altered after signing. A message signature proves that certain message (e.g. blockchain transaction) is created by the owner of certain public key. Digital signatures provide message <strong>authentication</strong>, message <strong>integrity</strong> and <strong>non-repudiation</strong>.</p>
+<p>Digital signatures are widely used in the <strong>finance industry</strong> for authorizing payments. In <strong>operating systems</strong> OS components and device drivers are usually digitally signed to avoid injecting insecure code, trojans or viruses in the OS. In <strong>blockchain systems</strong>, transactions are typically signed by the owner of certain blockchain address (which corresponds to certain public key and has corresponding private key). So <strong>a signed blockchain transaction holds a proof of authorship</strong>: it is guaranteed mathematically that the signature is created by the holder of certain blockchain address and the transaction was not modified after the signing. This works perfectly for the scenario of <strong>digital payments</strong> and digital signing of documents and contracts.</p>
+<h3 id="key-pairs"><a name="key-pairs" class="plugin-anchor" href="#key-pairs"><i class="fa fa-link" aria-hidden="true"></i></a>Key Pairs</h3>
+<p>The <strong>public key cryptography</strong> uses a <strong>pair of keys</strong>: <strong>public key</strong> + <strong>private key</strong>. These keys are mathematically connected and are used together as <strong>pair</strong>.</p>
+<p>In some public key cryptosystems (like the Elliptic-Curve Cryptography - <strong>ECC</strong>), the public key can be calculated from the private key. In other cryptosystems (like <strong>RSA</strong>), the public key and the private key are generated together but cannot be directly calculated from each other.</p>
+<p>Usually, a <strong>public / private key pair</strong> is randomly generated in a secure environment (e.g. in a hardware wallet) and the public key is revealed, while the private key is securely stored in a crypto-wallet and is protected by a password or by multi-factor authentication.</p>
+<p><strong>Example</strong> of 256-bit private key and its corresponding 256-bit public key (based on <strong>secp256k1</strong> curve):</p>
+<pre><code>privKey: 648fc1fa828c7f185d825c04a5b21af9e473b867eeee1acea4dbab938433e158
+pubKey: 02c324648931b89e3e8a0fc42c96e8e3be2e42812986573a40d46563bceaf75110
+</code></pre><h3 id="private-keys"><a name="private-keys" class="plugin-anchor" href="#private-keys"><i class="fa fa-link" aria-hidden="true"></i></a>Private Keys</h3>
+<p>Message <strong>encryption</strong> and <strong>signing</strong> is done by a <strong>private key</strong>. The private keys are always kept <strong>secret</strong> by their owner, just like passwords. In the server infrastructure, private key usually stay in an encrypted and protected <strong>keystore</strong>. In the blockchain systems the private keys usually stay in specific software or hardware apps or devices called "<strong>crypto wallets</strong>", which store securely a set of private keys.</p>
+<p><strong>Example</strong> of 256-bit private key:</p>
+<pre><code>648fc1fa828c7f185d825c04a5b21af9e473b867eeee1acea4dbab938433e158
+</code></pre><h3 id="public-keys"><a name="public-keys" class="plugin-anchor" href="#public-keys"><i class="fa fa-link" aria-hidden="true"></i></a>Public Keys</h3>
+<p>Message <strong>decryption</strong> and <strong>signature verification</strong> is done by the <strong>public key</strong>. Public keys are by design public information (not a secret). It is mathematically infeasible to calculate the private key from its corresponding public key.</p>
+<p>In many systems the <strong>public key</strong> is encapsulated in a <strong>digital certificate</strong>, which binds certain identity (e.g. person or Internet domain name) to certain public key. In blockchain systems public keys are usually published as parts of the blockchain transactions to help identify who has signed each transaction. In systems like PGP and SSH the public key is downloaded from the server once (after manual user verification) and is remembered for further use.</p>
+<p><strong>Example</strong> of 256-bit public key:</p>
+<pre><code>02c324648931b89e3e8a0fc42c96e8e3be2e42812986573a40d46563bceaf75110
+</code></pre><p>In most blockchain systems the <strong>blockchain address</strong> is derived from the public key (by hashing and other transformations), so if you have someone's public key, you are assumed to have his blockchain address as well.</p>
+<p>A certain <strong>public key</strong> can be connected to certain <strong>person</strong> or <strong>organization</strong> or is used anonymously. You can never know who is the owner of the private key, corresponding to certain public key, unless you have additional proof, e.g. a <a href="https://en.wikipedia.org/wiki/Public\_key\_certificate" target="_blank"><strong>digital certificate</strong></a>.</p>
+<h2 id="popular-public-key-cryptosystems"><a name="popular-public-key-cryptosystems" class="plugin-anchor" href="#popular-public-key-cryptosystems"><i class="fa fa-link" aria-hidden="true"></i></a>Popular Public Key Cryptosystems</h2>
+<p><strong>Public key cryptosystems</strong> provide mathematical framework and algorithms to generate public + private key pairs, to <strong>sign</strong>, <strong>verify</strong>, <strong>encrypt</strong> and <strong>decrypt</strong> messages and <strong>exchange keys</strong>, in a cryptographically secure way.</p>
+<p>Well-known public-key cryptosystems are: <a href="https://en.wikipedia.org/wiki/RSA\_\(cryptosystem\" target="_blank"><strong>RSA</strong></a>), <a href="https://en.wikipedia.org/wiki/Elliptic-curve\_cryptography" target="_blank"><strong>ECC</strong></a> and <a href="https://en.wikipedia.org/wiki/ElGamal\_encryption" target="_blank"><strong>ElGamal</strong></a>. Many <strong>crypto algorithms</strong> are based on the primitives from these cryptosystems like <strong>RSA sign</strong>, <strong>RSA encrypt / decrypt</strong>, <strong>ECDH</strong> key exchange and <strong>ECDSA</strong> and <strong>EdDSA</strong> signatures.</p>
+<h3 id="the-rsa-cryptosystem"><a name="the-rsa-cryptosystem" class="plugin-anchor" href="#the-rsa-cryptosystem"><i class="fa fa-link" aria-hidden="true"></i></a>The RSA Cryptosystem</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/RSA\_\(cryptosystem\" target="_blank"><strong>RSA public-key cryptosystem</strong></a>) is based on the math of <strong>modular exponentiations</strong> (numbers raised to a power by modulus) and some additional assumptions, together with the computational difficulty of the <a href="https://en.wikipedia.org/wiki/RSA\_problem" target="_blank"><strong>integer factorization problem</strong></a>. We shall discuss it later in details, along with examples.</p>
+<h3 id="the-ecc-cryptosystem"><a name="the-ecc-cryptosystem" class="plugin-anchor" href="#the-ecc-cryptosystem"><i class="fa fa-link" aria-hidden="true"></i></a>The ECC Cryptosystem</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Elliptic-curve\_cryptography" target="_blank"><strong>elliptic-curve cryptography (ECC) public-key cryptosystem</strong></a> is based on the math of the on the algebraic structure of the <strong>elliptic curves</strong> over finite fields and the difficulty of the <a href="https://en.wikipedia.org/wiki/Elliptic-curve\_cryptography#Rationale" target="_blank"><strong>elliptic curve discrete logarithm problem (ECDLP)</strong></a>. The <strong>ECC</strong> usually comes together with the <a href="https://en.wikipedia.org/wiki/Elliptic\_Curve\_Digital\_Signature\_Algorithm" target="_blank"><strong>ECDSA</strong> algorithm</a> (elliptic-curve digital signature algorithm). We shall discuss ECC and ECDSA in details, along with examples.</p>
+<h3 id="ecc-is-recommended-in-the-general-case"><a name="ecc-is-recommended-in-the-general-case" class="plugin-anchor" href="#ecc-is-recommended-in-the-general-case"><i class="fa fa-link" aria-hidden="true"></i></a>ECC is Recommended in the General Case</h3>
+<p><strong>ECC uses smaller keys</strong>, ciphertexts and signatures than RSA and is recommended for most applications. It is mathematically proven that a <strong>3072-bit RSA key</strong> has similar cryptographic strength to a <strong>256-bit ECC key</strong>. Key generation is in ECC is significantly faster than with RSA.</p>
+<p>Due to the above reasons most blockchain networks (like Bitcoin and Ethereum) use elliptic-curve-based cryptography (ECC) to secure the transactions.</p>
+<p>Note that both <strong>RSA</strong> and <strong>ECC</strong> cryptosystems are <strong>not quantum-safe</strong>, which means that if someone has enough powerful quantum computer, he will be able to derive the private key from given public key in just few seconds.</p>
+<h2 id="asymmetric-encryption-in-practice"><a name="asymmetric-encryption-in-practice" class="plugin-anchor" href="#asymmetric-encryption-in-practice"><i class="fa fa-link" aria-hidden="true"></i></a>Asymmetric Encryption in Practice</h2>
+<p><strong>Asymmetric encryption</strong> works for <strong>small messages</strong> only (limited by the public / private key length). To encrypt larger messages <a href="https://en.wikipedia.org/wiki/Key\_encapsulation" target="_blank"><strong>key encapsulation mechanisms</strong></a> or other techniques can be used, which encrypt asymmetrically a random secret key, then use it to symmetrically encrypt the larger messages. In practice, modern <strong>asymmetric encryption schemes</strong> involve using a symmetric encryption algorithm together with a public-key cryptosystem, key encapsulation and message authentication.</p>
+<p>Popular <strong>asymmetric encryption schemes</strong> are: <a href="https://en.wikipedia.org/wiki/Optimal\_asymmetric\_encryption\_padding" target="_blank"><strong>RSA-OAEP</strong></a> (based on RSA and OAEP padding), <a href="https://tools.ietf.org/html/rfc3447#section-7.2" target="_blank"><strong>RSAES-PKCS1-v1_5</strong></a> (based on RSA and PKCS#1 v1.5 padding), <a href="https://en.wikipedia.org/wiki/Integrated\_Encryption\_Scheme" target="_blank"><strong>DLIES</strong></a> (based on discrete logarithms and symmetric encryption) and <a href="https://en.wikipedia.org/wiki/Integrated\_Encryption\_Scheme" target="_blank"><strong>ECIES</strong></a> (based on elliptic curve cryptography and symmetric encryption).</p>
+<h3 id="asymmetric-encryption---online-demo"><a name="asymmetric-encryption---online-demo" class="plugin-anchor" href="#asymmetric-encryption---online-demo"><i class="fa fa-link" aria-hidden="true"></i></a>Asymmetric Encryption - Online Demo</h3>
+<p>In order to better understand the idea behind the <strong>asymmetric encryption</strong>, you can play with some online public key encryption tool to encrypt / decrypt a sample message by sample RSA private / public key. You can play a bit with this site: <a href="http://travistidwell.com/jsencrypt/demo/" target="_blank">http://travistidwell.com/jsencrypt/demo/</a>.</p>
+<p><img src=".gitbook/assets/asymmetric-encryption-online-demo-jsencrypt.png" alt=""></img></p>
+<p>In the above online demo you can <strong>generate RSA public / private key pairs</strong> and <strong>encrypt</strong> / <strong>decrypt</strong> text messages. Note that <strong>the message size is limited</strong> by the key length, so you can't encrypt long text. You will get an error if you try. Internally, the above Web site uses the <strong>RSAES-PKCS1-v1_5</strong> public key encryption scheme as specified in <a href="https://tools.ietf.org/html/rfc3447" target="_blank">RFC3447</a>.</p>
+<p>We shall discuss the <strong>RSA</strong> and <strong>ECC</strong> cryptosystems in details in the next few chapters. Now, it is important to learn that <strong>symmetric and asymmetric cryptosystems work differently</strong> and are used in different scenarios.</p>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="key-exchange/exercises-dhke-key-exchange.html" class="navigation navigation-prev " aria-label="Previous page: Exercises: DHKE Key Exchange">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="symmetric-key-ciphers/" class="navigation navigation-next " aria-label="Next page: Symmetric Key Ciphers">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Encryption: Symmetric and Asymmetric","level":"1.8","depth":1,"next":{"title":"Symmetric Key Ciphers","level":"1.9","depth":1,"path":"symmetric-key-ciphers/README.md","ref":"symmetric-key-ciphers/README.md","articles":[{"title":"Cipher Block Modes","level":"1.9.1","depth":2,"path":"symmetric-key-ciphers/cipher-block-modes.md","ref":"symmetric-key-ciphers/cipher-block-modes.md","articles":[]},{"title":"Popular Symmetric Algorithms","level":"1.9.2","depth":2,"path":"symmetric-key-ciphers/popular-symmetric-algorithms.md","ref":"symmetric-key-ciphers/popular-symmetric-algorithms.md","articles":[]},{"title":"The AES Cipher - Concepts","level":"1.9.3","depth":2,"path":"symmetric-key-ciphers/aes-cipher-concepts.md","ref":"symmetric-key-ciphers/aes-cipher-concepts.md","articles":[]},{"title":"AES Encrypt / Decrypt - Examples","level":"1.9.4","depth":2,"path":"symmetric-key-ciphers/aes-encrypt-decrypt-examples.md","ref":"symmetric-key-ciphers/aes-encrypt-decrypt-examples.md","articles":[]},{"title":"Ethereum Wallet Encryption","level":"1.9.5","depth":2,"path":"symmetric-key-ciphers/ethereum-wallet-encryption.md","ref":"symmetric-key-ciphers/ethereum-wallet-encryption.md","articles":[]},{"title":"Exercises: AES Encrypt / Decrypt","level":"1.9.6","depth":2,"path":"symmetric-key-ciphers/exercises-aes-encrypt-decrypt.md","ref":"symmetric-key-ciphers/exercises-aes-encrypt-decrypt.md","articles":[]},{"title":"ChaCha20-Poly1305","level":"1.9.7","depth":2,"path":"symmetric-key-ciphers/chacha20-poly1305.md","ref":"symmetric-key-ciphers/chacha20-poly1305.md","articles":[]},{"title":"Exercises: ChaCha20-Poly1305","level":"1.9.8","depth":2,"path":"symmetric-key-ciphers/exercises-chacha20-poly1305.md","ref":"symmetric-key-ciphers/exercises-chacha20-poly1305.md","articles":[]}]},"previous":{"title":"Exercises: DHKE Key Exchange","level":"1.7.3","depth":2,"path":"key-exchange/exercises-dhke-key-exchange.md","ref":"key-exchange/exercises-dhke-key-exchange.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","meta","anchors","expandable-chapters-small","katex","sitemap","scripts","adsense"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"meta":{"name":"","content":"","data":[]},"scripts":{"files":["./assets/js/repl.it-code-runner.js"]},"search":{},"adsense":{"client":"ca-pub-6178635866936443"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"meta-single":{"name":"google-site-verification","content":"66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://cryptobook.xwave.app/"},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-11309924-27"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":48,"bottom":48},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"📄 Download PDF":"dist/cryptobook.pdf","📚 Download EPUB":"dist/cryptobook.epub","📱 Download MOBI":"dist/cryptobook.mobi"}},"gitbook":"*"},"file":{"path":"encryption-symmetric-and-asymmetric.md","mtime":"2025-09-06T17:42:10.280Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-09-06T18:31:27.936Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-scripts/8e9b40f9a31c4018d1a4d23d8ad10c11-repl.it-code-runner.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

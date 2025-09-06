@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "gitbook-plugin-anchors": "^0.7.1",
+    "gitbook-plugin-expandable-chapters-small": "^0.1.7",
+    "gitbook-plugin-ga": "^2.0.0",
+    "gitbook-plugin-katex": "^1.1.4",
+    "gitbook-plugin-meta": "^0.1.12",
+    "gitbook-plugin-scripts": "^1.0.2",
+    "gitbook-plugin-sitemap": "^1.2.0",
+    "honkit": "^6.0.1",
+    "honkit-plugin-adsense": "^1.0.1"
+  }
+}

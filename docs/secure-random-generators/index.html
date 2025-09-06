@@ -1,0 +1,1449 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Secure Random Generators · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="pseudo-random-numbers-examples.html" />
+    
+    
+    <link rel="prev" href="../mac-and-key-derivation/exercises-password-encryption.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="dist/cryptobook.pdf" target="_blank" class="custom-link">📄 Download PDF</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.epub" target="_blank" class="custom-link">📚 Download EPUB</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.mobi" target="_blank" class="custom-link">📱 Download MOBI</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../preface.html">
+            
+                <a href="../preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cryptography-overview.html">
+            
+                <a href="../cryptography-overview.html">
+            
+                    
+                    Cryptography - Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cryptographic-hash-functions/">
+            
+                <a href="../cryptographic-hash-functions/">
+            
+                    
+                    Hash Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                <a href="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                    
+                    Crypto Hashes and Collisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                    
+                    Hash Functions: Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                <a href="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                    
+                    Secure Hash Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                    
+                    Hash Functions - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                <a href="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                    
+                    Exercises: Calculate Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                <a href="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                    
+                    Proof-of-Work Hash Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mac-and-key-derivation/">
+            
+                <a href="../mac-and-key-derivation/">
+            
+                    
+                    MAC and Key Derivation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                <a href="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                    
+                    HMAC and Key Derivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                <a href="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                    
+                    HMAC Calculation - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                <a href="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                    
+                    Exercises: Calculate HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                <a href="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                    
+                    KDF: Deriving Key from Password
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mac-and-key-derivation/pbkdf2.html">
+            
+                <a href="../mac-and-key-derivation/pbkdf2.html">
+            
+                    
+                    PBKDF2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                <a href="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                    
+                    Modern Key Derivation Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../mac-and-key-derivation/scrypt.html">
+            
+                <a href="../mac-and-key-derivation/scrypt.html">
+            
+                    
+                    Scrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../mac-and-key-derivation/bcrypt.html">
+            
+                <a href="../mac-and-key-derivation/bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../mac-and-key-derivation/linux-crypt.html">
+            
+                <a href="../mac-and-key-derivation/linux-crypt.html">
+            
+                    
+                    Linux crypt()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../mac-and-key-derivation/argon2.html">
+            
+                <a href="../mac-and-key-derivation/argon2.html">
+            
+                    
+                    Argon2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../mac-and-key-derivation/password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/password-encryption.html">
+            
+                    
+                    Secure Password Storage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                    
+                    Exercises: Password Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Secure Random Generators
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="pseudo-random-numbers-examples.html">
+            
+                <a href="pseudo-random-numbers-examples.html">
+            
+                    
+                    Pseudo-Random Numbers - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="secure-random-generators-csprng.html">
+            
+                <a href="secure-random-generators-csprng.html">
+            
+                    
+                    Secure Random Generators (CSPRNG)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="exercises-pseudo-random-generator.html">
+            
+                <a href="exercises-pseudo-random-generator.html">
+            
+                    
+                    Exercises: Pseudo-Random Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../key-exchange/">
+            
+                <a href="../key-exchange/">
+            
+                    
+                    Key Exchange and DHKE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                <a href="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                    
+                    Diffie–Hellman Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../key-exchange/dhke-examples.html">
+            
+                <a href="../key-exchange/dhke-examples.html">
+            
+                    
+                    DHKE - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                <a href="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                    
+                    Exercises: DHKE Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../encryption-symmetric-and-asymmetric.html">
+            
+                <a href="../encryption-symmetric-and-asymmetric.html">
+            
+                    
+                    Encryption: Symmetric and Asymmetric
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../symmetric-key-ciphers/">
+            
+                <a href="../symmetric-key-ciphers/">
+            
+                    
+                    Symmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                <a href="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                    
+                    Cipher Block Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                <a href="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                    
+                    Popular Symmetric Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                <a href="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                    
+                    The AES Cipher - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                <a href="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                    
+                    AES Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                <a href="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                    
+                    Ethereum Wallet Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                    
+                    Exercises: AES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                    
+                    ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                    
+                    Exercises: ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../asymmetric-key-ciphers/">
+            
+                <a href="../asymmetric-key-ciphers/">
+            
+                    
+                    Asymmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                <a href="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                    
+                    The RSA Cryptosystem - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                    
+                    RSA Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                    
+                    Exercises: RSA Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                <a href="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                    
+                    Elliptic Curve Cryptography (ECC)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                    
+                    ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                    
+                    ECDH Key Exchange - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                    
+                    Exercises: ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                    
+                    ECC Encryption / Decryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                    
+                    ECIES Hybrid Encryption Scheme
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="../asymmetric-key-ciphers/ecies-example.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-example.html">
+            
+                    
+                    ECIES Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                    
+                    Exercises: ECIES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../digital-signatures/">
+            
+                <a href="../digital-signatures/">
+            
+                    
+                    Digital Signatures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../digital-signatures/rsa-signatures.html">
+            
+                <a href="../digital-signatures/rsa-signatures.html">
+            
+                    
+                    RSA Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                    
+                    RSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                    
+                    Exercises: RSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                    
+                    ECDSA: Elliptic Curve Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                    
+                    ECDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                <a href="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                    
+                    Exercises: ECDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../digital-signatures/eddsa-and-ed25519.html">
+            
+                <a href="../digital-signatures/eddsa-and-ed25519.html">
+            
+                    
+                    EdDSA and Ed25519
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                    
+                    EdDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                    
+                    Exercises: EdDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../quantum-safe-cryptography/">
+            
+                <a href="../quantum-safe-cryptography/">
+            
+                    
+                    Quantum-Safe Cryptography
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                    
+                    Quantum-Safe Signatures - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                    
+                    Quantum-Safe Key Exchange - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                    
+                    Quantum-Safe Asymmetric Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../more-cryptographic-concepts/">
+            
+                <a href="../more-cryptographic-concepts/">
+            
+                    
+                    More Cryptographic Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                <a href="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                    
+                    Digital Certificates - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../more-cryptographic-concepts/tls-example.html">
+            
+                <a href="../more-cryptographic-concepts/tls-example.html">
+            
+                    
+                    TLS - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                <a href="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                    
+                    One-Time Passwords (OTP) - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../crypto-libraries-for-developers/">
+            
+                <a href="../crypto-libraries-for-developers/">
+            
+                    
+                    Crypto Libraries for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                    
+                    JavaScript Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                    
+                    Python Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                    
+                    C# Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                    
+                    Java Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../conclusion.html">
+            
+                <a href="../conclusion.html">
+            
+                    
+                    Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Secure Random Generators</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="secure-random-generators"><a name="secure-random-generators" class="plugin-anchor" href="#secure-random-generators"><i class="fa fa-link" aria-hidden="true"></i></a>Secure Random Generators</h1>
+<h2 id="secure-random-number-generators-prng-and-csprng"><a name="secure-random-number-generators-prng-and-csprng" class="plugin-anchor" href="#secure-random-number-generators-prng-and-csprng"><i class="fa fa-link" aria-hidden="true"></i></a>Secure Random Number Generators, PRNG and CSPRNG</h2>
+<p>In cryptography the <strong>randomness</strong> (entropy) plays very important role. In many algorithms, we need <strong>random (i.e. unpredictable) numbers</strong>. If these numbers are not unpredictable, the algorithms will be compromised.</p>
+<p>For example, assume we need a <strong>secret key</strong>, that will protect our financial assets. This secret key should be <strong>randomly generated</strong> in a way that nobody else should be able to generate or have the same key. If we generate the key from a <strong>secure random generator</strong>, the it will be <strong>unpredictable</strong> and the system will be secure. Therefore "secure random" means simply "<strong>unpredictable random</strong>".</p>
+<p>Let's discuss in bigger detail the <strong>random numbers</strong> in computer science and their role in <strong>cryptography</strong>, as well as pseudo-random numbers generators (<strong>PRNG</strong>), secure pseudo-random generators (<strong>CSPRNG</strong>) and some guidelines about how developers should generate and use random numbers in their code.</p>
+<h2 id="random-generators"><a name="random-generators" class="plugin-anchor" href="#random-generators"><i class="fa fa-link" aria-hidden="true"></i></a>Random Generators</h2>
+<p>In computer science <strong>random numbers</strong> usually come from a <strong>pseudo-random number generators</strong> (PRNG), initialized by some unpredictable initial randomness (<strong>entropy</strong>). In cryptography secure PRNGs are used, known as <strong>CSPRNG</strong>, which typically combined entropy with PRNG and other techniques to make the generated randomness <strong>unpredictable</strong>.</p>
+<h3 id="pseudo-random-number-generators-prng"><a name="pseudo-random-number-generators-prng" class="plugin-anchor" href="#pseudo-random-number-generators-prng"><i class="fa fa-link" aria-hidden="true"></i></a>Pseudo-Random Number Generators (PRNG)</h3>
+<p>A pseudorandom number generator (<strong>PRNG</strong>) is used to stretch a small amount of <strong>initial randomness</strong>\
+into a large amount of <strong>pseudorandomness</strong>, typically for use in cryptosystems. Note than <strong>PRNGs</strong> are not cryptographically secure and are different from <strong>CSPRNGs</strong>.</p>
+<p><strong>PRNGs</strong> are functions that start from some <strong>initial entropy</strong> (seed) and calculate the next random number by some calculation which is unpredictable without knowing the seed. Such calculations are called <strong>pseudo-random functions</strong>.</p>
+<p><img src="../.gitbook/assets/pseudo-random-function.png" alt=""></img></p>
+<p>Pseudo-random functions (which are not secure for cryptography) usually use an internal <strong>state</strong>. At the start, the state is initialized by an <strong>initial seed</strong>. When the <strong>next random number</strong> is generated, it is calculated from the internal state (using some computation or formula), then the internal <strong>state</strong> of the pseudo-random function is changed (using some computation or formula). When the <strong>next random number</strong> is generated, it is again calculated based on the internal <strong>state</strong> of the function and this state is again changed and so on.</p>
+<p>This process in its simplest form can be implemented as follows:</p>
+<pre><code class="lang-python">init(entropy):
+  state = entropy, counter = <span class="hljs-number">0</span>
+netNum():
+  state = HMAC(state, ++counter)
+  <span class="hljs-keyword">return</span> state
+</code></pre>
+<p>Of course, the <strong>HMAC</strong> function can be changed by some <strong>cryptographic hash</strong> function or another mathematical transformation like the <a href="https://en.wikipedia.org/wiki/Mersenne\_Twister" target="_blank"><strong>Mersenne Twister</strong></a> (which is not cryptographically secure), but the main idea stays the same: pseudo-random generators have internal <strong>state</strong>, initialized with some <strong>initial randomness</strong> and over the time <strong>change</strong> their internal state and <strong>generate pseudo-random numbers</strong>, based on the current state.</p>
+<p>Good random number generators should be <strong>fast</strong> and should generate <strong>statistical randomness</strong> (see the <a href="https://en.wikipedia.org/wiki/Diehard\_tests" target="_blank">Diehard tests</a>), i.e. all numbers should have the same chance to be generated over the time. This is not sufficient cryptography, so CSPRNG have higher requirements.</p>
+<p>The above idea to generate random pseudo-numbers based on <strong>HMAC(key + counter)</strong>, with some complications, is known as the <a href="https://www.cs.cmu.edu/\~kqy/resources/thesis.pdf" target="_blank"><strong>HMAC_DRGB algorithm</strong></a>, described in the security standard <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-90a.pdf" target="_blank">NIST 800-90A</a>.</p>
+<h3 id="initial-entropy-seed"><a name="initial-entropy-seed" class="plugin-anchor" href="#initial-entropy-seed"><i class="fa fa-link" aria-hidden="true"></i></a>Initial Entropy (Seed)</h3>
+<p>To be secure, a <strong>PRNG</strong> (which is statistically random) should start by a <strong>truly random initial seed</strong>, which is absolutely <strong>unpredictable</strong>. If the seed is predictable, it will generate predictable sequence of random numbers and the entire random generation process will be <strong>insecure</strong>. That's why having unpredictable randomness at the start (secure seed) is very important.</p>
+<p>How to initialize the pseudo-random generator in a secure way? The answer is simple: <strong>collect randomness (entropy)</strong>.</p>
+<h3 id="entropy"><a name="entropy" class="plugin-anchor" href="#entropy"><i class="fa fa-link" aria-hidden="true"></i></a>Entropy</h3>
+<p>In computer science "<strong>entropy</strong>" means <strong>unpredictable randomness</strong>, and is usually measured in bits. For example, if you move your computer's mouse, it will generate some hard-to-predict events, like the start location and the end location of the mouse cursor. If we assume that the mouse has changed its position in the range of [0...255] pixels, the entropy collected from this mouse movement should be about 8 bits (because 2^8 = 255). Another example: if the user is asked to think of a number in the range [0...1000], this number will hold about 9-10 bits of entropy (because 2^10 = 1024). To collect 256 bits of entropy (e.g. to securely generate a 256-bit integer), you will need to take into account a sequence of several such events (like mouse movements and keyboard interracions from the user).</p>
+<h3 id="collecting-entropy"><a name="collecting-entropy" class="plugin-anchor" href="#collecting-entropy"><i class="fa fa-link" aria-hidden="true"></i></a>Collecting Entropy</h3>
+<p>Entropy can be collected from many <strong>hard-to-predict events</strong> in the computer: keyboard clicks, mouse moves, network activity, camera activity, microphone activity and others, combined with the time at which they occur. This collection of initial randomness is usually performed internally by the <strong>operating system</strong> (OS), which provides standard <strong>API</strong> to access it (e.g. reading from the <code>/dev/random</code> file in Linux). In desktop system, laptop or mobile phone entropy is easy to collect, while on some limited hardware devices (such as simple microcontrollers) entropy is hard or impossible to be collected.</p>
+<p>Application software can <strong>collect entropy explicitly</strong>, by asking the user to move the mouse, type something at the keyboard, say something at the microphone or move in front of the camera for a while. A great example of this is the <a href="https://www.bitaddress.org" target="_blank"><strong>bitaddress.org</strong></a> wallet app, which combines mouse moves with keyboard events to collect entropy:</p>
+<p><img src="../.gitbook/assets/bitaddress-entropy.png" alt=""></img></p>
+<p>Once enough entropy is collected, it is used to initialize the random generator.</p>
+<h3 id="insecure-randomness"><a name="insecure-randomness" class="plugin-anchor" href="#insecure-randomness"><i class="fa fa-link" aria-hidden="true"></i></a>Insecure Randomness</h3>
+<p>Insecure / compromised randomness can compromise cryptography. A good example to learn from is the story of the stolen Bitcoins, due to <strong>broken random generator in Android</strong>: <a href="https://goo.gl/PFE1kr" target="_blank">https://goo.gl/PFE1kr</a>. That's why developers should care about randomness, when they use cryptography and ensure their <strong>random generators are secure</strong>.</p>
+<h3 id="insecure-randomness---examples"><a name="insecure-randomness---examples" class="plugin-anchor" href="#insecure-randomness---examples"><i class="fa fa-link" aria-hidden="true"></i></a>Insecure Randomness - Examples</h3>
+<p>As example how easy it is to <strong>compromise the random number security in Python</strong> (in its old versions), we shall give this code example:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> random
+<span class="hljs-built_in">print</span>(random.randrange(<span class="hljs-number">1000000</span>, <span class="hljs-number">9999999</span>))
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/Random-in-Python" target="_blank">https://repl.it/@nakov/Random-in-Python</a>.</p>
+<p>The above code is assumed to generate a random number, but this number may be <strong>predictable</strong>. This is because the <code>random</code> library in Python (in its old versions) initializes the random generator <strong>seed</strong> by the <strong>current time</strong>. Thus, if you know the current time at the machine generating the random number (obviously you know this roughly), you will be able to predict the random seed and to predict the random numbers generated.</p>
+<p>To better illustrate this, look at this more explicit example which generates two random 50-digit integers:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> random, time
+
+random.seed(time.time())
+r1 = random.randrange(<span class="hljs-number">1e49</span>, <span class="hljs-number">1e50</span>-<span class="hljs-number">1</span>)
+
+random.seed(time.time())
+r2 = random.randrange(<span class="hljs-number">1e49</span>, <span class="hljs-number">1e50</span>-<span class="hljs-number">1</span>)
+
+<span class="hljs-built_in">print</span>(r1)
+<span class="hljs-built_in">print</span>(r2)
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/Random-with-seed-in-Python" target="_blank">https://repl.it/@nakov/Random-with-seed-in-Python</a>.</p>
+<p>The above code will print <strong>two equal numbers</strong>, both depending on the current time. It is obvious that the same time in the initial seed causes the same (predictable) pseudo-random numbers to be generated in the output. This is a sample output of the above code:</p>
+<pre><code>53285353661739398833155340591358345604323255820576
+53285353661739398833155340591358345604323255820576
+</code></pre><p>If you run this code through a <strong>debugger</strong> or in a slow environment, the produced numbers may be <strong>different</strong>, due to <strong>time change</strong> between the two random generation executions. Typically the Python interpreter at the <strong>interactive console</strong> produces two <strong>different numbers</strong>. To obtain the result, similar to the above, first save the code in a script file (e.g. <code>insecure-rnd.py</code>) and then execute the Python script file:</p>
+<p><img src="../.gitbook/assets/insecure-rnd-python-demo.png" alt=""></img></p>
+<p>Basically, when the initial random seed is initialized with a predictable number like the current time, crackers can <strong>try all possibilities within the range of +/- 5 seconds</strong> and find the exact initial seed and then compromise the security.</p>
+<h2 id="randomness-and-cryptography"><a name="randomness-and-cryptography" class="plugin-anchor" href="#randomness-and-cryptography"><i class="fa fa-link" aria-hidden="true"></i></a>Randomness and Cryptography</h2>
+<p>Remember that <strong>cryptography cannot work without unpredictable randomness</strong>! If your random generator is compromised, it will generate predictable numbers and crackers will be able to decrypt your communication, reveal your private keys, tamper your digital signatures, etc. As a developer, you should always care how random numbers are generated in the cryptographic libraries you use.</p>
+<h3 id="csprng-cryptography-secure-random-number-generators"><a name="csprng-cryptography-secure-random-number-generators" class="plugin-anchor" href="#csprng-cryptography-secure-random-number-generators"><i class="fa fa-link" aria-hidden="true"></i></a>CSPRNG (Cryptography Secure Random Number Generators)</h3>
+<p>By definition <strong>CSPRNG</strong> (Cryptography Secure Random Number Generators) are a pseudo-random number generators (PRNG) with properties that make them <strong>suitable for use in cryptography</strong>. There are two major requirements for a PRNG to be a CSPRNG:</p>
+<ul>
+<li>Satisfy the <a href="https://en.wikipedia.org/wiki/Next-bit\_test" target="_blank"><strong>next-bit test</strong></a>: if someone knows all <strong>k</strong> bits from the start of the PRNG, he would be unable to predict the bit <strong>k+1</strong> using reasonable computing resources.</li>
+<li>Withstand the <a href="https://www.owasp.org/index.php/PRNG\_state\_compromise\_extension\_attack" target="_blank"><strong>state compromise extensions</strong></a>: if an attacker guesses the internal state of the PRNG or it is revealed somehow, the attacker should be unable to reconstruct all previous random numbers prior to the revelation.</li>
+</ul>
+<p>The <strong>entropy</strong> in the operating system is usually of <strong>limited amount</strong> and waiting for more entropy is slow and unpractical. Most cryptographic applications use <strong>CSPRNG</strong>, which "stretch" the available entropy from the operating system into <strong>more bits</strong>, required for cryptographic purposes and comply to the above CSPRNG requirements.</p>
+<p>Many design have been proposed to construct CSPRNG algorithms:</p>
+<ul>
+<li><strong>CSPRNG</strong> based on secure <strong>block ciphers</strong> in counter mode, on <strong>stream ciphers</strong> or on secure <strong>secure hash functions</strong>.</li>
+<li><strong>CSPRNG</strong> based on number theory, relying on the difficulty of the integer factorization problem (IFP), the discrete logarithm problem (DLP) or the elliptic-curve discrete logarithm problem (ECDLP).</li>
+<li><strong>CSPRNG</strong> based on special design for cryptographic secure randomness, such as <a href="https://en.wikipedia.org/wiki/Yarrow\_algorithm" target="_blank">Yarrow algorithm</a> and <a href="https://en.wikipedia.org/wiki/Fortuna\_\(PRNG\" target="_blank">Fortuna</a>), which were used in MacOS and and FreeBSD.</li>
+</ul>
+<p>Most <strong>CSPRNG</strong> use a combination of <strong>entropy</strong> from the operating system and high-quality <strong>PRNG</strong> generator and they often "<strong>reseed</strong>", which means that when new entropy comes from the OS (e.g. from user input, system interruptions, disk I/O or hardware random generators), the underlying PRNG changes its internal state based on the new entropy bits coming. This constant reseeding over the time makes the CSPRNG really hard to predict and analyse.</p>
+<h3 id="conclusion-use-secure-random-generator"><a name="conclusion-use-secure-random-generator" class="plugin-anchor" href="#conclusion-use-secure-random-generator"><i class="fa fa-link" aria-hidden="true"></i></a>Conclusion: Use Secure Random Generator</h3>
+<p>Always use <strong>cryptographically secure random generator libraries</strong>, like the <code>java.security.SecureRandom</code> in Java and the <code>secrets</code> library in Python:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> secrets
+<span class="hljs-built_in">print</span>(secrets.randbelow(<span class="hljs-built_in">int</span>(<span class="hljs-number">1e50</span>)))
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/Secrets-in-Python" target="_blank">https://repl.it/@nakov/Secrets-in-Python</a>.</p>
+<p>The above code does not depend on the current time and basically generates an <strong>unpredictable random number</strong>, based on the entropy collected by the operating system.</p>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../mac-and-key-derivation/exercises-password-encryption.html" class="navigation navigation-prev " aria-label="Previous page: Exercises: Password Encryption">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="pseudo-random-numbers-examples.html" class="navigation navigation-next " aria-label="Next page: Pseudo-Random Numbers - Examples">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Secure Random Generators","level":"1.6","depth":1,"next":{"title":"Pseudo-Random Numbers - Examples","level":"1.6.1","depth":2,"path":"secure-random-generators/pseudo-random-numbers-examples.md","ref":"secure-random-generators/pseudo-random-numbers-examples.md","articles":[]},"previous":{"title":"Exercises: Password Encryption","level":"1.5.12","depth":2,"path":"mac-and-key-derivation/exercises-password-encryption.md","ref":"mac-and-key-derivation/exercises-password-encryption.md","articles":[]},"articles":[{"title":"Pseudo-Random Numbers - Examples","level":"1.6.1","depth":2,"path":"secure-random-generators/pseudo-random-numbers-examples.md","ref":"secure-random-generators/pseudo-random-numbers-examples.md","articles":[]},{"title":"Secure Random Generators (CSPRNG)","level":"1.6.2","depth":2,"path":"secure-random-generators/secure-random-generators-csprng.md","ref":"secure-random-generators/secure-random-generators-csprng.md","articles":[]},{"title":"Exercises: Pseudo-Random Generator","level":"1.6.3","depth":2,"path":"secure-random-generators/exercises-pseudo-random-generator.md","ref":"secure-random-generators/exercises-pseudo-random-generator.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["ga","meta","anchors","expandable-chapters-small","katex","sitemap","scripts","adsense"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"meta":{"name":"","content":"","data":[]},"scripts":{"files":["./assets/js/repl.it-code-runner.js"]},"search":{},"adsense":{"client":"ca-pub-6178635866936443"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"meta-single":{"name":"google-site-verification","content":"66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://cryptobook.xwave.app/"},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-11309924-27"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":48,"bottom":48},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"📄 Download PDF":"dist/cryptobook.pdf","📚 Download EPUB":"dist/cryptobook.epub","📱 Download MOBI":"dist/cryptobook.mobi"}},"gitbook":"*"},"file":{"path":"secure-random-generators/README.md","mtime":"2025-09-06T17:42:10.284Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-09-06T18:31:27.936Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-scripts/8e9b40f9a31c4018d1a4d23d8ad10c11-repl.it-code-runner.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

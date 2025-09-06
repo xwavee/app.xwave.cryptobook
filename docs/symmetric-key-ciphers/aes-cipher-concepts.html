@@ -1,0 +1,1439 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>The AES Cipher - Concepts · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="aes-encrypt-decrypt-examples.html" />
+    
+    
+    <link rel="prev" href="popular-symmetric-algorithms.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="dist/cryptobook.pdf" target="_blank" class="custom-link">📄 Download PDF</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.epub" target="_blank" class="custom-link">📚 Download EPUB</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.mobi" target="_blank" class="custom-link">📱 Download MOBI</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../preface.html">
+            
+                <a href="../preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cryptography-overview.html">
+            
+                <a href="../cryptography-overview.html">
+            
+                    
+                    Cryptography - Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cryptographic-hash-functions/">
+            
+                <a href="../cryptographic-hash-functions/">
+            
+                    
+                    Hash Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                <a href="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                    
+                    Crypto Hashes and Collisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                    
+                    Hash Functions: Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                <a href="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                    
+                    Secure Hash Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                    
+                    Hash Functions - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                <a href="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                    
+                    Exercises: Calculate Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                <a href="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                    
+                    Proof-of-Work Hash Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mac-and-key-derivation/">
+            
+                <a href="../mac-and-key-derivation/">
+            
+                    
+                    MAC and Key Derivation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                <a href="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                    
+                    HMAC and Key Derivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                <a href="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                    
+                    HMAC Calculation - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                <a href="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                    
+                    Exercises: Calculate HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                <a href="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                    
+                    KDF: Deriving Key from Password
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mac-and-key-derivation/pbkdf2.html">
+            
+                <a href="../mac-and-key-derivation/pbkdf2.html">
+            
+                    
+                    PBKDF2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                <a href="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                    
+                    Modern Key Derivation Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../mac-and-key-derivation/scrypt.html">
+            
+                <a href="../mac-and-key-derivation/scrypt.html">
+            
+                    
+                    Scrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../mac-and-key-derivation/bcrypt.html">
+            
+                <a href="../mac-and-key-derivation/bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../mac-and-key-derivation/linux-crypt.html">
+            
+                <a href="../mac-and-key-derivation/linux-crypt.html">
+            
+                    
+                    Linux crypt()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../mac-and-key-derivation/argon2.html">
+            
+                <a href="../mac-and-key-derivation/argon2.html">
+            
+                    
+                    Argon2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../mac-and-key-derivation/password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/password-encryption.html">
+            
+                    
+                    Secure Password Storage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                    
+                    Exercises: Password Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../secure-random-generators/">
+            
+                <a href="../secure-random-generators/">
+            
+                    
+                    Secure Random Generators
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                <a href="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                    
+                    Pseudo-Random Numbers - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                <a href="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                    
+                    Secure Random Generators (CSPRNG)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                <a href="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                    
+                    Exercises: Pseudo-Random Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../key-exchange/">
+            
+                <a href="../key-exchange/">
+            
+                    
+                    Key Exchange and DHKE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                <a href="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                    
+                    Diffie–Hellman Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../key-exchange/dhke-examples.html">
+            
+                <a href="../key-exchange/dhke-examples.html">
+            
+                    
+                    DHKE - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                <a href="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                    
+                    Exercises: DHKE Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../encryption-symmetric-and-asymmetric.html">
+            
+                <a href="../encryption-symmetric-and-asymmetric.html">
+            
+                    
+                    Encryption: Symmetric and Asymmetric
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Symmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="cipher-block-modes.html">
+            
+                <a href="cipher-block-modes.html">
+            
+                    
+                    Cipher Block Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="popular-symmetric-algorithms.html">
+            
+                <a href="popular-symmetric-algorithms.html">
+            
+                    
+                    Popular Symmetric Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.3" data-path="aes-cipher-concepts.html">
+            
+                <a href="aes-cipher-concepts.html">
+            
+                    
+                    The AES Cipher - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="aes-encrypt-decrypt-examples.html">
+            
+                <a href="aes-encrypt-decrypt-examples.html">
+            
+                    
+                    AES Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="ethereum-wallet-encryption.html">
+            
+                <a href="ethereum-wallet-encryption.html">
+            
+                    
+                    Ethereum Wallet Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="exercises-aes-encrypt-decrypt.html">
+            
+                <a href="exercises-aes-encrypt-decrypt.html">
+            
+                    
+                    Exercises: AES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="chacha20-poly1305.html">
+            
+                <a href="chacha20-poly1305.html">
+            
+                    
+                    ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="exercises-chacha20-poly1305.html">
+            
+                <a href="exercises-chacha20-poly1305.html">
+            
+                    
+                    Exercises: ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../asymmetric-key-ciphers/">
+            
+                <a href="../asymmetric-key-ciphers/">
+            
+                    
+                    Asymmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                <a href="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                    
+                    The RSA Cryptosystem - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                    
+                    RSA Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                    
+                    Exercises: RSA Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                <a href="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                    
+                    Elliptic Curve Cryptography (ECC)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                    
+                    ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                    
+                    ECDH Key Exchange - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                    
+                    Exercises: ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                    
+                    ECC Encryption / Decryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                    
+                    ECIES Hybrid Encryption Scheme
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="../asymmetric-key-ciphers/ecies-example.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-example.html">
+            
+                    
+                    ECIES Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                    
+                    Exercises: ECIES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../digital-signatures/">
+            
+                <a href="../digital-signatures/">
+            
+                    
+                    Digital Signatures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../digital-signatures/rsa-signatures.html">
+            
+                <a href="../digital-signatures/rsa-signatures.html">
+            
+                    
+                    RSA Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                    
+                    RSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                    
+                    Exercises: RSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                    
+                    ECDSA: Elliptic Curve Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                    
+                    ECDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                <a href="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                    
+                    Exercises: ECDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../digital-signatures/eddsa-and-ed25519.html">
+            
+                <a href="../digital-signatures/eddsa-and-ed25519.html">
+            
+                    
+                    EdDSA and Ed25519
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                    
+                    EdDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                    
+                    Exercises: EdDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../quantum-safe-cryptography/">
+            
+                <a href="../quantum-safe-cryptography/">
+            
+                    
+                    Quantum-Safe Cryptography
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                    
+                    Quantum-Safe Signatures - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                    
+                    Quantum-Safe Key Exchange - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                    
+                    Quantum-Safe Asymmetric Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../more-cryptographic-concepts/">
+            
+                <a href="../more-cryptographic-concepts/">
+            
+                    
+                    More Cryptographic Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                <a href="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                    
+                    Digital Certificates - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../more-cryptographic-concepts/tls-example.html">
+            
+                <a href="../more-cryptographic-concepts/tls-example.html">
+            
+                    
+                    TLS - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                <a href="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                    
+                    One-Time Passwords (OTP) - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../crypto-libraries-for-developers/">
+            
+                <a href="../crypto-libraries-for-developers/">
+            
+                    
+                    Crypto Libraries for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                    
+                    JavaScript Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                    
+                    Python Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                    
+                    C# Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                    
+                    Java Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../conclusion.html">
+            
+                <a href="../conclusion.html">
+            
+                    
+                    Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >The AES Cipher - Concepts</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="the-aes-cipher---concepts"><a name="the-aes-cipher---concepts" class="plugin-anchor" href="#the-aes-cipher---concepts"><i class="fa fa-link" aria-hidden="true"></i></a>The AES Cipher - Concepts</h1>
+<p>The <a href="https://en.wikipedia.org/wiki/Advanced\_Encryption\_Standard" target="_blank"><strong>Advanced Encryption Standard (AES)</strong></a> cipher, also known as "<strong>Rijndael</strong>" is a popular, secure, widely used <strong>symmetric key block cipher</strong> algorithm, used officially as recommended encryption technology standard in the United States. <strong>AES</strong> operates using <strong>block size of 128 bits</strong> and symmetric <strong>keys of length</strong> <strong>128</strong>, <strong>160</strong>, <strong>192</strong>, <strong>224</strong> and <strong>256</strong> bits.</p>
+<h2 id="aes-is-secure-and-very-popular-symmetric-encryption-algorithm"><a name="aes-is-secure-and-very-popular-symmetric-encryption-algorithm" class="plugin-anchor" href="#aes-is-secure-and-very-popular-symmetric-encryption-algorithm"><i class="fa fa-link" aria-hidden="true"></i></a>AES is Secure and Very Popular Symmetric Encryption Algorithm</h2>
+<p>The <strong>AES</strong> symmetric encryption algorithm is considered <strong>highly secure</strong> (when configured correctly) and no significant practical attacks are known for AES in its history.</p>
+<p><strong>AES</strong> is used internally by the most Internet Web sites today for serving <code>https://</code> content as part of the <strong>TLS</strong> (Transport Layer Security) and <strong>SSL</strong> (Secure Sockets Layer) standards for secure host to host communication on the Web.</p>
+<p>Due to its wide use in the Internet secure communication, modern CPU hardware implements <strong>AES instructions</strong> at the microprocessor level to speed-up the AES encryption and decryption.</p>
+<h2 id="aes-algorithm-parameters"><a name="aes-algorithm-parameters" class="plugin-anchor" href="#aes-algorithm-parameters"><i class="fa fa-link" aria-hidden="true"></i></a>AES Algorithm Parameters</h2>
+<p>The <strong>AES</strong> algorithm can operate with different <strong>key lengths</strong>, but the block size is always 128 bits. For most application <strong>128-bit AES</strong> encryption (AES-128) is enough, but for higher encryption level, it is recommended to use <strong>AES-256</strong> (256-bit key length).</p>
+<p>Like any other block ciphers, <strong>AES</strong> can use one of several <strong>modes of operation</strong> (CBC, ECB, CTR, …) to allow encryption of data of arbitrary length. The recommended mode for the general case and for encrypting blockchain wallets is "<strong>CTR</strong>".</p>
+<p>Most modes of operation require an <strong>initial vector</strong> (IV). When using a counter mode (CTR), i.e. <strong>AES-128-CTR</strong> (128-bit) or <strong>AES-256-CTR</strong> (256-bit) for example, first a non-secret <strong>random salt</strong> (IV) should be generated and saved along with the encrypted ciphertext output. The <strong>size of the IV</strong> is always the same as the size of the block, i.e. <strong>128 bits</strong> (16 bytes).</p>
+<p>The <strong>AES encryption</strong>, combined with <strong>CTR</strong> block mode and random <strong>IV</strong> causes the encryption algorithm to produce different encrypted ciphertext each time, when the same input data is encrypted. This ensures that nobody can construct a dictionary to reverse back the encrypted ciphertext.</p>
+<p><strong>AES</strong> encryption in <strong>CBC mode</strong> uses a <strong>padding algorithm</strong> (like <strong>PKCS7</strong> or <strong>ANSI X.923</strong>) to help splitting the input data into blocks of fixed block-size (e.g. 128 bits) before passing the blocks to the AES-CBC algorithm. Most developers use the <strong>CTR mode</strong> of operation for AES, so they don't need padding.</p>
+<p>Without using a block mode, the <strong>ciphertext</strong>, generated by the <strong>AES</strong> algorithm is exactly <strong>128 bits</strong> (16 bytes), just like the block size. The <strong>input data</strong> is also exactly 128 bits.</p>
+<p>The <strong>ciphertext</strong>, generated by the <strong>AES-CTR</strong> algorithm (AES in CTR cipher block mode) has the same size like the size of the input data. No padding is required.</p>
+<p>The <strong>ciphertext</strong>, generated by the <strong>AES-CBC</strong> algorithm (AES in CBC ciphertext mode), has size of <strong>128 bits</strong> (16 bytes) or multiple of 128 bits. The input data should be <strong>padded</strong> before encryption and <strong>unpadded</strong> after decryption.</p>
+<p>The AES algorithm often is used along with a <strong>password-to-key derivation</strong> function, e.g. <code>Scrypt(passwd) -&gt; key</code> or <code>PBKDF2(passwd) -&gt; key</code>.</p>
+<h2 id="integrated-message-authentication-code-mac"><a name="integrated-message-authentication-code-mac" class="plugin-anchor" href="#integrated-message-authentication-code-mac"><i class="fa fa-link" aria-hidden="true"></i></a>Integrated Message Authentication Code (MAC)</h2>
+<p>The <strong>AES</strong> algorithm may use <strong>MAC (message authentication code)</strong> to check the password validity, e.g. <code>HMAC(text, key)</code>.</p>
+<p>The <strong>MAC code</strong> is typically <strong>integrated</strong> (see the concept of <a href="https://en.wikipedia.org/wiki/Authenticated\_encryption#Approaches\_to\_authenticated\_encryption" target="_blank"><strong>integrated encryption</strong></a>) in the algorithm's output. It is calculated from the input message, together with the encryption key. From the calculated MAC, it is impossible to reveal the input message or the key, so the MAC itself is not a secret. Some block cipher modes (like <strong>AES-GCM</strong>) integrate message authentication in the obtained ciphertext as part of their work, so you don't need to add MAC explicitly.</p>
+<p>Typically <strong>MAC</strong> is calculated and used like this:</p>
+<ul>
+<li>Before the encryption, the <strong>MAC</strong> is calculated as: <code>mac = HMAC-SHA256(input_msg, key)</code>.</li>
+<li>The <strong>input data is encrypted</strong> and the <strong>ciphertext</strong> is stored along with the <strong>random salt</strong> (IV) and the <strong>MAC</strong>.</li>
+<li>After decryption, the <strong>MAC</strong> is calculated again and is <strong>compared</strong> with the <strong>MAC</strong> stored along with the encrypted message.<ul>
+<li>If the MAC is the same, <strong>the decryption is successful</strong>: correct ciphertext + decryption key + algorithms settings (IV, block mode, padding algorithm).</li>
+<li>If the MAC is different, <strong>the decryption is not successful</strong>: incorrect key / password or broken ciphertext, incorrect MAC or different algorithms settings (IV, block mode, padding, etc.)</li>
+</ul>
+</li>
+</ul>
+<p>The MAC can be calculated and verified using several <a href="https://en.wikipedia.org/wiki/Authenticated\_encryption#Approaches\_to\_authenticated\_encryption" target="_blank">approaches to integrated encryption</a>: <strong>Encrypt-then-MAC</strong>, <strong>Encrypt-and-MAC</strong>, <strong>MAC-then-Encrypt</strong>.</p>
+<h2 id="the-aes-encryption-process"><a name="the-aes-encryption-process" class="plugin-anchor" href="#the-aes-encryption-process"><i class="fa fa-link" aria-hidden="true"></i></a>The AES Encryption Process</h2>
+<p>The entire <strong>AES encryption</strong> process (password-based authenticated encryption) looks like this:</p>
+<ol>
+<li><strong>Algorithm parameters</strong> are selected (e.g. AES, 128-bit, CTR mode + Scrypt + Scrypt parameters + MAC algorithm). These parameters can be <strong>hard-coded</strong> in the AES algorithm implementation source code or can be specified as input for the AES encrypt and decrypt. Always use the same parameters for encryption and decryption.</li>
+<li><p>The encryption <strong>key</strong> is derived from the encryption <strong>password</strong> using a key-derivation function (<strong>KDF</strong>), e.g. <strong>Scrypt</strong> (with certain parameters):</p>
+<p><img src="../.gitbook/assets/password-kdf-key.png" alt="" data-size="original"></img></p>
+</li>
+<li><p>The <strong>AES</strong> encryption scheme takes as <strong>input</strong> the <strong>input msg</strong> + the encryption <strong>key</strong>. It produces as output the <strong>ciphertext</strong> + the randomly generated <strong>IV</strong> (128-bit salt) + the <strong>MAC</strong> code:</p>
+<p><img src="../.gitbook/assets/aes-input-output.png" alt="" data-size="original"></img></p>
+<ul>
+<li>In case of <strong>authenticated encryption</strong> (e.g. AES-GCM), the MAC is already calculated automatically during the AES encryption process.</li>
+<li><p>If the encryption scheme is <strong>not authenticated encryption</strong> (e.g. AER-CTR), the MAC code is not calculated automatically by the AES encryption process and should be calculated additionally. The <strong>MAC code</strong> can be calculated from the <strong>input msg</strong>, using the encryption <strong>key</strong> (or some transformation of it) and some <strong>MAC function</strong> (like HMAC-SHA-256):</p>
+<p><img src="../.gitbook/assets/hmac-calculation-aes.png" alt="" data-size="original"></img></p>
+</li>
+<li><p>The <strong>ciphertext</strong> is calculated through the <strong>AES encryption algorithm</strong>. It first <strong>generates a random salt</strong> (<strong>IV</strong>) and uses it to transform the <strong>input msg</strong> using the <strong>encryption key</strong>, through the AES cipher encryption logic:</p>
+<p><img src="../.gitbook/assets/aes-encryption-process.png" alt="" data-size="original"></img></p>
+</li>
+</ul>
+</li>
+<li>Finally, the encrypted output is generated. It holds the <strong>ciphertext</strong> + <strong>IV</strong> + <strong>MAC</strong>. Optionally, it holds also the algorithm settings.</li>
+</ol>
+<h2 id="the-aes-decryption-process"><a name="the-aes-decryption-process" class="plugin-anchor" href="#the-aes-decryption-process"><i class="fa fa-link" aria-hidden="true"></i></a>The AES Decryption Process</h2>
+<p>The opposite <strong>AES decryption</strong> process (password-based authenticated decryption) looks like this:</p>
+<ol>
+<li>Initialize the same AES <strong>algorithm parameters</strong> for the decryption process, exactly like the ones used during the encryption.</li>
+<li><p>Use the decryption <strong>key</strong> and the <strong>IV</strong> from the encrypted message to decrypt the <strong>ciphertext</strong> using the <strong>AES</strong> algorithm decryption logic. The output is the <strong>original message</strong> (the <strong>input msg</strong>, which was previously passed through AES encryption):</p>
+<p><img src="../.gitbook/assets/aes-decrypt-msg.png" alt="" data-size="original"></img></p>
+<ul>
+<li>In case of <strong>authenticated encryption</strong> (like AES-GCM), the integrated <strong>MAC code is verified</strong> during the decryption process.</li>
+<li>In case of <strong>unauthenticated encryption</strong> (like AES-CTR), the MAC code should be calculated and verified additionally, as it is described in the next few step.</li>
+</ul>
+</li>
+<li><p>Calculate <strong>HMAC</strong> of the original message (obtained during the decryption):</p>
+<p><img src="../.gitbook/assets/hmac-original-msg.png" alt="" data-size="original"></img></p>
+</li>
+<li><p>Compare the <strong>encryption MAC</strong> (the MAC of the input message, before the encryption) with the <strong>decryption MAC</strong> (the MAC of the original message, recovered by the decryption):</p>
+<p><img src="../.gitbook/assets/compare-encryption-decryption-mac.png" alt="" data-size="original"></img></p>
+<ul>
+<li>If the <strong>MAC codes are the same</strong>, the decryption was correct and the original message is obtained.</li>
+<li>If the <strong>MAC codes are different</strong>, the decryption was failed and the original message is not the obtained one. This may happen due to many reasons, most likely "<em>wrong password</em>". Other reasons: incorrect ciphertext, incorrect IV, incorrect algorithm settings, incorrect KDF function or KDF parameters, etc.</li>
+</ul>
+</li>
+</ol>
+<p>Now it is time to illustrate the above described concepts through working <strong>source code</strong> to AES encrypt / decrypt an <strong>input msg</strong> by given <strong>password</strong>.</p>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="popular-symmetric-algorithms.html" class="navigation navigation-prev " aria-label="Previous page: Popular Symmetric Algorithms">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="aes-encrypt-decrypt-examples.html" class="navigation navigation-next " aria-label="Next page: AES Encrypt / Decrypt - Examples">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"The AES Cipher - Concepts","level":"1.9.3","depth":2,"next":{"title":"AES Encrypt / Decrypt - Examples","level":"1.9.4","depth":2,"path":"symmetric-key-ciphers/aes-encrypt-decrypt-examples.md","ref":"symmetric-key-ciphers/aes-encrypt-decrypt-examples.md","articles":[]},"previous":{"title":"Popular Symmetric Algorithms","level":"1.9.2","depth":2,"path":"symmetric-key-ciphers/popular-symmetric-algorithms.md","ref":"symmetric-key-ciphers/popular-symmetric-algorithms.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","meta","anchors","expandable-chapters-small","katex","sitemap","scripts","adsense"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"meta":{"name":"","content":"","data":[]},"scripts":{"files":["./assets/js/repl.it-code-runner.js"]},"search":{},"adsense":{"client":"ca-pub-6178635866936443"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"meta-single":{"name":"google-site-verification","content":"66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://cryptobook.xwave.app/"},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-11309924-27"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":48,"bottom":48},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"📄 Download PDF":"dist/cryptobook.pdf","📚 Download EPUB":"dist/cryptobook.epub","📱 Download MOBI":"dist/cryptobook.mobi"}},"gitbook":"*"},"file":{"path":"symmetric-key-ciphers/aes-cipher-concepts.md","mtime":"2025-09-06T17:42:10.285Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-09-06T18:31:27.936Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-scripts/8e9b40f9a31c4018d1a4d23d8ad10c11-repl.it-code-runner.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

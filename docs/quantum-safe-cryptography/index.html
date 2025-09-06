@@ -1,0 +1,1499 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Quantum-Safe Cryptography · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="quantum-safe-signatures-example.html" />
+    
+    
+    <link rel="prev" href="../digital-signatures/exercises-eddsa-sign-and-verify.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="dist/cryptobook.pdf" target="_blank" class="custom-link">📄 Download PDF</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.epub" target="_blank" class="custom-link">📚 Download EPUB</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.mobi" target="_blank" class="custom-link">📱 Download MOBI</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../preface.html">
+            
+                <a href="../preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cryptography-overview.html">
+            
+                <a href="../cryptography-overview.html">
+            
+                    
+                    Cryptography - Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cryptographic-hash-functions/">
+            
+                <a href="../cryptographic-hash-functions/">
+            
+                    
+                    Hash Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                <a href="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                    
+                    Crypto Hashes and Collisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                    
+                    Hash Functions: Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                <a href="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                    
+                    Secure Hash Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                    
+                    Hash Functions - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                <a href="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                    
+                    Exercises: Calculate Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                <a href="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                    
+                    Proof-of-Work Hash Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mac-and-key-derivation/">
+            
+                <a href="../mac-and-key-derivation/">
+            
+                    
+                    MAC and Key Derivation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                <a href="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                    
+                    HMAC and Key Derivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                <a href="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                    
+                    HMAC Calculation - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                <a href="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                    
+                    Exercises: Calculate HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                <a href="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                    
+                    KDF: Deriving Key from Password
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mac-and-key-derivation/pbkdf2.html">
+            
+                <a href="../mac-and-key-derivation/pbkdf2.html">
+            
+                    
+                    PBKDF2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                <a href="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                    
+                    Modern Key Derivation Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../mac-and-key-derivation/scrypt.html">
+            
+                <a href="../mac-and-key-derivation/scrypt.html">
+            
+                    
+                    Scrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../mac-and-key-derivation/bcrypt.html">
+            
+                <a href="../mac-and-key-derivation/bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../mac-and-key-derivation/linux-crypt.html">
+            
+                <a href="../mac-and-key-derivation/linux-crypt.html">
+            
+                    
+                    Linux crypt()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../mac-and-key-derivation/argon2.html">
+            
+                <a href="../mac-and-key-derivation/argon2.html">
+            
+                    
+                    Argon2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../mac-and-key-derivation/password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/password-encryption.html">
+            
+                    
+                    Secure Password Storage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                    
+                    Exercises: Password Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../secure-random-generators/">
+            
+                <a href="../secure-random-generators/">
+            
+                    
+                    Secure Random Generators
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                <a href="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                    
+                    Pseudo-Random Numbers - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                <a href="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                    
+                    Secure Random Generators (CSPRNG)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                <a href="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                    
+                    Exercises: Pseudo-Random Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../key-exchange/">
+            
+                <a href="../key-exchange/">
+            
+                    
+                    Key Exchange and DHKE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                <a href="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                    
+                    Diffie–Hellman Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../key-exchange/dhke-examples.html">
+            
+                <a href="../key-exchange/dhke-examples.html">
+            
+                    
+                    DHKE - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                <a href="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                    
+                    Exercises: DHKE Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../encryption-symmetric-and-asymmetric.html">
+            
+                <a href="../encryption-symmetric-and-asymmetric.html">
+            
+                    
+                    Encryption: Symmetric and Asymmetric
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../symmetric-key-ciphers/">
+            
+                <a href="../symmetric-key-ciphers/">
+            
+                    
+                    Symmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                <a href="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                    
+                    Cipher Block Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                <a href="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                    
+                    Popular Symmetric Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                <a href="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                    
+                    The AES Cipher - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                <a href="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                    
+                    AES Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                <a href="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                    
+                    Ethereum Wallet Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                    
+                    Exercises: AES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                    
+                    ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                    
+                    Exercises: ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../asymmetric-key-ciphers/">
+            
+                <a href="../asymmetric-key-ciphers/">
+            
+                    
+                    Asymmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                <a href="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                    
+                    The RSA Cryptosystem - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                    
+                    RSA Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                    
+                    Exercises: RSA Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                <a href="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                    
+                    Elliptic Curve Cryptography (ECC)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                    
+                    ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                    
+                    ECDH Key Exchange - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                    
+                    Exercises: ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                    
+                    ECC Encryption / Decryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                    
+                    ECIES Hybrid Encryption Scheme
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="../asymmetric-key-ciphers/ecies-example.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-example.html">
+            
+                    
+                    ECIES Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                    
+                    Exercises: ECIES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../digital-signatures/">
+            
+                <a href="../digital-signatures/">
+            
+                    
+                    Digital Signatures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../digital-signatures/rsa-signatures.html">
+            
+                <a href="../digital-signatures/rsa-signatures.html">
+            
+                    
+                    RSA Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                    
+                    RSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                    
+                    Exercises: RSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                    
+                    ECDSA: Elliptic Curve Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                    
+                    ECDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                <a href="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                    
+                    Exercises: ECDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../digital-signatures/eddsa-and-ed25519.html">
+            
+                <a href="../digital-signatures/eddsa-and-ed25519.html">
+            
+                    
+                    EdDSA and Ed25519
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                    
+                    EdDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                    
+                    Exercises: EdDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Quantum-Safe Cryptography
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="quantum-safe-signatures-example.html">
+            
+                <a href="quantum-safe-signatures-example.html">
+            
+                    
+                    Quantum-Safe Signatures - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="quantum-safe-key-exchange-example.html">
+            
+                <a href="quantum-safe-key-exchange-example.html">
+            
+                    
+                    Quantum-Safe Key Exchange - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="quantum-safe-asymmetric-encryption-example.html">
+            
+                <a href="quantum-safe-asymmetric-encryption-example.html">
+            
+                    
+                    Quantum-Safe Asymmetric Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../more-cryptographic-concepts/">
+            
+                <a href="../more-cryptographic-concepts/">
+            
+                    
+                    More Cryptographic Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                <a href="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                    
+                    Digital Certificates - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../more-cryptographic-concepts/tls-example.html">
+            
+                <a href="../more-cryptographic-concepts/tls-example.html">
+            
+                    
+                    TLS - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                <a href="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                    
+                    One-Time Passwords (OTP) - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../crypto-libraries-for-developers/">
+            
+                <a href="../crypto-libraries-for-developers/">
+            
+                    
+                    Crypto Libraries for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                    
+                    JavaScript Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                    
+                    Python Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                    
+                    C# Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                    
+                    Java Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../conclusion.html">
+            
+                <a href="../conclusion.html">
+            
+                    
+                    Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Quantum-Safe Cryptography</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="quantum-safe-cryptography"><a name="quantum-safe-cryptography" class="plugin-anchor" href="#quantum-safe-cryptography"><i class="fa fa-link" aria-hidden="true"></i></a>Quantum-Safe Cryptography</h1>
+<p><strong>Quantum computers</strong> are ...</p>
+<ul>
+<li>TODO</li>
+<li>TODO</li>
+</ul>
+<p>See this page: <a href="https://ianix.com/pqcrypto/pqcrypto-deployment.html" target="_blank">https://ianix.com/pqcrypto/pqcrypto-deployment.html</a></p>
+<ul>
+<li>TODO</li>
+</ul>
+<p><strong>Quantum computing</strong> is a model of computing based on the quantum physics, which works differently than classical computers and can do things that classical computers can’t, such\
+as breaking RSA and ECC efficiently. <strong>Quantum computers</strong> are not "faster computers" and they are not all-powerful and cannot do any computing job faster. Quantum computers are very efficient for certain problems and quite weak for others.</p>
+<p>It is well known in computer science that <strong>quantum computers will break some cryptographic algorithms</strong>, especially the public-key cryptosystems like <strong>RSA</strong>, <strong>ECC</strong> and <strong>ECDSA</strong> that rely on the <strong>IFP</strong> (integer factorization problem), the <strong>DLP</strong> (discrete logarithms problem) and the <strong>ECDLP</strong> (elliptic-curve discrete logarithm problem). Quantum algorithms will not be the end of cryptography, because:</p>
+<ul>
+<li>Only some cryptosystems are <strong>quantum-unsafe</strong> (like RSA, DHKE, ECC, ECDSA and ECDH).</li>
+<li>Some cryptosystems are <strong>quantum-safe</strong> and will be only slightly affected (like cryptographic hashes, MAC algorithms and symmetric key ciphers).</li>
+</ul>
+<p>Let's discuss this in details.</p>
+<h2 id="quantum-safe-and-quantum-broken-crypto-algorithms"><a name="quantum-safe-and-quantum-broken-crypto-algorithms" class="plugin-anchor" href="#quantum-safe-and-quantum-broken-crypto-algorithms"><i class="fa fa-link" aria-hidden="true"></i></a>Quantum-Safe and Quantum-Broken Crypto Algorithms</h2>
+<p>Most cryptographic <strong>hashes</strong> (like SHA2, SHA3, BLAKE2), <strong>MAC</strong> algorithms (like HMAC and CMAK), <strong>key-derivation functions</strong> (bcrypt, Scrypt, Argon2) are basically <strong>quantum-safe</strong> (only slightly affected by quantum computing).</p>
+<ul>
+<li>Use 384-bits or more to be quantum-safe (256-bits should be enough for long time)</li>
+</ul>
+<p><strong>Symmetric ciphers</strong> (like AES-256, Twofish-256) are <strong>quantum-safe</strong>.</p>
+<ul>
+<li>Use 256-bits or more as key length (don't use 128-bit AES)</li>
+</ul>
+<p>Most popular <strong>public-key cryptosystems</strong> (like RSA, DSA, ECDSA, EdDSA, DHKE, ECDH, ElGamal) are <strong>quantum-broken</strong>!</p>
+<ul>
+<li>Most <strong>digital signature</strong> algorithms (like RSA, ECDSA, EdDSA) are <strong>quantum-broken</strong>!</li>
+<li><strong>Quantum-safe signature</strong> algorithms and public-key cryptosystems are already developed (e.g. lattice-based or hash-based signatures), but are not massively used, because of longer keys and longer signatures than ECC.</li>
+</ul>
+<p>See <a href="https://en.wikipedia.org/wiki/Post-quantum\_cryptography" target="_blank">https://en.wikipedia.org/wiki/Post-quantum_cryptography</a></p>
+<p>...</p>
+<p>Quantum-Resistant Crypto Algorithms</p>
+<p>...</p>
+<h3 id="ecc-cryptography-and-most-digital-signatures-are-quantum-broken"><a name="ecc-cryptography-and-most-digital-signatures-are-quantum-broken" class="plugin-anchor" href="#ecc-cryptography-and-most-digital-signatures-are-quantum-broken"><i class="fa fa-link" aria-hidden="true"></i></a>ECC Cryptography and Most Digital Signatures are Quantum-Broken!</h3>
+<p>...</p>
+<p>A <strong>k</strong>-bit number can be factored in time of order <strong>O(k^3)</strong> using a quantum computer of <strong>5k+1 qubits</strong> (using Shor's algorithm).</p>
+<ul>
+<li>See <a href="http://www.theory.caltech.edu/\~preskill/pubs/preskill-1996-networks.pdf" target="_blank">http://www.theory.caltech.edu/~preskill/pubs/preskill-1996-networks.pdf</a></li>
+</ul>
+<p>256-bit number (e.g. Bitcoin public key) can be factorized using 1281 qubits in 72*256^3 quantum operations.</p>
+<ul>
+<li>~ 1.2 billion operations == ~ less than 1 second using good machine</li>
+</ul>
+<p>ECDSA, DSA, RSA, ElGamal, DHKE, ECDH cryptosystems are all quantum-broken</p>
+<p>Conclusion: publishing the signed transactions (like Ethereum does) is not quantum safe -&gt; avoid revealing the ECC public key</p>
+<h3 id="hashes-are-quantum-safe"><a name="hashes-are-quantum-safe" class="plugin-anchor" href="#hashes-are-quantum-safe"><i class="fa fa-link" aria-hidden="true"></i></a>Hashes are Quantum Safe</h3>
+<p>Cryptographic <strong>hashes</strong> (like SHA2, SHA3, BLAKE2) are considered <strong>quantum-safe</strong>:</p>
+<ul>
+<li>On traditional computer, finding a collision for 256-bit hash takes √2^256 steps (using the <a href="https://en.wikipedia.org/wiki/Birthday\_attack" target="_blank"><strong>birthday attack</strong></a>) -&gt; SHA256 has 2^128 crypto-strength</li>
+<li>Quantum computers might find hash collisions in ∛2^256 operations (see <a href="https://arxiv.org/pdf/quant-ph/9705002.pdf" target="_blank">the BHT algorithm</a>), but this is disputed (see [Bernstein 2009] - <a href="http://cr.yp.to/hash/collisioncost-20090823.pdf" target="_blank">http://cr.yp.to/hash/collisioncost-20090823.pdf</a></li>
+<li>On theory it might take 2^85 quantum operations to find SHA256 / SHA3-256 collision, but in practice it may cost significantly more.</li>
+</ul>
+<p>Conclusion: SHA256 / SHA3-256 are most probably quantum-safe</p>
+<ul>
+<li>SHA384, SHA512 and SHA3-384, SHA3-512 are quantum-safe</li>
+</ul>
+<p>...</p>
+<h3 id="symmetric-ciphers-are-quantum-safe"><a name="symmetric-ciphers-are-quantum-safe" class="plugin-anchor" href="#symmetric-ciphers-are-quantum-safe"><i class="fa fa-link" aria-hidden="true"></i></a>Symmetric Ciphers are Quantum Safe</h3>
+<p>...</p>
+<p>Most symmetric ciphers (like AES and ChaCha20) are quantum-safe:</p>
+<ul>
+<li>[Grover's algorithm]([[[[[[<a href="https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm))))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)))))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29%29%29%29" target="_blank">https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm))))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]\(https://en.wikipedia.org/wiki/Grover's\_algorithm)))))]\(https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29]%28https://en.wikipedia.org/wiki/Grover's\_algorithm]%28https://en.wikipedia.org/wiki/Grover's\_algorithm%29%29%29%29%29</a>)) finds AES secret key using √𝑁 quantum operations</li>
+<li>Quantum era will <strong>double the key size</strong> of the symmetric ciphers, see [<a href="http://cr.yp.to/codes/grovercode-20100303.pdf]\(http://cr.yp.to/codes/grovercode-20100303.pdf%29%29" target="_blank">http://cr.yp.to/codes/grovercode-20100303.pdf]\(http://cr.yp.to/codes/grovercode-20100303.pdf%29%29</a>)</li>
+</ul>
+<p>AES-256 in the post-quantum era is like AES-128 before</p>
+<ul>
+<li>128-bits or less symmetric ciphers are quantum-attackable</li>
+</ul>
+<p>Conclusion: 256-bit symmetric ciphers are generally quantum safe</p>
+<ul>
+<li>AES-256, ChaCha20-256, Twofish-256, Camellia-256 are considered quantum-safe</li>
+</ul>
+<h2 id="post-quantum-cryptography"><a name="post-quantum-cryptography" class="plugin-anchor" href="#post-quantum-cryptography"><i class="fa fa-link" aria-hidden="true"></i></a>Post-Quantum Cryptography</h2>
+<p>...</p>
+<p>Quantum-Safe key agreement: <a href="https://en.wikipedia.org/wiki/CECPQ1" target="_blank">https://en.wikipedia.org/wiki/CECPQ1</a></p>
+<p><a href="https://ianix.com/pqcrypto/pqcrypto-deployment.html" target="_blank">https://ianix.com/pqcrypto/pqcrypto-deployment.html</a></p>
+<p><a href="https://pqcrypto.org/" target="_blank">https://pqcrypto.org</a></p>
+<p>Post-quantum signature scheme XMSS:</p>
+<ul>
+<li><a href="https://legacy.gitbook.com/book/svetlin-nakov/practical-cryptography-for-developers/edit" target="_blank">https://tools.ietf.org/html/rfc8391</a></li>
+<li>JS XMSS - <a href="https://www.npmjs.com/package/xmss" target="_blank">https://www.npmjs.com/package/xmss</a></li>
+<li>Post-quantum key agreement schemes McEliece and NewHope</li>
+</ul>
+<p>Post-quantum signatures and key agreements (XMSS, McEliece, NewHope):\
+<a href="https://github.com/randombit/botan" target="_blank">https://github.com/randombit/botan</a></p>
+<p>QC-MDPC and libPQC are quantum-broken: <a href="https://eprint.iacr.org/2016/858.pdf" target="_blank">https://eprint.iacr.org/2016/858.pdf</a></p>
+<h3 id="hash-based-public-key-cryptography"><a name="hash-based-public-key-cryptography" class="plugin-anchor" href="#hash-based-public-key-cryptography"><i class="fa fa-link" aria-hidden="true"></i></a>Hash-Based Public-Key Cryptography</h3>
+<p>...</p>
+<h3 id="code-based-public-key-cryptography"><a name="code-based-public-key-cryptography" class="plugin-anchor" href="#code-based-public-key-cryptography"><i class="fa fa-link" aria-hidden="true"></i></a>Code-Based Public-Key Cryptography</h3>
+<p>...</p>
+<h3 id="lattice-based-public-key-cryptography"><a name="lattice-based-public-key-cryptography" class="plugin-anchor" href="#lattice-based-public-key-cryptography"><i class="fa fa-link" aria-hidden="true"></i></a>Lattice-Based Public-Key Cryptography</h3>
+<p>...</p>
+<p><strong>GLYPH</strong> signatures (lattice-based Ring-LWE Lattice, Ring-LWE, Ring Learning with Errors)</p>
+<ul>
+<li>Implementation in Go: <a href="https://github.com/AidosKuneen/glyph" target="_blank">https://github.com/AidosKuneen/glyph</a></li>
+</ul>
+<p><strong>BLISS</strong> - <a href="http://bliss.di.ens.fr" target="_blank">http://bliss.di.ens.fr</a></p>
+<ul>
+<li>Implementation in Go: <a href="https://github.com/HcashOrg/bliss/blob/master/demo\_test.go" target="_blank">https://github.com/HcashOrg/bliss/blob/master/demo_test.go</a></li>
+</ul>
+<p><strong>NewHope</strong></p>
+<ul>
+<li>Go implementation: <a href="https://github.com/Yawning/newhope" target="_blank">https://github.com/Yawning/newhope</a></li>
+<li>Python implementation: <a href="https://github.com/scottwn/PyNewHope" target="_blank">https://github.com/scottwn/PyNewHope</a></li>
+<li>Python implementation: <a href="https://github.com/anupsv/NewHope-Key-Exchange" target="_blank">https://github.com/anupsv/NewHope-Key-Exchange</a></li>
+</ul>
+<p><strong>XMSS</strong></p>
+<ul>
+<li>Python implementation: <a href="https://github.com/theQRL/QRL/blob/master/src/qrl/crypto/xmss.py" target="_blank">https://github.com/theQRL/QRL/blob/master/src/qrl/crypto/xmss.py</a></li>
+</ul>
+<p><strong>NTRU</strong>: NTRUEncrypt and NTRUSign</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/NTRUEncrypt" target="_blank">https://en.wikipedia.org/wiki/NTRUEncrypt</a></li>
+</ul>
+<h3 id="zero-knowledge-proof-based"><a name="zero-knowledge-proof-based" class="plugin-anchor" href="#zero-knowledge-proof-based"><i class="fa fa-link" aria-hidden="true"></i></a>Zero-Knowledge Proof-Based</h3>
+<p>PICNIC - <a href="https://github.com/Microsoft/Picnic" target="_blank">https://github.com/Microsoft/Picnic</a></p>
+<h3 id="multivariate-quadratic-equations-public-key-cryptography"><a name="multivariate-quadratic-equations-public-key-cryptography" class="plugin-anchor" href="#multivariate-quadratic-equations-public-key-cryptography"><i class="fa fa-link" aria-hidden="true"></i></a>Multivariate-Quadratic-Equations Public-Key Cryptography</h3>
+<p>Rainbow: <a href="https://github.com/bcgit/bc-java/tree/master/core/src/main/java/org/bouncycastle/pqc/crypto/rainbow" target="_blank">https://github.com/bcgit/bc-java/tree/master/core/src/main/java/org/bouncycastle/pqc/crypto/rainbow</a></p>
+<p>...</p>
+<h2 id="quantum-resistant-cryptography---libraries"><a name="quantum-resistant-cryptography---libraries" class="plugin-anchor" href="#quantum-resistant-cryptography---libraries"><i class="fa fa-link" aria-hidden="true"></i></a>Quantum-Resistant Cryptography - Libraries</h2>
+<p>The quantum-safe cryptography is still emerging, not mature, and still not widely supported by the most crypto-libraries and tools like Web browsers, OpenSSL, OpenSSH, etc. This is a list of well developed quantum crypto algorithm libraries:</p>
+<ul>
+<li><strong>liboqs</strong> (Open Quantum Safe) - <a href="https://github.com/open-quantum-safe/liboqs" target="_blank">https://github.com/open-quantum-safe/liboqs</a></li>
+<li><strong>Bouncy Castle PQC</strong> - <a href="https://github.com/bcgit/bc-java/tree/master/core/src/main/java/org/bouncycastle/pqc/crypto" target="_blank">https://github.com/bcgit/bc-java/tree/master/core/src/main/java/org/bouncycastle/pqc/crypto</a></li>
+</ul>
+<h2 id="sphincs-signatures-in-python"><a name="sphincs-signatures-in-python" class="plugin-anchor" href="#sphincs-signatures-in-python"><i class="fa fa-link" aria-hidden="true"></i></a>SPHINCS+ Signatures in Python</h2>
+<p><a href="https://github.com/sphincs/pyspx" target="_blank">https://github.com/sphincs/pyspx</a></p>
+<p><a href="https://pypi.org/project/PySPX/" target="_blank">https://pypi.org/project/PySPX</a></p>
+<h3 id="newhope-key-exchange-in-python"><a name="newhope-key-exchange-in-python" class="plugin-anchor" href="#newhope-key-exchange-in-python"><i class="fa fa-link" aria-hidden="true"></i></a>NewHope Key Exchange in Python</h3>
+<p><a href="https://github.com/anupsv/NewHope-Key-Exchange" target="_blank">https://github.com/anupsv/NewHope-Key-Exchange</a></p>
+<p><a href="https://github.com/scottwn/PyNewHope" target="_blank">https://github.com/scottwn/PyNewHope</a></p>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../digital-signatures/exercises-eddsa-sign-and-verify.html" class="navigation navigation-prev " aria-label="Previous page: Exercises: EdDSA Sign and Verify">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="quantum-safe-signatures-example.html" class="navigation navigation-next " aria-label="Next page: Quantum-Safe Signatures - Example">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Quantum-Safe Cryptography","level":"1.12","depth":1,"next":{"title":"Quantum-Safe Signatures - Example","level":"1.12.1","depth":2,"path":"quantum-safe-cryptography/quantum-safe-signatures-example.md","ref":"quantum-safe-cryptography/quantum-safe-signatures-example.md","articles":[]},"previous":{"title":"Exercises: EdDSA Sign and Verify","level":"1.11.9","depth":2,"path":"digital-signatures/exercises-eddsa-sign-and-verify.md","ref":"digital-signatures/exercises-eddsa-sign-and-verify.md","articles":[]},"articles":[{"title":"Quantum-Safe Signatures - Example","level":"1.12.1","depth":2,"path":"quantum-safe-cryptography/quantum-safe-signatures-example.md","ref":"quantum-safe-cryptography/quantum-safe-signatures-example.md","articles":[]},{"title":"Quantum-Safe Key Exchange - Example","level":"1.12.2","depth":2,"path":"quantum-safe-cryptography/quantum-safe-key-exchange-example.md","ref":"quantum-safe-cryptography/quantum-safe-key-exchange-example.md","articles":[]},{"title":"Quantum-Safe Asymmetric Encryption - Example","level":"1.12.3","depth":2,"path":"quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.md","ref":"quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["ga","meta","anchors","expandable-chapters-small","katex","sitemap","scripts","adsense"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"meta":{"name":"","content":"","data":[]},"scripts":{"files":["./assets/js/repl.it-code-runner.js"]},"search":{},"adsense":{"client":"ca-pub-6178635866936443"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"meta-single":{"name":"google-site-verification","content":"66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://cryptobook.xwave.app/"},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-11309924-27"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":48,"bottom":48},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"📄 Download PDF":"dist/cryptobook.pdf","📚 Download EPUB":"dist/cryptobook.epub","📱 Download MOBI":"dist/cryptobook.mobi"}},"gitbook":"*"},"file":{"path":"quantum-safe-cryptography/README.md","mtime":"2025-09-06T17:42:10.282Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-09-06T18:31:27.936Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-scripts/8e9b40f9a31c4018d1a4d23d8ad10c11-repl.it-code-runner.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

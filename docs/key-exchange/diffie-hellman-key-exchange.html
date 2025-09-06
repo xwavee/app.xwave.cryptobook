@@ -1,0 +1,1459 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Diffie–Hellman Key Exchange · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="dhke-examples.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="dist/cryptobook.pdf" target="_blank" class="custom-link">📄 Download PDF</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.epub" target="_blank" class="custom-link">📚 Download EPUB</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.mobi" target="_blank" class="custom-link">📱 Download MOBI</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../preface.html">
+            
+                <a href="../preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cryptography-overview.html">
+            
+                <a href="../cryptography-overview.html">
+            
+                    
+                    Cryptography - Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cryptographic-hash-functions/">
+            
+                <a href="../cryptographic-hash-functions/">
+            
+                    
+                    Hash Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                <a href="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                    
+                    Crypto Hashes and Collisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                    
+                    Hash Functions: Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                <a href="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                    
+                    Secure Hash Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                    
+                    Hash Functions - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                <a href="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                    
+                    Exercises: Calculate Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                <a href="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                    
+                    Proof-of-Work Hash Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mac-and-key-derivation/">
+            
+                <a href="../mac-and-key-derivation/">
+            
+                    
+                    MAC and Key Derivation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                <a href="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                    
+                    HMAC and Key Derivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                <a href="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                    
+                    HMAC Calculation - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                <a href="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                    
+                    Exercises: Calculate HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                <a href="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                    
+                    KDF: Deriving Key from Password
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mac-and-key-derivation/pbkdf2.html">
+            
+                <a href="../mac-and-key-derivation/pbkdf2.html">
+            
+                    
+                    PBKDF2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                <a href="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                    
+                    Modern Key Derivation Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../mac-and-key-derivation/scrypt.html">
+            
+                <a href="../mac-and-key-derivation/scrypt.html">
+            
+                    
+                    Scrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../mac-and-key-derivation/bcrypt.html">
+            
+                <a href="../mac-and-key-derivation/bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../mac-and-key-derivation/linux-crypt.html">
+            
+                <a href="../mac-and-key-derivation/linux-crypt.html">
+            
+                    
+                    Linux crypt()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../mac-and-key-derivation/argon2.html">
+            
+                <a href="../mac-and-key-derivation/argon2.html">
+            
+                    
+                    Argon2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../mac-and-key-derivation/password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/password-encryption.html">
+            
+                    
+                    Secure Password Storage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                    
+                    Exercises: Password Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../secure-random-generators/">
+            
+                <a href="../secure-random-generators/">
+            
+                    
+                    Secure Random Generators
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                <a href="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                    
+                    Pseudo-Random Numbers - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                <a href="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                    
+                    Secure Random Generators (CSPRNG)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                <a href="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                    
+                    Exercises: Pseudo-Random Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Key Exchange and DHKE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.7.1" data-path="diffie-hellman-key-exchange.html">
+            
+                <a href="diffie-hellman-key-exchange.html">
+            
+                    
+                    Diffie–Hellman Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="dhke-examples.html">
+            
+                <a href="dhke-examples.html">
+            
+                    
+                    DHKE - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="exercises-dhke-key-exchange.html">
+            
+                <a href="exercises-dhke-key-exchange.html">
+            
+                    
+                    Exercises: DHKE Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../encryption-symmetric-and-asymmetric.html">
+            
+                <a href="../encryption-symmetric-and-asymmetric.html">
+            
+                    
+                    Encryption: Symmetric and Asymmetric
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../symmetric-key-ciphers/">
+            
+                <a href="../symmetric-key-ciphers/">
+            
+                    
+                    Symmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                <a href="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                    
+                    Cipher Block Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                <a href="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                    
+                    Popular Symmetric Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                <a href="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                    
+                    The AES Cipher - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                <a href="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                    
+                    AES Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                <a href="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                    
+                    Ethereum Wallet Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                    
+                    Exercises: AES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                    
+                    ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                    
+                    Exercises: ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../asymmetric-key-ciphers/">
+            
+                <a href="../asymmetric-key-ciphers/">
+            
+                    
+                    Asymmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                <a href="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                    
+                    The RSA Cryptosystem - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                    
+                    RSA Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                    
+                    Exercises: RSA Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                <a href="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                    
+                    Elliptic Curve Cryptography (ECC)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                    
+                    ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                    
+                    ECDH Key Exchange - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                    
+                    Exercises: ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                    
+                    ECC Encryption / Decryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                    
+                    ECIES Hybrid Encryption Scheme
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="../asymmetric-key-ciphers/ecies-example.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-example.html">
+            
+                    
+                    ECIES Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                    
+                    Exercises: ECIES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../digital-signatures/">
+            
+                <a href="../digital-signatures/">
+            
+                    
+                    Digital Signatures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../digital-signatures/rsa-signatures.html">
+            
+                <a href="../digital-signatures/rsa-signatures.html">
+            
+                    
+                    RSA Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                    
+                    RSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                    
+                    Exercises: RSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                    
+                    ECDSA: Elliptic Curve Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                    
+                    ECDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                <a href="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                    
+                    Exercises: ECDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../digital-signatures/eddsa-and-ed25519.html">
+            
+                <a href="../digital-signatures/eddsa-and-ed25519.html">
+            
+                    
+                    EdDSA and Ed25519
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                    
+                    EdDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                    
+                    Exercises: EdDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../quantum-safe-cryptography/">
+            
+                <a href="../quantum-safe-cryptography/">
+            
+                    
+                    Quantum-Safe Cryptography
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                    
+                    Quantum-Safe Signatures - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                    
+                    Quantum-Safe Key Exchange - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                    
+                    Quantum-Safe Asymmetric Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../more-cryptographic-concepts/">
+            
+                <a href="../more-cryptographic-concepts/">
+            
+                    
+                    More Cryptographic Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                <a href="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                    
+                    Digital Certificates - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../more-cryptographic-concepts/tls-example.html">
+            
+                <a href="../more-cryptographic-concepts/tls-example.html">
+            
+                    
+                    TLS - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                <a href="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                    
+                    One-Time Passwords (OTP) - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../crypto-libraries-for-developers/">
+            
+                <a href="../crypto-libraries-for-developers/">
+            
+                    
+                    Crypto Libraries for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                    
+                    JavaScript Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                    
+                    Python Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                    
+                    C# Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                    
+                    Java Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../conclusion.html">
+            
+                <a href="../conclusion.html">
+            
+                    
+                    Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Diffie–Hellman Key Exchange</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="diffie–hellman-key-exchange"><a name="diffie–hellman-key-exchange" class="plugin-anchor" href="#diffie–hellman-key-exchange"><i class="fa fa-link" aria-hidden="true"></i></a>Diffie–Hellman Key Exchange</h1>
+<h2 id="diffie–hellman-key-exchange-dhke"><a name="diffie–hellman-key-exchange-dhke" class="plugin-anchor" href="#diffie–hellman-key-exchange-dhke"><i class="fa fa-link" aria-hidden="true"></i></a>Diffie–Hellman Key Exchange (DHKE)</h2>
+<p><a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman\_key\_exchange" target="_blank"><strong>Diffie–Hellman Key Exchange</strong></a> (DHKE) is a cryptographic method to <strong>securely exchange cryptographic keys</strong> (key agreement protocol) over a public (insecure) channel in a way that overheard communication does not reveal the keys. The exchanged keys are used later for encrypted communication (e.g. using a symmetric cipher like AES).</p>
+<p><strong>DHKE</strong> was one of the first <strong>public-key protocols</strong>, which allows two parties to exchange data securely, so that is someone sniffs the communication between the parties, the information exchanged can be revealed.</p>
+<p>The Diffie–Hellman (DH) method is <strong>anonymous key agreement scheme</strong>: it allows two parties that have no prior knowledge of each other to jointly establish a <strong>shared secret key over an insecure channel</strong>.</p>
+<p>Note that the DHKE method is <strong>resistant to</strong> <a href="https://en.wikipedia.org/wiki/Sniffing\_attack" target="_blank"><strong>sniffing attacks</strong></a> (data interception), but it is vulnerable to <a href="https://en.wikipedia.org/wiki/Man-in-the-middle\_attack" target="_blank"><strong>man-in-the-middle attacks</strong></a> (attacker secretly relays and possibly <strong>alters the communication</strong> between two parties).</p>
+<p>The <strong>Diffie–Hellman Key Exchange</strong> protocol can be implemented using <strong>discrete logarithms</strong> (the classical <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman\_key\_exchange" target="_blank"><strong>DHKE</strong></a> algorithm) or using <strong>elliptic-curve cryptography</strong> (the <a href="https://en.wikipedia.org/wiki/Elliptic-curve\_Diffie%E2%80%93Hellman" target="_blank"><strong>ECDH</strong></a> algorithm).</p>
+<h3 id="key-exchange-by-mixing-colors"><a name="key-exchange-by-mixing-colors" class="plugin-anchor" href="#key-exchange-by-mixing-colors"><i class="fa fa-link" aria-hidden="true"></i></a>Key Exchange by Mixing Colors</h3>
+<p>The Diffie–Hellman Key Exchange protocol is very similar to the concept of "<strong>key exchanging by mixing colors</strong>", which has a good visual representation, which simplifies its understanding. This is why we shall first explain how to exchange a secret color by <strong>color mixing</strong>.</p>
+<p>The design of color mixing key exchange scheme assumes that if we have two liquids of different colors, we can <strong>easily mix the colors</strong> and obtain a new color, but the reverse operation is almost impossible: <strong>no way to separate the mixed colors</strong> back to their original color components.</p>
+<p>This is the color exchange <strong>scenario</strong>, step by step:</p>
+<ul>
+<li><strong>Alice</strong> and <strong>Bob</strong>, agree on an arbitrary <strong>starting (shared) color</strong> that does not need to be kept secret (e.g. <em>yellow</em>).</li>
+<li><strong>Alice</strong> and <strong>Bob</strong> separately select a <strong>secret color</strong> that they keep to themselves (e.g. <em>red</em> and <em>sea green</em>).</li>
+<li>Finally <strong>Alice</strong> and <strong>Bob</strong> <strong>mix</strong> their secret color together with their mutually shared color. The obtained mixed colors area ready for public exchange (in our case <em>orange</em> and <em>light sky blue</em>).</li>
+</ul>
+<p><img src="../.gitbook/assets/key-exchange-by-color-mixing-part-1.png" alt=""></img></p>
+<p>The next steps in the color exchanging scenario are as follows:</p>
+<ul>
+<li><strong>Alice</strong> and <strong>Bob</strong> publicly <strong>exchange</strong> their two <strong>mixed colors</strong>.<ul>
+<li>We assume that there is no efficient way to extract (separate) the secret color from the mixed color, so third parties who know the mixed colors cannot reveal the secret colors.</li>
+</ul>
+</li>
+<li>Finally, <strong>Alice</strong> and <strong>Bob</strong> mix together the color they received from the partner with their own secret color.<ul>
+<li>The result is the <strong>final color mixture</strong> (<em>yellow-brown</em>) which is identical to the partner's color mixture.</li>
+<li>It is the <strong>securely exchanged shared key</strong>.</li>
+</ul>
+</li>
+</ul>
+<p><img src="../.gitbook/assets/key-exchange-by-color-mixing-part-2.png" alt=""></img></p>
+<p>If a third parties have intercepted the color exchanging process, it would be computationally difficult for them to determine the secret colors.</p>
+<p>The <strong>Diffie-Hellman Key Exchange</strong> protocol is based on similar concept, but uses <a href="https://en.wikipedia.org/wiki/Discrete\_logarithm" target="_blank"><strong>discrete logarithms</strong></a> and <a href="https://en.wikipedia.org/wiki/Modular\_exponentiation" target="_blank"><strong>modular exponentiations</strong></a> instead of color mixing.</p>
+<h2 id="the-diffie-hellman-key-exchange-dhke-protocol"><a name="the-diffie-hellman-key-exchange-dhke-protocol" class="plugin-anchor" href="#the-diffie-hellman-key-exchange-dhke-protocol"><i class="fa fa-link" aria-hidden="true"></i></a>The Diffie-Hellman Key Exchange (DHKE) Protocol</h2>
+<p>Now, let's explain how the <strong>DHKE</strong> protocol works.</p>
+<h3 id="the-math-behind-dhke"><a name="the-math-behind-dhke" class="plugin-anchor" href="#the-math-behind-dhke"><i class="fa fa-link" aria-hidden="true"></i></a>The Math behind DHKE</h3>
+<p><strong>DHKE</strong> is based on a simple property of <a href="https://en.wikipedia.org/wiki/Modular\_exponentiation" target="_blank"><strong>modular exponentiations</strong></a>:</p>
+<p>(<strong>ga</strong>)<strong>b</strong> mod <strong>p</strong> = (<strong>gb</strong>)<strong>a</strong> mod <strong>p</strong></p>
+<p>where <strong>g</strong>, <strong>a</strong>, <strong>b</strong> and <strong>p</strong> are positive integers.</p>
+<p>If we have <strong>A</strong> = <strong>ga</strong> mod <strong>p</strong> and <strong>B</strong> = <strong>gb</strong> mod <strong>p</strong>, we can calculate <strong>gab</strong> mod <strong>p</strong>, without revealing <strong>a</strong> or <strong>b</strong> (which are called <strong>secret exponents</strong>).</p>
+<p>In computing theory, these is no efficient algorithm which can find a secret exponent. If we have <strong>m</strong>, <strong>g</strong> and <strong>p</strong> from the below equation:</p>
+<p><strong>m</strong> = <strong>gs</strong> mod <strong>p</strong></p>
+<p>there is no efficient (fast) algorithm to find the secret exponent <strong>s</strong>. This is known as the <a href="https://en.wikipedia.org/wiki/Discrete\_Logarithm\_Problem\_\(DLP\" target="_blank">Discrete Logartihm Problem (DLP)</a>).</p>
+<h3 id="discrete-logarithm-problem-dlp"><a name="discrete-logarithm-problem-dlp" class="plugin-anchor" href="#discrete-logarithm-problem-dlp"><i class="fa fa-link" aria-hidden="true"></i></a>Discrete Logarithm Problem (DLP)</h3>
+<p>The <strong>Discrete Logarithm Problem (DLP)</strong> in computer science is defined as follows:</p>
+<ul>
+<li>By given element <em><strong>b</strong></em> and value <em><strong>a</strong></em> = <em><strong>bx</strong></em> find the exponent <em><strong>x</strong></em> (if it exists)</li>
+</ul>
+<p>The exponent <em><strong>x</strong></em> is called <a href="https://en.wikipedia.org/wiki/Discrete\_logarithm" target="_blank"><strong>discrete logarithm</strong></a>, i.e. <strong>x</strong> = <em>log</em><strong>b</strong>(<strong>a</strong>). The elements <em><strong>a</strong></em> and <em><strong>b</strong></em> can be simple integers modulo <em><strong>p</strong></em> (from the <a href="https://en.wikipedia.org/wiki/Multiplicative\_group\_of\_integers\_modulo\_n" target="_blank">group ℤ/pℤ</a>) or elements of <a href="https://en.wikipedia.org/wiki/Cyclic\_group" target="_blank">finite cyclic multiplicative group <strong>G</strong></a> (modulo <em><strong>p</strong></em>), where <em><strong>p</strong></em> is typically a prime number.</p>
+<p>In cryptography, many algorithms rely on the <strong>computational difficulty of the DLP problem</strong> over carefully chosen group, for which <strong>no efficient algorithm exists</strong>.</p>
+<h3 id="the-dhke-protocol"><a name="the-dhke-protocol" class="plugin-anchor" href="#the-dhke-protocol"><i class="fa fa-link" aria-hidden="true"></i></a>The DHKE Protocol</h3>
+<p>Now, after we are familiar with the above mathematical properties of the modular exponentiations, we are ready to explain <strong>the DHKE protocol</strong>. This is how it works:</p>
+<p><img src="../.gitbook/assets/diffie-hellman-key-exchange-protocol.png" alt=""></img></p>
+<p>Let's explain each step of this key-exchange process:</p>
+<ul>
+<li>Alice and Bob agree to use two public integers: <strong>modulus p</strong> and <strong>base g</strong> (where <strong>p</strong> is <a href="https://en.wikipedia.org/wiki/Prime\_number" target="_blank">prime</a>, and <strong>g</strong> is a <a href="https://en.wikipedia.org/wiki/Primitive\_root\_modulo\_n" target="_blank">primitive root modulo</a> <strong>p</strong>).<ul>
+<li>For example, let <strong>p</strong> = 23 and <strong>g</strong> = 5.</li>
+<li>The integers <strong>g</strong> and <strong>p</strong> are public, typically hard-coded constants in the source code.</li>
+</ul>
+</li>
+<li>Alice chooses a <strong>secret integer a</strong> (e.g. <strong>a</strong> = 4), then calculates and sends to Bob the number <strong>A = ga mod p</strong>.<ul>
+<li>The number <strong>A</strong> is public. It is sent over the public channel and its interception cannot reveal the secret exponent <strong>a</strong>.</li>
+<li>In our case we have: <strong>A</strong> = 54 mod 23 = 4.</li>
+</ul>
+</li>
+<li>Bob chooses a <strong>secret integer b</strong> (e.g. <strong>b</strong> = 3), then calculates and sends to Alice the number <strong>B = gb mod p</strong>.<ul>
+<li>In our case we have: <strong>B</strong> = 53 mod 23 = 10</li>
+</ul>
+</li>
+<li>Alice computes s = Ba mod p<ul>
+<li>In our example: <strong>s</strong> = 104 mod 23 = <strong>18</strong></li>
+</ul>
+</li>
+<li>Bob computes s = Ab mod p<ul>
+<li>In our example: <strong>s</strong> = 43 mod 23 = <strong>18</strong></li>
+</ul>
+</li>
+<li>Alice and Bob now share a <strong>secret number s</strong><ul>
+<li><strong>s</strong> = Ab mod p = Ba mod p = (ga)b mod p = (gb)a mod p = gab mod p = <strong>18</strong></li>
+<li>The shared secret key <strong>s</strong> cannot be computed from the publicly available numbers <strong>A</strong> and <strong>B</strong>, because the secret exponents <strong>a</strong> and <strong>b</strong> cannot be efficiently calculated.</li>
+</ul>
+</li>
+</ul>
+<p>In the most common implementation of DHKE (following the <a href="https://tools.ietf.org/html/rfc3526" target="_blank">RFC 3526</a>) the base is <strong>g</strong> = <strong>2</strong> and the modulus <strong>p</strong> is a large <strong>prime number</strong> (1536 ... 8192 bits).</p>
+<h3 id="security-of-the-dhke-protocol"><a name="security-of-the-dhke-protocol" class="plugin-anchor" href="#security-of-the-dhke-protocol"><i class="fa fa-link" aria-hidden="true"></i></a>Security of the DHKE Protocol</h3>
+<p>The DHKE protocol is based on the practical difficulty of the <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman\_problem" target="_blank">Diffie–Hellman problem</a>, which is a variant of the well known in the computer science <a href="https://en.wikipedia.org/wiki/Discrete\_Logarithm\_Problem\_\(DLP\" target="_blank">DLP (discrete logarithm problem)</a>), for which no efficient algorithm still exists.</p>
+<p>DHKE exchanges a <strong>non-secret sequence of integer numbers</strong> over insecure, public (sniffable) channel (such as signal going through a cable or propagated by waves in the air), but does not reveal the secretly-exchanged shared private key.</p>
+<p>Again, be warned that DHKE protocol in its classical form is <strong>vulnerable to</strong> <a href="https://en.wikipedia.org/wiki/Man-in-the-middle\_attack" target="_blank"><strong>man-in-the-middle attacks</strong></a>, where a hacker can intercept and modify the messages exchanged between the parties.</p>
+<p>Finally, note that the integers <strong>g</strong>, <strong>p</strong>, <strong>a</strong> and <strong>p</strong> are typically very big numbers (1024, 2048 or 4096 bits or even bigger) and this makes the <a href="https://en.wikipedia.org/wiki/Brute-force\_attack" target="_blank"><strong>brute-force attacks</strong></a> non-sense.</p>
+<h3 id="dhke---live-example"><a name="dhke---live-example" class="plugin-anchor" href="#dhke---live-example"><i class="fa fa-link" aria-hidden="true"></i></a>DHKE - Live Example</h3>
+<p>As live example, you can play with this online DHKE tool: <a href="http://www.irongeek.com/diffie-hellman.php" target="_blank">http://www.irongeek.com/diffie-hellman.php</a></p>
+<p><img src="../.gitbook/assets/diffie-hellman-online.png" alt=""></img></p>
+<h3 id="ecdh---elliptic-curves-based-diffie-hellman-key-exchange-protocol"><a name="ecdh---elliptic-curves-based-diffie-hellman-key-exchange-protocol" class="plugin-anchor" href="#ecdh---elliptic-curves-based-diffie-hellman-key-exchange-protocol"><i class="fa fa-link" aria-hidden="true"></i></a>ECDH - Elliptic Curves-based Diffie-Hellman Key Exchange Protocol</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Elliptic-curve\_Diffie%E2%80%93Hellman" target="_blank"><strong>Elliptic-Curve Diffie–Hellman (ECDH)</strong></a> is an anonymous key agreement protocol that allows two parties, each having an <strong>elliptic-curve public–private key pair</strong>, to establish a shared secret over an insecure channel.</p>
+<p><strong>ECDH</strong> is a variant of the classical <strong>DHKE</strong> protocol, where the <strong>modular exponentiation</strong> calculations are replaced with <strong>elliptic-curve</strong> calculations for improved security. We shall explain in details the <strong>elliptic-curve cryptography (ECC)</strong> section later.</p>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Key Exchange and DHKE">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="dhke-examples.html" class="navigation navigation-next " aria-label="Next page: DHKE - Examples">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Diffie–Hellman Key Exchange","level":"1.7.1","depth":2,"next":{"title":"DHKE - Examples","level":"1.7.2","depth":2,"path":"key-exchange/dhke-examples.md","ref":"key-exchange/dhke-examples.md","articles":[]},"previous":{"title":"Key Exchange and DHKE","level":"1.7","depth":1,"path":"key-exchange/README.md","ref":"key-exchange/README.md","articles":[{"title":"Diffie–Hellman Key Exchange","level":"1.7.1","depth":2,"path":"key-exchange/diffie-hellman-key-exchange.md","ref":"key-exchange/diffie-hellman-key-exchange.md","articles":[]},{"title":"DHKE - Examples","level":"1.7.2","depth":2,"path":"key-exchange/dhke-examples.md","ref":"key-exchange/dhke-examples.md","articles":[]},{"title":"Exercises: DHKE Key Exchange","level":"1.7.3","depth":2,"path":"key-exchange/exercises-dhke-key-exchange.md","ref":"key-exchange/exercises-dhke-key-exchange.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","meta","anchors","expandable-chapters-small","katex","sitemap","scripts","adsense"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"meta":{"name":"","content":"","data":[]},"scripts":{"files":["./assets/js/repl.it-code-runner.js"]},"search":{},"adsense":{"client":"ca-pub-6178635866936443"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"meta-single":{"name":"google-site-verification","content":"66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://cryptobook.xwave.app/"},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-11309924-27"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":48,"bottom":48},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"📄 Download PDF":"dist/cryptobook.pdf","📚 Download EPUB":"dist/cryptobook.epub","📱 Download MOBI":"dist/cryptobook.mobi"}},"gitbook":"*"},"file":{"path":"key-exchange/diffie-hellman-key-exchange.md","mtime":"2025-09-06T17:42:10.280Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-09-06T18:31:27.936Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-scripts/8e9b40f9a31c4018d1a4d23d8ad10c11-repl.it-code-runner.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1491 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Digital Signatures · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="rsa-signatures.html" />
+    
+    
+    <link rel="prev" href="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="dist/cryptobook.pdf" target="_blank" class="custom-link">📄 Download PDF</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.epub" target="_blank" class="custom-link">📚 Download EPUB</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.mobi" target="_blank" class="custom-link">📱 Download MOBI</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../preface.html">
+            
+                <a href="../preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cryptography-overview.html">
+            
+                <a href="../cryptography-overview.html">
+            
+                    
+                    Cryptography - Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cryptographic-hash-functions/">
+            
+                <a href="../cryptographic-hash-functions/">
+            
+                    
+                    Hash Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                <a href="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                    
+                    Crypto Hashes and Collisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                    
+                    Hash Functions: Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                <a href="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                    
+                    Secure Hash Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                    
+                    Hash Functions - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                <a href="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                    
+                    Exercises: Calculate Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                <a href="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                    
+                    Proof-of-Work Hash Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mac-and-key-derivation/">
+            
+                <a href="../mac-and-key-derivation/">
+            
+                    
+                    MAC and Key Derivation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                <a href="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                    
+                    HMAC and Key Derivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                <a href="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                    
+                    HMAC Calculation - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                <a href="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                    
+                    Exercises: Calculate HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                <a href="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                    
+                    KDF: Deriving Key from Password
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mac-and-key-derivation/pbkdf2.html">
+            
+                <a href="../mac-and-key-derivation/pbkdf2.html">
+            
+                    
+                    PBKDF2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                <a href="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                    
+                    Modern Key Derivation Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../mac-and-key-derivation/scrypt.html">
+            
+                <a href="../mac-and-key-derivation/scrypt.html">
+            
+                    
+                    Scrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../mac-and-key-derivation/bcrypt.html">
+            
+                <a href="../mac-and-key-derivation/bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../mac-and-key-derivation/linux-crypt.html">
+            
+                <a href="../mac-and-key-derivation/linux-crypt.html">
+            
+                    
+                    Linux crypt()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../mac-and-key-derivation/argon2.html">
+            
+                <a href="../mac-and-key-derivation/argon2.html">
+            
+                    
+                    Argon2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../mac-and-key-derivation/password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/password-encryption.html">
+            
+                    
+                    Secure Password Storage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                    
+                    Exercises: Password Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../secure-random-generators/">
+            
+                <a href="../secure-random-generators/">
+            
+                    
+                    Secure Random Generators
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                <a href="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                    
+                    Pseudo-Random Numbers - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                <a href="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                    
+                    Secure Random Generators (CSPRNG)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                <a href="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                    
+                    Exercises: Pseudo-Random Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../key-exchange/">
+            
+                <a href="../key-exchange/">
+            
+                    
+                    Key Exchange and DHKE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                <a href="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                    
+                    Diffie–Hellman Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../key-exchange/dhke-examples.html">
+            
+                <a href="../key-exchange/dhke-examples.html">
+            
+                    
+                    DHKE - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                <a href="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                    
+                    Exercises: DHKE Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../encryption-symmetric-and-asymmetric.html">
+            
+                <a href="../encryption-symmetric-and-asymmetric.html">
+            
+                    
+                    Encryption: Symmetric and Asymmetric
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../symmetric-key-ciphers/">
+            
+                <a href="../symmetric-key-ciphers/">
+            
+                    
+                    Symmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                <a href="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                    
+                    Cipher Block Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                <a href="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                    
+                    Popular Symmetric Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                <a href="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                    
+                    The AES Cipher - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                <a href="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                    
+                    AES Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                <a href="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                    
+                    Ethereum Wallet Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                    
+                    Exercises: AES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                    
+                    ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                    
+                    Exercises: ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../asymmetric-key-ciphers/">
+            
+                <a href="../asymmetric-key-ciphers/">
+            
+                    
+                    Asymmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                <a href="../asymmetric-key-ciphers/the-rsa-cryptosystem-concepts.html">
+            
+                    
+                    The RSA Cryptosystem - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/rsa-encrypt-decrypt-examples.html">
+            
+                    
+                    RSA Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.html">
+            
+                    
+                    Exercises: RSA Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                <a href="../asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.html">
+            
+                    
+                    Elliptic Curve Cryptography (ECC)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange.html">
+            
+                    
+                    ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                <a href="../asymmetric-key-ciphers/ecdh-key-exchange-examples.html">
+            
+                    
+                    ECDH Key Exchange - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecdh-key-exchange.html">
+            
+                    
+                    Exercises: ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecc-encryption-decryption.html">
+            
+                    
+                    ECC Encryption / Decryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-public-key-encryption.html">
+            
+                    
+                    ECIES Hybrid Encryption Scheme
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="../asymmetric-key-ciphers/ecies-example.html">
+            
+                <a href="../asymmetric-key-ciphers/ecies-example.html">
+            
+                    
+                    ECIES Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                <a href="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html">
+            
+                    
+                    Exercises: ECIES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Digital Signatures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="rsa-signatures.html">
+            
+                <a href="rsa-signatures.html">
+            
+                    
+                    RSA Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="rsa-sign-verify-examples.html">
+            
+                <a href="rsa-sign-verify-examples.html">
+            
+                    
+                    RSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="exercises-rsa-sign-and-verify.html">
+            
+                <a href="exercises-rsa-sign-and-verify.html">
+            
+                    
+                    Exercises: RSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="ecdsa-sign-verify-messages.html">
+            
+                <a href="ecdsa-sign-verify-messages.html">
+            
+                    
+                    ECDSA: Elliptic Curve Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="ecdsa-sign-verify-examples.html">
+            
+                <a href="ecdsa-sign-verify-examples.html">
+            
+                    
+                    ECDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="exercises-secp256k1-sign-verify.html">
+            
+                <a href="exercises-secp256k1-sign-verify.html">
+            
+                    
+                    Exercises: ECDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="eddsa-and-ed25519.html">
+            
+                <a href="eddsa-and-ed25519.html">
+            
+                    
+                    EdDSA and Ed25519
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="eddsa-sign-verify-examples.html">
+            
+                <a href="eddsa-sign-verify-examples.html">
+            
+                    
+                    EdDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="exercises-eddsa-sign-and-verify.html">
+            
+                <a href="exercises-eddsa-sign-and-verify.html">
+            
+                    
+                    Exercises: EdDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../quantum-safe-cryptography/">
+            
+                <a href="../quantum-safe-cryptography/">
+            
+                    
+                    Quantum-Safe Cryptography
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                    
+                    Quantum-Safe Signatures - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                    
+                    Quantum-Safe Key Exchange - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                    
+                    Quantum-Safe Asymmetric Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../more-cryptographic-concepts/">
+            
+                <a href="../more-cryptographic-concepts/">
+            
+                    
+                    More Cryptographic Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                <a href="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                    
+                    Digital Certificates - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../more-cryptographic-concepts/tls-example.html">
+            
+                <a href="../more-cryptographic-concepts/tls-example.html">
+            
+                    
+                    TLS - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                <a href="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                    
+                    One-Time Passwords (OTP) - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../crypto-libraries-for-developers/">
+            
+                <a href="../crypto-libraries-for-developers/">
+            
+                    
+                    Crypto Libraries for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                    
+                    JavaScript Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                    
+                    Python Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                    
+                    C# Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                    
+                    Java Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../conclusion.html">
+            
+                <a href="../conclusion.html">
+            
+                    
+                    Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Digital Signatures</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="digital-signatures"><a name="digital-signatures" class="plugin-anchor" href="#digital-signatures"><i class="fa fa-link" aria-hidden="true"></i></a>Digital Signatures</h1>
+<p><a href="https://en.wikipedia.org/wiki/Digital\_signature" target="_blank"><strong>Digital signatures</strong></a> are a cryptographic tool to <strong>sign messages</strong> and <strong>verify message signatures</strong> in order to provide proof of <strong>authenticity</strong> for digital messages or electronic documents. Digital signatures provide:</p>
+<ul>
+<li>Message <strong>authentication</strong> - a proof that certain known sender (secret key owner) have created and signed the message.</li>
+<li>Мessage <strong>integrity</strong> - a proof that the message was not altered after the signing.</li>
+<li><strong>Non-repudiation</strong> - the signer cannot deny the signing of the document after the signature is once created.</li>
+</ul>
+<p><strong>Digital signatures</strong> are widely used today in the business and in the financial industry, e.g. for authorizing bank payments (money transfer), for exchange of signed electronic documents, for signing transactions in the public blockchain systems (e.g. transfer of coins, tokens or other digital assets), for signing digital contracts and in many other scenarios.</p>
+<p><strong>Digital signatures</strong> cannot identify who is the person, created a certain signature. This can be solved in combination with a <a href="https://en.wikipedia.org/wiki/Public\_key\_certificate" target="_blank"><strong>digital certificate</strong></a>, which binds a public key owner with identity (person, organization, web site or other). By design digital signatures bind messages to public keys, not to digital identities.</p>
+<h2 id="sign-messages-and-verify-signatures-how-it-works"><a name="sign-messages-and-verify-signatures-how-it-works" class="plugin-anchor" href="#sign-messages-and-verify-signatures-how-it-works"><i class="fa fa-link" aria-hidden="true"></i></a>Sign Messages and Verify Signatures: How It Works?</h2>
+<p><strong>Digital signature</strong> schemes typically use a <strong>public-key cryptosystem</strong> (such as RSA or ECC) and use a <strong>public / private key pairs</strong>. A message is signed by a private key and the signature is verified by the corresponding public key:</p>
+<p><img src="../.gitbook/assets/public-key-cryptography-sign-verify.png" alt=""></img></p>
+<p>Messages are <strong>signed</strong> by the sender using a <strong>private key</strong> (signing key). Typically the input message is <strong>hashed</strong> and then the <strong>signature</strong> is calculated by the signing algorithm. Most signature algorithms perform some calculation with the message hash + the signing key in a way that the result cannot be calculated without the signing key. The result from message signing is the <strong>digital signature</strong> (one or more integers):</p>
+<p><code>signMsg(msg, privKey) 🡒 signature</code></p>
+<p>Message <strong>signatures</strong> are <strong>verified</strong> by the corresponding <strong>public key</strong> (verification key). Typically the signed message is <strong>hashed</strong> and some calculation is performed by the signature algorithm using the message hash + the public key. The result from signing is a boolean value (valid or invalid signature):</p>
+<p><code>verifyMsgSignature(msg, signature, pubKey) 🡒 valid / invalid</code></p>
+<p>A <strong>message signature</strong> mathematically guarantees that certain message was signed by certain (secret) <strong>private key</strong>, which corresponds to certain (non-secret) <strong>public key</strong>. After a message is signed, the message and <strong>the signature cannot be modified</strong> and thus message <strong>authentication</strong> and <strong>integrity</strong> is guaranteed. Anyone, who knows the <strong>public key</strong> of the message signer, can <strong>verify the signature</strong>. Аfter signing the signature author cannot reject the act of signing (this is known as <strong>non-repudiation</strong>).</p>
+<p>Most signature schemes work like it is shown at the following diagram:\
+<img src="../.gitbook/assets/signature-sign-verify.png" alt=""></img>At <strong>signing</strong>, the input message is <strong>hashed</strong> (either alone, or together with the public key and other input parameters), then some <strong>computation</strong> (based on elliptic curves, discrete logarithms or other cryptographic primitive) calculates the <strong>digital signature</strong>. The produced <strong>signed message</strong> consists of the original message + the calculated signature.</p>
+<p>At <strong>signature verification</strong>, the message for verification is <strong>hashed</strong> (either alone or together with the public key) and some computations are performed between the message <strong>hash</strong>, the <strong>digital signature</strong> and the <strong>public key</strong>, and finally a <strong>comparison</strong> decides whether the signature is valid or not.</p>
+<p><strong>Digital signatures</strong> are different from <strong>MAC</strong> (message authentication codes), because MACs are created and verified by the same secret key using a <strong>symmetric algorithm</strong>, while digital signatures are created by a signing key and are verified by a different verification key, corresponding to the signing key using an <strong>asymmetric algorithm</strong>. Both signatures and MAC codes provide message authentication and integrity.</p>
+<h2 id="digital-signature-schemes-and-algorithms"><a name="digital-signature-schemes-and-algorithms" class="plugin-anchor" href="#digital-signature-schemes-and-algorithms"><i class="fa fa-link" aria-hidden="true"></i></a>Digital Signature Schemes and Algorithms</h2>
+<p>Most public-key cryptosystems like <strong>RSA</strong> and <strong>ECC</strong> provide secure <strong>digital signature schemes</strong> (signature algorithms). Examples of well known digital signature schemes are: <a href="https://en.wikipedia.org/wiki/Digital\_Signature\_Algorithm" target="_blank"><strong>DSA</strong></a>, <a href="https://en.wikipedia.org/wiki/Elliptic\_Curve\_Digital\_Signature\_Algorithm" target="_blank"><strong>ECDSA</strong></a>, <a href="https://en.wikipedia.org/wiki/EdDSA" target="_blank"><strong>EdDSA</strong></a>, <a href="https://en.wikipedia.org/wiki/RSA\_\(cryptosystem\" target="_blank"><strong>RSA signatures</strong></a>#Signing_messages), <a href="https://en.wikipedia.org/wiki/ElGamal\_signature\_scheme" target="_blank"><strong>ElGamal signatures</strong></a> and <a href="https://en.wikipedia.org/wiki/Schnorr\_signature" target="_blank"><strong>Schnorr signatures</strong></a>.</p>
+<p>The above mentioned signature schemes are based on the difficulty of the <strong>DLP</strong> (discrete logarithm problem) and <strong>ECDLP</strong> (elliptic-curve discrete logarithm problem) and are <strong>quantum-breakable</strong> (powerful enough quantum computers may calculate the signing key from the message signature). <strong>Quantum-safe</strong> signatures (like <strong>SPHINCS</strong>, <strong>BLISS</strong> and <strong>XMSS</strong>) are not massively used, because of long key length, long signatures and slower performance, compared to ECDSA and EdDSA.</p>
+<p>The most popular digital signature schemes (as of Nov 2018) are: <a href="https://en.wikipedia.org/wiki/RSA\_\(cryptosystem\" target="_blank"><strong>RSA signatures</strong></a>#Signing_messages), <a href="https://en.wikipedia.org/wiki/Elliptic\_Curve\_Digital\_Signature\_Algorithm" target="_blank"><strong>ECDSA</strong></a> and <a href="https://en.wikipedia.org/wiki/EdDSA" target="_blank"><strong>EdDSA</strong></a>. Let's give some details about them, along with some live code examples.</p>
+<h3 id="rsa-signatures"><a name="rsa-signatures" class="plugin-anchor" href="#rsa-signatures"><i class="fa fa-link" aria-hidden="true"></i></a>RSA Signatures</h3>
+<p>The <strong>RSA</strong> public-key cryptosystem provides a cryptographically secure <strong>digital signature scheme</strong> (sign + verify), based on the math of the <strong>modular exponentiations</strong> and discrete logarithms and the difficulty of the <strong>integer factorization problem</strong> (<strong>IFP</strong>). The <strong>RSA sign / verify</strong> process works as follows:</p>
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/RSA\_\(cryptosystem\" target="_blank"><strong>RSA sign</strong></a>#Signing_messages) algorithm computes a message <strong>hash</strong>, then <strong>encrypts</strong> the hash with the private key exponent to obtain the <strong>signature</strong>. The obtained signature is an <strong>integer</strong> number (the RSA encrypted message hash).</li>
+<li>The <strong>RSA verify</strong> algorithm first computes the message <strong>hash</strong>, then <strong>decrypts</strong> the message <strong>signature</strong> with the <strong>public key</strong> exponent and compares the obtained <strong>decrypted hash</strong> with the <strong>hash</strong> of the signed message to ensure the signature is valid.</li>
+</ul>
+<p>RSA signatures are <strong>deterministic</strong> (the same message + same private key produce the same signature). A non-deterministic variant of RSA-signatures is easy to be designed by padding the input message with some random bytes before signing.</p>
+<p><strong>RSA signatures</strong> are widely used in modern cryptography, e.g. for signing digital certificates to protect Web sites. For example (as of Nov 2018) the Microsoft's official Web site uses <code>Sha256RSA</code> for its digital certificate. Nevertheless, the trend in the last decade is to move from RSA and DSA to <strong>elliptic curve-based signatures</strong> (like ECDSA and EdDSA). Modern cryptographers and developers <strong>prefer ECC signatures</strong> for their shorter key length, shorter signature, higher security (for the same key length) and better performance.</p>
+<h3 id="dsa-digital-signature-algorithm"><a name="dsa-digital-signature-algorithm" class="plugin-anchor" href="#dsa-digital-signature-algorithm"><i class="fa fa-link" aria-hidden="true"></i></a>DSA (Digital Signature Algorithm)</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Digital\_Signature\_Algorithm" target="_blank"><strong>DSA (Digital Signature Algorithm)</strong></a> is a cryptographically secure standard for <strong>digital signatures</strong> (signing messages and signature verification), based on the math of the <strong>modular exponentiations</strong> and discrete logarithms and the difficulty of the discrete logarithm problem (<strong>DLP</strong>). It is alternative of RSA and is used instead of RSA, because of patents limitations with RSA (until Sept 2000). <strong>DSA</strong> is variant of the <a href="https://en.wikipedia.org/wiki/ElGamal\_signature\_scheme" target="_blank"><strong>ElGamal signature scheme</strong></a>. The <strong>DSA sign / verify</strong> process works as follows:</p>
+<ul>
+<li>The <strong>DSA signing</strong> algorithm computes a message <strong>hash</strong>, then generates a random integer <strong>k</strong> and computes the <strong>signature</strong> (а pair of integers {<strong>r</strong>, <strong>s</strong>}), where <strong>r</strong> is computed from <strong>k</strong> and <strong>s</strong> is computed using the message <strong>hash</strong> + the <strong>private key</strong> exponent + the random number <strong>k</strong>. Due to randomness, the signature is <strong>non-deterministic</strong>.</li>
+<li>The <strong>DSA signature verification</strong> algorithm involves computations, based on the message <strong>hash</strong> + the <strong>public key</strong> exponent + the <strong>signature</strong> {<strong>r</strong>, <strong>s</strong>}.</li>
+</ul>
+<p>The <strong>random value k</strong> (generated when the signature is computed) opens a potential vulnerability: if two different messages are signed using the same value of <strong>k</strong> and the same <strong>private key</strong>, then an attacker can compute the signer's private key directly (see <a href="https://github.com/tintinweb/ecdsa-private-key-recovery" target="_blank">https://github.com/tintinweb/ecdsa-private-key-recovery</a>).</p>
+<p>A <strong>deterministic-DSA</strong> variant is defined in <a href="https://tools.ietf.org/html/rfc6979" target="_blank"><strong>RFC 6979</strong></a>, which calculates the random number <strong>k</strong> as <strong>HMAC</strong> from the private key, the message hash and few other parameters. The <strong>deterministic DSA is considered more secure</strong>.</p>
+<p>In the modern cryptography, the <strong>elliptic-curve-based signatures</strong> (liike ECDSA and EdDSA) are <strong>prefered to DSA</strong>, because of shorter key lengths, shorter signature lengths, higher security levels (for the same key length) and better performance.</p>
+<h3 id="ecdsa-elliptic-curve-digital-signature-algorithm"><a name="ecdsa-elliptic-curve-digital-signature-algorithm" class="plugin-anchor" href="#ecdsa-elliptic-curve-digital-signature-algorithm"><i class="fa fa-link" aria-hidden="true"></i></a>ECDSA (Elliptic Curve Digital Signature Algorithm)</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Elliptic\_Curve\_Digital\_Signature\_Algorithm" target="_blank"><strong>ECDSA</strong></a> (Elliptic Curve Digital Signature Algorithm) is a cryptographically secure <strong>digital signature</strong> scheme, based on the elliptic-curve cryptography (<strong>ECC</strong>). <strong>ECDSA</strong> relies on the math of the <strong>cyclic groups of elliptic curves over finite fields</strong> and on the difficulty of the <strong>ECDLP problem</strong> (elliptic-curve discrete logarithm problem).</p>
+<p><strong>ECDSA</strong> is adaptation of the classical <strong>DSA</strong> algorithm, which is derived from the <a href="https://en.wikipedia.org/wiki/ElGamal\_signature\_scheme" target="_blank"><strong>ElGamal signature scheme</strong></a>. More precisely, the <strong>ECDSA</strong> algorithm is a variant of the <strong>ElGamal signature</strong>, with some changes and optimizations to handle the representation of the group elements (the points of the elliptic curve). Like any other elliptic curve crypto algorithm, <strong>ECDSA</strong> uses an elliptic <strong>curve</strong> (like the <code>secp256k1</code>), <strong>private key</strong> (random integer within the curve key length - for signing messages) and <strong>public key</strong> (EC point, calculated from the private key by multiplying it to the curve generator point - for verifying signatures). The <strong>ECDSA sign / verify</strong> process works as follows:</p>
+<ul>
+<li>The <strong>ECDSA signing</strong> algorithm computes a message <strong>hash</strong>, then generates a random integer <strong>k</strong> and computes the <strong>signature</strong> (a pair of integers {<strong>r</strong>, <strong>s</strong>}), where <strong>r</strong> is computed from <strong>k</strong> and <strong>s</strong> is computed using the message <strong>hash</strong> + the <strong>private key</strong> + the random number <strong>k</strong>. Due to the randomness, the signature is <strong>non-deterministic</strong>.</li>
+<li>The <strong>ECDSA signature verification</strong> algorithm involves computations, based on the message <strong>hash</strong> + the <strong>public key</strong> + the <strong>signature</strong> {<strong>r</strong>, <strong>s</strong>}.</li>
+</ul>
+<p>The <strong>random value k</strong> (generated when the signature is computed) opens a potential vulnerability: if two different messages are signed using the same value of <strong>k</strong> and the same <strong>private key</strong>, then an attacker can compute the signer's private key directly (see <a href="https://github.com/tintinweb/ecdsa-private-key-recovery" target="_blank">https://github.com/tintinweb/ecdsa-private-key-recovery</a>).</p>
+<p>A <strong>deterministic-ECDSA</strong> variant is defined in <a href="https://tools.ietf.org/html/rfc6979" target="_blank"><strong>RFC 6979</strong></a>, which calculates the random number <strong>k</strong> as <strong>HMAC</strong> from the private key + the message hash + few other parameters. The <strong>deterministic ECDSA is considered more secure</strong>.</p>
+<p><strong>ECDSA signatures</strong> are the most widely used signing algorithm, used by millions every day (as of Nov 2018). For example, the digital certificates in Amazon Web sites are signed by the <code>Sha256ECDSA</code> signature scheme.</p>
+<h3 id="eddsa-edwards-curve-digital-signature-algorithm"><a name="eddsa-edwards-curve-digital-signature-algorithm" class="plugin-anchor" href="#eddsa-edwards-curve-digital-signature-algorithm"><i class="fa fa-link" aria-hidden="true"></i></a>EdDSA (Edwards-curve Digital Signature Algorithm)</h3>
+<p><strong>EdDSA</strong> (Edwards-curve Digital Signature Algorithm) is a fast <strong>digital signature algorithm</strong>, using <strong>elliptic curves</strong> in Edwards form (like <a href="https://ed25519.cr.yp.to" target="_blank"><strong>Ed25519</strong></a> and <a href="https://eprint.iacr.org/2015/625.pdf" target="_blank"><strong>Ed448-Goldilocks</strong></a>), a deterministic variant of the <a href="https://en.wikipedia.org/wiki/Schnorr\_signature" target="_blank"><strong>Schnorr's signature</strong></a> scheme, designed by a team of the well-known cryptographer <a href="https://cr.yp.to/djb.html" target="_blank"><strong>Daniel Bernstein</strong></a>.</p>
+<p><strong>EdDSA</strong> is more <strong>simple</strong> than <strong>ECDSA</strong>, more <strong>secure</strong> than <strong>ECDSA</strong> and is designed to be <strong>faster</strong> than <strong>ECDSA</strong> (for curves with comparables key length). Like <strong>ECDSA</strong>, the <strong>EdDSA</strong> signature scheme relies on the difficulty of the <strong>ECDLP problem</strong> (elliptic-curve discrete logarithm problem) for its security strength.</p>
+<p>The <strong>EdDSA</strong> signature algorithm is works with Edwards elliptic curves like <strong>Curve25519</strong> and <strong>Curve448</strong>, which are highly optimized for <strong>performance</strong> and <strong>security</strong>. It is shown that <strong>Ed25519 signatures</strong> are typically <strong>faster</strong> than traditional <strong>ECDSA signatures</strong> over curves with comparable key length. Still, the performance competition is disputable. The <strong>EdDSA sign / verify</strong> process works as follows:</p>
+<ul>
+<li>The <strong>EdDSA signing</strong> algorithm generates a deterministic (not random) integer <strong>r</strong> (computed by <strong>hashing</strong> the <strong>message</strong> and the hash of the <strong>private key</strong>), then computes the <strong>signature</strong> {<strong>Rs</strong>, <strong>s</strong>}, where <strong>Rs</strong> is computed from <strong>r</strong> and <strong>s</strong> is computed from the <strong>hash</strong> of (the <strong>message</strong> + the <strong>public key</strong> derived from the private + the number <strong>r</strong>) + the <strong>private key</strong>. The signature is <strong>deterministic</strong> (the same message signed by the same key always gives the same signature).</li>
+<li>The <strong>EdDSA signature verification</strong> algorithm involves elliptic-curve computations, based on the <strong>message</strong> (hashed together with the public key and the EC point <strong>Rs</strong> from the signature) + the <strong>public key</strong> + the number <strong>s</strong> from the <strong>signature</strong> {<strong>Rs</strong>, <strong>s</strong>}.</li>
+</ul>
+<p>By design <strong>EdDSA</strong> signatures are <strong>deterministic</strong> (which improves their security). A non-deterministic variant of EdDSA-signatures is easy to be designed by padding the input message with some random bytes before signing.</p>
+<p>A short comparison between <strong>Ed25519 EdDSA</strong> signatures and <strong>secp256k ECDSA</strong> signatures is given below:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>EdDSA-Ed25519</th>
+<th>ECDSA-secp256k1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Performance</strong> (<a href="http://justmoon.github.io/curvebench/benchmark.html" target="_blank">source</a>)</td>
+<td>8% <strong>faster</strong></td>
+<td>8% <strong>slower</strong></td>
+</tr>
+<tr>
+<td><strong>Private key length</strong></td>
+<td><strong>32</strong> bytes (256 bits = 251 variable bits + 5 predefined)</td>
+<td><strong>32</strong> bytes (256 bits)</td>
+</tr>
+<tr>
+<td><strong>Public key length</strong> (compressed)</td>
+<td><strong>32</strong> bytes (256 bits = 255-bit y-coordinate + 1-bit x coordinate)</td>
+<td><strong>33</strong> bytes (257 bits = 256-bit x-coordinate + 1-bit y-coordinate)</td>
+</tr>
+<tr>
+<td><strong>Signature size</strong></td>
+<td><strong>64</strong> bytes (512 bits)</td>
+<td><strong>64</strong> bytes (512 bits) or 65 bytes (513 bits) with the public key recovery bit</td>
+</tr>
+<tr>
+<td><strong>Public key recovery</strong></td>
+<td><strong>not possible</strong> (signature verification involves hasing of the public key)</td>
+<td><strong>possible</strong> (with 1 recovery bit added in the signature)</td>
+</tr>
+<tr>
+<td><strong>Security level</strong> (<a href="https://safecurves.cr.yp.to/rho.html" target="_blank">source</a>)</td>
+<td><strong>~128 bit</strong> (more precisely 125.8)</td>
+<td><strong>~128 bit</strong> (more precisely 127.8)</td>
+</tr>
+<tr>
+<td><strong>SafeCurves security</strong> (<a href="https://safecurves.cr.yp.to" target="_blank">source</a>)</td>
+<td><strong>11 of 11</strong> tests passed</td>
+<td><strong>7 of 11</strong> tests passed</td>
+</tr>
+</tbody>
+</table>
+<p>Modern developers often use <strong>Ed25519 signatures</strong> instead of <strong>256-bit curve ECDSA</strong> signatures, because EdDSA-Ed25519 signature scheme uses keys, which fit in 32 bytes (64 hex digits), signatures fit in 64 bytes (128 hex digits), signing and verification is faster and the security is considered better.</p>
+<p>Public <strong>blockchains</strong> (like Bitcoin and Ethereum) often use <strong>secp2561-based ECDSA</strong> signatures, because the signer's public key (and its blockchain address) can be easily recovered from the signature (together with the signed message) by adding just 1 additional bit to the signature.</p>
+<p>In the general case, it is considered that <strong>EdDSA signatures are recommended</strong> to ECDSA, but this is highly disputable and depends on the use case, on the curves involved and many other parameters.</p>
+<h3 id="other-signature-schemes-and-algorithms"><a name="other-signature-schemes-and-algorithms" class="plugin-anchor" href="#other-signature-schemes-and-algorithms"><i class="fa fa-link" aria-hidden="true"></i></a>Other Signature Schemes and Algorithms</h3>
+<p>Most signature algorithms are derived from generic signature schemes like <a href="https://en.wikipedia.org/wiki/ElGamal\_signature\_scheme" target="_blank"><strong>ElGamal signatures</strong></a> and <a href="https://en.wikipedia.org/wiki/Schnorr\_signature" target="_blank"><strong>Schnorr signatures</strong></a>.</p>
+<ul>
+<li><strong>RSA signature</strong> is derived from the <strong>RSA</strong> encryption scheme.</li>
+<li><strong>DSA</strong> and <strong>ECDSA</strong> are derived from <strong>ElGamal</strong> signature scheme.</li>
+<li><strong>EdDSA</strong> is derived from the <strong>Schnorr</strong> signature scheme.</li>
+</ul>
+<p>Other <strong>signature schemes</strong> include:</p>
+<ul>
+<li><a href="https://www.teletrust.de/fileadmin/files/oid/ecgdsa\_final.pdf" target="_blank"><strong>ECGDSA</strong></a>: an elliptic-curve digital signature scheme (based on the difficulty of the ECDLP problem), a slightly simplified variant of ECDSA, known as <strong>the German version of ECDSA</strong>.</li>
+<li><a href="https://eprint.iacr.org/2007/357.pdf" target="_blank"><strong>ECKDSA</strong></a>: an elliptic-curve digital signature scheme (based on the difficulty of the ECDLP problem), a complicated variant of ECDSA, known as <strong>the Korean version of ECDSA</strong>. The ECKDSA signs given <strong>message</strong> by given EC <strong>private key</strong>, along with the signer's <strong>digital certificate</strong> hash. This add <strong>identity</strong> to the digital signature, in addition to message authentication, integrity and non-repudiation.</li>
+<li><a href="https://tools.ietf.org/html/draft-shen-sm2-ecdsa-00" target="_blank"><strong>SM2 signature</strong></a>: an elliptic-curve digital signature scheme (based on the difficulty of the ECDLP problem), known as the <strong>Chinese digital signature algorithm</strong>, developed by the Chinese Academy of Science.</li>
+<li><a href="https://tools.ietf.org/html/rfc5832" target="_blank"><strong>GOST R 34.10-2001</strong></a>: an elliptic-curve digital signature scheme (based on the difficulty of the ECDLP problem), known as the <strong>Russian digital signature algorithm</strong>, one of the Russian cryptographic standard algorithms (called GOST algorithms).</li>
+</ul>
+<p>After the short review of the most popular digital signature algorithms, let's get into technical details about the <strong>RSA sign</strong>, <strong>ECDSA</strong> and <strong>EdDSA</strong> signature algorithms, with code examples.</p>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.html" class="navigation navigation-prev " aria-label="Previous page: Exercises: ECIES Encrypt / Decrypt">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="rsa-signatures.html" class="navigation navigation-next " aria-label="Next page: RSA Signatures">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Digital Signatures","level":"1.11","depth":1,"next":{"title":"RSA Signatures","level":"1.11.1","depth":2,"path":"digital-signatures/rsa-signatures.md","ref":"digital-signatures/rsa-signatures.md","articles":[]},"previous":{"title":"Exercises: ECIES Encrypt / Decrypt","level":"1.10.11","depth":2,"path":"asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.md","ref":"asymmetric-key-ciphers/exercises-ecies-encrypt-decrypt.md","articles":[]},"articles":[{"title":"RSA Signatures","level":"1.11.1","depth":2,"path":"digital-signatures/rsa-signatures.md","ref":"digital-signatures/rsa-signatures.md","articles":[]},{"title":"RSA: Sign / Verify - Examples","level":"1.11.2","depth":2,"path":"digital-signatures/rsa-sign-verify-examples.md","ref":"digital-signatures/rsa-sign-verify-examples.md","articles":[]},{"title":"Exercises: RSA Sign and Verify","level":"1.11.3","depth":2,"path":"digital-signatures/exercises-rsa-sign-and-verify.md","ref":"digital-signatures/exercises-rsa-sign-and-verify.md","articles":[]},{"title":"ECDSA: Elliptic Curve Signatures","level":"1.11.4","depth":2,"path":"digital-signatures/ecdsa-sign-verify-messages.md","ref":"digital-signatures/ecdsa-sign-verify-messages.md","articles":[]},{"title":"ECDSA: Sign / Verify - Examples","level":"1.11.5","depth":2,"path":"digital-signatures/ecdsa-sign-verify-examples.md","ref":"digital-signatures/ecdsa-sign-verify-examples.md","articles":[]},{"title":"Exercises: ECDSA Sign and Verify","level":"1.11.6","depth":2,"path":"digital-signatures/exercises-secp256k1-sign-verify.md","ref":"digital-signatures/exercises-secp256k1-sign-verify.md","articles":[]},{"title":"EdDSA and Ed25519","level":"1.11.7","depth":2,"path":"digital-signatures/eddsa-and-ed25519.md","ref":"digital-signatures/eddsa-and-ed25519.md","articles":[]},{"title":"EdDSA: Sign / Verify - Examples","level":"1.11.8","depth":2,"path":"digital-signatures/eddsa-sign-verify-examples.md","ref":"digital-signatures/eddsa-sign-verify-examples.md","articles":[]},{"title":"Exercises: EdDSA Sign and Verify","level":"1.11.9","depth":2,"path":"digital-signatures/exercises-eddsa-sign-and-verify.md","ref":"digital-signatures/exercises-eddsa-sign-and-verify.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["ga","meta","anchors","expandable-chapters-small","katex","sitemap","scripts","adsense"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"meta":{"name":"","content":"","data":[]},"scripts":{"files":["./assets/js/repl.it-code-runner.js"]},"search":{},"adsense":{"client":"ca-pub-6178635866936443"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"meta-single":{"name":"google-site-verification","content":"66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://cryptobook.xwave.app/"},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-11309924-27"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":48,"bottom":48},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"📄 Download PDF":"dist/cryptobook.pdf","📚 Download EPUB":"dist/cryptobook.epub","📱 Download MOBI":"dist/cryptobook.mobi"}},"gitbook":"*"},"file":{"path":"digital-signatures/README.md","mtime":"2025-09-06T17:42:10.279Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-09-06T18:31:27.936Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-scripts/8e9b40f9a31c4018d1a4d23d8ad10c11-repl.it-code-runner.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1806 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Elliptic Curve Cryptography (ECC) · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.0.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ecdh-key-exchange.html" />
+    
+    
+    <link rel="prev" href="exercises-rsa-encrypt-decrypt.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="dist/cryptobook.pdf" target="_blank" class="custom-link">📄 Download PDF</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.epub" target="_blank" class="custom-link">📚 Download EPUB</a>
+        </li>
+    
+        
+        <li>
+            <a href="dist/cryptobook.mobi" target="_blank" class="custom-link">📱 Download MOBI</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Welcome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../preface.html">
+            
+                <a href="../preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../cryptography-overview.html">
+            
+                <a href="../cryptography-overview.html">
+            
+                    
+                    Cryptography - Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cryptographic-hash-functions/">
+            
+                <a href="../cryptographic-hash-functions/">
+            
+                    
+                    Hash Functions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                <a href="../cryptographic-hash-functions/crypto-hashes-and-collisions.html">
+            
+                    
+                    Crypto Hashes and Collisions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-applications.html">
+            
+                    
+                    Hash Functions: Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                <a href="../cryptographic-hash-functions/secure-hash-algorithms.html">
+            
+                    
+                    Secure Hash Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                <a href="../cryptographic-hash-functions/hash-functions-examples.html">
+            
+                    
+                    Hash Functions - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                <a href="../cryptographic-hash-functions/exercises-calculate-hashes.html">
+            
+                    
+                    Exercises: Calculate Hashes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                <a href="../cryptographic-hash-functions/proof-of-work-hash-functions.html">
+            
+                    
+                    Proof-of-Work Hash Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mac-and-key-derivation/">
+            
+                <a href="../mac-and-key-derivation/">
+            
+                    
+                    MAC and Key Derivation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                <a href="../mac-and-key-derivation/hmac-and-key-derivation.html">
+            
+                    
+                    HMAC and Key Derivation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                <a href="../mac-and-key-derivation/hmac-calculation-examples.html">
+            
+                    
+                    HMAC Calculation - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                <a href="../mac-and-key-derivation/exercises-calculate-hmac.html">
+            
+                    
+                    Exercises: Calculate HMAC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                <a href="../mac-and-key-derivation/kdf-deriving-key-from-password.html">
+            
+                    
+                    KDF: Deriving Key from Password
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mac-and-key-derivation/pbkdf2.html">
+            
+                <a href="../mac-and-key-derivation/pbkdf2.html">
+            
+                    
+                    PBKDF2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                <a href="../mac-and-key-derivation/modern-key-derivation-functions.html">
+            
+                    
+                    Modern Key Derivation Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../mac-and-key-derivation/scrypt.html">
+            
+                <a href="../mac-and-key-derivation/scrypt.html">
+            
+                    
+                    Scrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../mac-and-key-derivation/bcrypt.html">
+            
+                <a href="../mac-and-key-derivation/bcrypt.html">
+            
+                    
+                    Bcrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../mac-and-key-derivation/linux-crypt.html">
+            
+                <a href="../mac-and-key-derivation/linux-crypt.html">
+            
+                    
+                    Linux crypt()
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../mac-and-key-derivation/argon2.html">
+            
+                <a href="../mac-and-key-derivation/argon2.html">
+            
+                    
+                    Argon2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../mac-and-key-derivation/password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/password-encryption.html">
+            
+                    
+                    Secure Password Storage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                <a href="../mac-and-key-derivation/exercises-password-encryption.html">
+            
+                    
+                    Exercises: Password Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../secure-random-generators/">
+            
+                <a href="../secure-random-generators/">
+            
+                    
+                    Secure Random Generators
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                <a href="../secure-random-generators/pseudo-random-numbers-examples.html">
+            
+                    
+                    Pseudo-Random Numbers - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                <a href="../secure-random-generators/secure-random-generators-csprng.html">
+            
+                    
+                    Secure Random Generators (CSPRNG)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                <a href="../secure-random-generators/exercises-pseudo-random-generator.html">
+            
+                    
+                    Exercises: Pseudo-Random Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../key-exchange/">
+            
+                <a href="../key-exchange/">
+            
+                    
+                    Key Exchange and DHKE
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                <a href="../key-exchange/diffie-hellman-key-exchange.html">
+            
+                    
+                    Diffie–Hellman Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../key-exchange/dhke-examples.html">
+            
+                <a href="../key-exchange/dhke-examples.html">
+            
+                    
+                    DHKE - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                <a href="../key-exchange/exercises-dhke-key-exchange.html">
+            
+                    
+                    Exercises: DHKE Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../encryption-symmetric-and-asymmetric.html">
+            
+                <a href="../encryption-symmetric-and-asymmetric.html">
+            
+                    
+                    Encryption: Symmetric and Asymmetric
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../symmetric-key-ciphers/">
+            
+                <a href="../symmetric-key-ciphers/">
+            
+                    
+                    Symmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                <a href="../symmetric-key-ciphers/cipher-block-modes.html">
+            
+                    
+                    Cipher Block Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                <a href="../symmetric-key-ciphers/popular-symmetric-algorithms.html">
+            
+                    
+                    Popular Symmetric Algorithms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                <a href="../symmetric-key-ciphers/aes-cipher-concepts.html">
+            
+                    
+                    The AES Cipher - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                <a href="../symmetric-key-ciphers/aes-encrypt-decrypt-examples.html">
+            
+                    
+                    AES Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                <a href="../symmetric-key-ciphers/ethereum-wallet-encryption.html">
+            
+                    
+                    Ethereum Wallet Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-aes-encrypt-decrypt.html">
+            
+                    
+                    Exercises: AES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/chacha20-poly1305.html">
+            
+                    
+                    ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                <a href="../symmetric-key-ciphers/exercises-chacha20-poly1305.html">
+            
+                    
+                    Exercises: ChaCha20-Poly1305
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Asymmetric Key Ciphers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="the-rsa-cryptosystem-concepts.html">
+            
+                <a href="the-rsa-cryptosystem-concepts.html">
+            
+                    
+                    The RSA Cryptosystem - Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="rsa-encrypt-decrypt-examples.html">
+            
+                <a href="rsa-encrypt-decrypt-examples.html">
+            
+                    
+                    RSA Encrypt / Decrypt - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="exercises-rsa-encrypt-decrypt.html">
+            
+                <a href="exercises-rsa-encrypt-decrypt.html">
+            
+                    
+                    Exercises: RSA Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10.4" data-path="elliptic-curve-cryptography-ecc.html">
+            
+                <a href="elliptic-curve-cryptography-ecc.html">
+            
+                    
+                    Elliptic Curve Cryptography (ECC)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="ecdh-key-exchange.html">
+            
+                <a href="ecdh-key-exchange.html">
+            
+                    
+                    ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="ecdh-key-exchange-examples.html">
+            
+                <a href="ecdh-key-exchange-examples.html">
+            
+                    
+                    ECDH Key Exchange - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="exercises-ecdh-key-exchange.html">
+            
+                <a href="exercises-ecdh-key-exchange.html">
+            
+                    
+                    Exercises: ECDH Key Exchange
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="ecc-encryption-decryption.html">
+            
+                <a href="ecc-encryption-decryption.html">
+            
+                    
+                    ECC Encryption / Decryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="ecies-public-key-encryption.html">
+            
+                <a href="ecies-public-key-encryption.html">
+            
+                    
+                    ECIES Hybrid Encryption Scheme
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="ecies-example.html">
+            
+                <a href="ecies-example.html">
+            
+                    
+                    ECIES Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="exercises-ecies-encrypt-decrypt.html">
+            
+                <a href="exercises-ecies-encrypt-decrypt.html">
+            
+                    
+                    Exercises: ECIES Encrypt / Decrypt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../digital-signatures/">
+            
+                <a href="../digital-signatures/">
+            
+                    
+                    Digital Signatures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../digital-signatures/rsa-signatures.html">
+            
+                <a href="../digital-signatures/rsa-signatures.html">
+            
+                    
+                    RSA Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/rsa-sign-verify-examples.html">
+            
+                    
+                    RSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-rsa-sign-and-verify.html">
+            
+                    
+                    Exercises: RSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-messages.html">
+            
+                    
+                    ECDSA: Elliptic Curve Signatures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/ecdsa-sign-verify-examples.html">
+            
+                    
+                    ECDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                <a href="../digital-signatures/exercises-secp256k1-sign-verify.html">
+            
+                    
+                    Exercises: ECDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../digital-signatures/eddsa-and-ed25519.html">
+            
+                <a href="../digital-signatures/eddsa-and-ed25519.html">
+            
+                    
+                    EdDSA and Ed25519
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                <a href="../digital-signatures/eddsa-sign-verify-examples.html">
+            
+                    
+                    EdDSA: Sign / Verify - Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                <a href="../digital-signatures/exercises-eddsa-sign-and-verify.html">
+            
+                    
+                    Exercises: EdDSA Sign and Verify
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../quantum-safe-cryptography/">
+            
+                <a href="../quantum-safe-cryptography/">
+            
+                    
+                    Quantum-Safe Cryptography
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-signatures-example.html">
+            
+                    
+                    Quantum-Safe Signatures - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-key-exchange-example.html">
+            
+                    
+                    Quantum-Safe Key Exchange - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                <a href="../quantum-safe-cryptography/quantum-safe-asymmetric-encryption-example.html">
+            
+                    
+                    Quantum-Safe Asymmetric Encryption - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../more-cryptographic-concepts/">
+            
+                <a href="../more-cryptographic-concepts/">
+            
+                    
+                    More Cryptographic Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                <a href="../more-cryptographic-concepts/digital-certificates-example.html">
+            
+                    
+                    Digital Certificates - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../more-cryptographic-concepts/tls-example.html">
+            
+                <a href="../more-cryptographic-concepts/tls-example.html">
+            
+                    
+                    TLS - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                <a href="../more-cryptographic-concepts/one-time-passwords-otp-example.html">
+            
+                    
+                    One-Time Passwords (OTP) - Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../crypto-libraries-for-developers/">
+            
+                <a href="../crypto-libraries-for-developers/">
+            
+                    
+                    Crypto Libraries for Developers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/javascript-crypto-libraries.html">
+            
+                    
+                    JavaScript Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/python-crypto-libraries.html">
+            
+                    
+                    Python Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/c-crypto-libraries.html">
+            
+                    
+                    C# Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                <a href="../crypto-libraries-for-developers/java-crypto-libraries.html">
+            
+                    
+                    Java Crypto Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../conclusion.html">
+            
+                <a href="../conclusion.html">
+            
+                    
+                    Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Elliptic Curve Cryptography (ECC)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <html><head></head><body><h1 id="elliptic-curve-cryptography-ecc"><a name="elliptic-curve-cryptography-ecc" class="plugin-anchor" href="#elliptic-curve-cryptography-ecc"><i class="fa fa-link" aria-hidden="true"></i></a>Elliptic Curve Cryptography (ECC)</h1>
+<p>The <a href="https://en.wikipedia.org/wiki/Elliptic-curve\_cryptography" target="_blank"><strong>Elliptic Curve Cryptography (ECC)</strong></a> is modern <strong>family of public-key cryptosystems</strong>, which is based on the algebraic structures of the <strong>elliptic curves over finite fields</strong> and on the difficulty of the <a href="https://en.wikipedia.org/wiki/Elliptic-curve\_cryptography#Rationale" target="_blank"><strong>Elliptic Curve Discrete Logarithm Problem (ECDLP)</strong></a>.</p>
+<p><strong>ECC</strong> implements all major capabilities of the asymmetric cryptosystems: <strong>encryption</strong>, <strong>signatures</strong> and <strong>key exchange</strong>.</p>
+<p>The <strong>ECC cryptography</strong> is considered a natural modern <strong>successor of the RSA</strong> cryptosystem, because ECC uses <strong>smaller keys</strong> and signatures than RSA for the same level of security and provides very <strong>fast key generation</strong>, <strong>fast key agreement</strong> and <strong>fast signatures</strong>.</p>
+<h2 id="ecc-keys"><a name="ecc-keys" class="plugin-anchor" href="#ecc-keys"><i class="fa fa-link" aria-hidden="true"></i></a>ECC Keys</h2>
+<p>The <strong>private keys</strong> in the ECC are integers (in the range of the curve's field size, typically <strong>256-bit</strong> integers). Example of 256-bit ECC private key (hex encoded, 32 bytes, 64 hex digits) is: <code>0x51897b64e85c3f714bba707e867914295a1377a7463a9dae8ea6a8b914246319</code>.</p>
+<p>The <strong>key generation</strong> in the ECC cryptography is as simple as securely generating a <strong>random integer</strong> in certain range, so it is extremely fast. Any number within the range is valid ECC private key.</p>
+<p>The <strong>public keys</strong> in the ECC are <strong>EC points</strong> - pairs of integer coordinates {<em><strong>x</strong></em>, <em><strong>y</strong></em>}, laying on the curve. Due to their special properties, <strong>EC points</strong> can be <strong>compressed</strong> to just one coordinate + 1 bit (odd or even). Thus the <strong>compressed public key</strong>, corresponding to a 256-bit ECC private key, is a <strong>257-bit</strong> integer. Example of ECC public key (corresponding to the above private key, encoded in the Ethereum format, as hex with prefix <code>02</code> or <code>03</code>) is: <code>0x02f54ba86dc1ccb5bed0224d23f01ed87e4a443c47fc690d7797a13d41d2340e1a</code>. In this format the public key actually takes 33 bytes (66 hex digits), which can be optimized to exactly 257 bits.</p>
+<h2 id="curves-and-key-length"><a name="curves-and-key-length" class="plugin-anchor" href="#curves-and-key-length"><i class="fa fa-link" aria-hidden="true"></i></a>Curves and Key Length</h2>
+<p><strong>ECC</strong> crypto algorithms can use different underlying <strong>elliptic curves</strong>. Different curves provide different level of <strong>security</strong> (cryptographic strength), different <strong>performance</strong> (speed) and different <strong>key length</strong>, and also may involve different algorithms.</p>
+<p><strong>ECC curves</strong>, adopted in the popular cryptographic libraries and security standards, have <strong>name</strong> (named curves, e.g. <code>secp256k1</code> or <code>Curve25519</code>), <strong>field size</strong> (which defines the key length, e.g. <strong>256-bit</strong>), security <strong>strength</strong> (usually the field size / 2 or less), <strong>performance</strong> (operations/sec) and many other parameters.</p>
+<p><strong>ECC keys</strong> have <strong>length</strong>, which directly depends on the underlying curve. In most applications (like OpenSSL, OpenSSH and Bitcoin) the default <strong>key length</strong> for the ECC private keys is <strong>256 bits</strong>, but depending on the curve many different ECC key sizes are possible: 192-bit (curve <code>secp192r1</code>), 233-bit (curve <code>sect233k1</code>), 224-bit (curve <code>secp224k1</code>), 256-bit (curves <code>secp256k1</code> and <code>Curve25519</code>), 283-bit (curve <code>sect283k1</code>), 384-bit (curves <code>p384</code> and <code>secp384r1</code>), 409-bit (curve <code>sect409r1</code>), 414-bit (curve <code>Curve41417</code>), 448-bit (curve <code>Curve448-Goldilocks</code>), 511-bit (curve <code>M-511</code>), 521-bit (curve <code>P-521</code>), 571-bit (curve <code>sect571k1</code>) and many others.</p>
+<h2 id="ecc-algorithms"><a name="ecc-algorithms" class="plugin-anchor" href="#ecc-algorithms"><i class="fa fa-link" aria-hidden="true"></i></a>ECC Algorithms</h2>
+<p><strong>Elliptic-curve cryptography</strong> (ECC) provides several groups of algorithms, based on the math of the elliptic curves over finite fields:</p>
+<ul>
+<li>ECC <strong>digital signature</strong> algorithms like <a href="https://en.wikipedia.org/wiki/Elliptic\_Curve\_Digital\_Signature\_Algorithm" target="_blank"><strong>ECDSA</strong></a> (for classical curves) and <a href="https://en.wikipedia.org/wiki/EdDSA" target="_blank"><strong>EdDSA</strong></a> (for twisted Edwards curves).</li>
+<li>ECC <strong>encryption</strong> algorithms and hybrid encryption schemes like the <a href="https://en.wikipedia.org/wiki/Integrated\_Encryption\_Scheme" target="_blank"><strong>ECIES</strong></a> integrated encryption scheme and <a href="https://cse.unl.edu/\~ssamal/crypto/EEECC.pdf" target="_blank"><strong>EEECC</strong></a> (EC-based ElGamal).</li>
+<li>ECC <strong>key agreement</strong> algorithms like <a href="https://en.wikipedia.org/wiki/Elliptic-curve\_Diffie%E2%80%93Hellman" target="_blank"><strong>ECDH</strong></a>, <a href="https://cryptography.io/en/latest/hazmat/primitives/asymmetric/x25519/" target="_blank"><strong>X25519</strong></a> and <a href="https://fastd.readthedocs.io/en/v18/crypto/fhmqvc.html" target="_blank"><strong>FHMQV</strong></a>.</li>
+</ul>
+<p>All these algorithms use a <strong>curve</strong> behind (like <code>secp256k1</code>, <code>curve25519</code> or <code>p521</code>) for the calculations and rely of the difficulty of the <strong>ECDLP</strong> (elliptic curve discrete logarithm problem). All these algorithms use public / private key pairs, where the <strong>private key</strong> is an integer and the <strong>public key</strong> is a point on the elliptic curve (EC point). Let's get into details about the elliptic curves over finite fields.</p>
+<h2 id="elliptic-curves"><a name="elliptic-curves" class="plugin-anchor" href="#elliptic-curves"><i class="fa fa-link" aria-hidden="true"></i></a>Elliptic Curves</h2>
+<p>In mathematics <a href="http://mathworld.wolfram.com/EllipticCurve.html" target="_blank"><strong>elliptic curves</strong></a> are plane algebraic curves, consisting of all points {<em><strong>x</strong></em>, <em><strong>y</strong></em>}, described by the equation:</p>
+<p><img src="../.gitbook/assets/elliptic-curve-general-case.png" alt=""></img></p>
+<p>Cryptography uses <strong>elliptic curves</strong> in a simplified form (Weierstras form), which is defined as:</p>
+<ul>
+<li>y2 = x3 + _<strong>a</strong>_x + <em><strong>b</strong></em></li>
+</ul>
+<p>For example, the <a href="https://en.bitcoin.it/wiki/Secp256k1" target="_blank">NIST curve <code>secp256k1</code></a> (used in Bitcoin) is based on an elliptic curve in the form:</p>
+<ul>
+<li>y2 = x3 + <em><strong>7</strong></em> (the above elliptic curve equation, where <em><strong>a</strong></em> = <strong>0</strong> and <em><strong>b</strong></em> = <strong>7</strong>)</li>
+</ul>
+<p>This is a visualization of the above elliptic curve:</p>
+<p><img src="../.gitbook/assets/bitcoin-elliptic-curve.png" alt=""></img></p>
+<p>To learn more about the equations of the elliptic curves and how they look like, play a bit with this <strong>online elliptic curve visualization tool</strong>: <a href="https://www.desmos.com/calculator/ialhd71we3" target="_blank">https://www.desmos.com/calculator/ialhd71we3</a>.</p>
+<p><img src="../.gitbook/assets/ecc-visualization-tool.png" alt=""></img></p>
+<h3 id="elliptic-curves-over-finite-fields"><a name="elliptic-curves-over-finite-fields" class="plugin-anchor" href="#elliptic-curves-over-finite-fields"><i class="fa fa-link" aria-hidden="true"></i></a>Elliptic Curves over Finite Fields</h3>
+<p>The <strong>elliptic curve cryptography (ECC)</strong> uses <strong>elliptic curves over the</strong> <a href="https://en.wikipedia.org/wiki/Finite\_field" target="_blank"><strong>finite field</strong></a> <strong>𝔽p</strong> (where <em><strong>p</strong></em> is prime and <em><strong>p</strong></em> &gt; 3) or <strong>𝔽2</strong><em><strong>m</strong></em> (where the fields size <em><strong>p</strong></em> = 2_<strong>m</strong>_). This means that the field is a <strong>square matrix</strong> of size <em><strong>p</strong></em> x <em><strong>p</strong></em> and the points on the curve are limited to <strong>integer coordinates</strong> within the field only. All algebraic operations within the field (like point addition and multiplication) result in another point within the field. The elliptic curve equation over the finite field <strong>𝔽p</strong> takes the following modular form:</p>
+<ul>
+<li>y2 ≡ x3 + _<strong>a</strong>_x + <em><strong>b</strong></em> (mod <em><strong>p</strong></em>)</li>
+</ul>
+<p>Respectively, the "Bitcoin curve" <code>secp256k1</code> takes the form:</p>
+<ul>
+<li>y2 ≡ x3 + <em><strong>7</strong></em> (mod <em><strong>p</strong></em>)</li>
+</ul>
+<p>Unlike <strong>RSA</strong>, which uses for its key space the <strong>integers</strong> in the range [0...<em><strong>p</strong></em>-1] (the field ℤp), the <strong>ECC</strong> uses the <strong>points</strong> {<em><strong>x</strong></em>, <em><strong>y</strong></em>} within the Galois field <strong>𝔽p</strong> (where <em><strong>x</strong></em> and <em><strong>y</strong></em> are integers in the range [0...<em><strong>p</strong></em>-1]).</p>
+<p>An <strong>elliptic curve over the finite field</strong> <strong>𝔽p</strong> consists of:</p>
+<ul>
+<li>a set of integer coordinates {<em><strong>x</strong></em>, <em><strong>y</strong></em>}, such that <strong>0</strong> ≤ <em><strong>x</strong></em>, <em><strong>y</strong></em> &lt; <em><strong>p</strong></em></li>
+<li>staying on the elliptic curve: _<strong>y</strong>_2 ≡ x3 + _<strong>a</strong>_x + <em><strong>b</strong></em> (mod <strong>p</strong>)</li>
+</ul>
+<p><strong>Example</strong> of elliptic curve over the finite field <strong>𝔽17</strong>:</p>
+<ul>
+<li>y2 ≡ x3 + <strong>7</strong> (mod <strong>17</strong>)</li>
+</ul>
+<p>This elliptic curve over <strong>𝔽17</strong> looks like this:</p>
+<p><img src="../.gitbook/assets/elliptic-curve-over-f17-example.png" alt=""></img></p>
+<p>Note that the elliptic curve over finite field y2 ≡ x3 + <strong>7</strong> (mod <strong>17</strong>) consists of the <strong>blue points</strong> at the above figure, i.e. in practice the "<em>elliptic curves</em>" used in cryptography are "<em>sets of points in square matrix</em>", not classical "<em>curves</em>".</p>
+<p>The above curve is "<em>educational</em>". It provides <strong>very small key length</strong> (4-5 bits). In the real world developers typically use curves of 256-bits or more.</p>
+<h3 id="elliptic-curves-over-finite-fields-calculations"><a name="elliptic-curves-over-finite-fields-calculations" class="plugin-anchor" href="#elliptic-curves-over-finite-fields-calculations"><i class="fa fa-link" aria-hidden="true"></i></a>Elliptic Curves over Finite Fields: Calculations</h3>
+<p>It is pretty easy to calculate whether <strong>certain point belongs to certain elliptic curve</strong> over a finite field. For example, a point {<em><strong>x</strong></em>, <em><strong>y</strong></em>} belongs to the curve y2 ≡ x3 + <strong>7</strong> (mod <strong>17</strong>) when and only when:</p>
+<ul>
+<li>x3 + <strong>7</strong> - y2 ≡ 0 (mod <strong>17</strong>)</li>
+</ul>
+<p>The point <strong>P</strong> {<strong>5</strong>, <strong>8</strong>} <strong>belongs</strong> to the curve, because <code>(5**3 + 7 - 8**2) % 17 == 0</code>. The point {<strong>9</strong>, <strong>15</strong>} <strong>does not belong</strong> to the curve, because <code>(9**3 + 7 - 15**2) % 17 != 0</code>. These calculations are in Python style. The above mentioned elliptic curve and the points {<strong>5</strong>, <strong>8</strong>} and {<strong>9</strong>, <strong>15</strong>} are visualized below:</p>
+<p><img src="../.gitbook/assets/points-on-elliptic-curve-over-finite-field.png" alt=""></img></p>
+<h3 id="multiplying-ecc-point-by-integer"><a name="multiplying-ecc-point-by-integer" class="plugin-anchor" href="#multiplying-ecc-point-by-integer"><i class="fa fa-link" aria-hidden="true"></i></a>Multiplying ECC Point by Integer</h3>
+<p>Two points over an elliptic curve (EC points) can be <strong>added</strong> and the result is another point. This operation is known as <strong>EC point addition</strong>. If we add a point <strong>G</strong> to itself, the result is <strong>G</strong> + <strong>G</strong> = <strong>2</strong> * <strong>G</strong>. If we add <strong>G</strong> again to the result, we will obtain <strong>3</strong> * <strong>G</strong> and so on. This is how <strong>EC point multiplication</strong> is defined.</p>
+<p>A point <strong>G</strong> over an elliptic curve over finite field (EC point) can be <strong>multiplied by an integer</strong> <strong>k</strong> and the result is another EC point <strong>P</strong> on the same curve and this operation is <strong>fast</strong>:</p>
+<ul>
+<li><strong>P</strong> = <strong>k</strong> * <strong>G</strong></li>
+</ul>
+<p>The above operation involves some formulas and transformations, but for simplicity, we shall skip them. The important thing to know is that <strong>multiplying EC point by integer returns another EC point</strong> on the same curve and this operation is <strong>fast</strong>. Multiplying an EC point by 0 returns a special EC point called "<em><strong>infinity</strong></em>".</p>
+<p>Everyone is free to <a href="https://en.wikipedia.org/wiki/Elliptic\_curve\_point\_multiplication" target="_blank">read more about EC point multiplication</a> in Wikipedia.</p>
+<h3 id="example-multiply-ec-point-by-integer"><a name="example-multiply-ec-point-by-integer" class="plugin-anchor" href="#example-multiply-ec-point-by-integer"><i class="fa fa-link" aria-hidden="true"></i></a>Example: Multiply EC Point by Integer</h3>
+<p>The formulas for EC multiplication differ for the different forms of <strong>representation of the curve</strong>. In this example, we shall use an elliptic curve in the classical <strong>Weierstrass form</strong>.</p>
+<p>For <strong>example</strong> let's take the EC point <strong>G</strong> = {<strong>15</strong>, <strong>13</strong>} on the elliptic curve over finite field y2 ≡ x3 + <strong>7</strong> (mod <strong>17</strong>) and multiply it by <strong>k</strong> = <strong>6</strong>. We shall obtain an EC point <strong>P</strong> = {<strong>5</strong>, <strong>8</strong>}:</p>
+<ul>
+<li><strong>P</strong> = <strong>k</strong> * <strong>G</strong> = <strong>6</strong> * {<strong>15</strong>, <strong>13</strong>} = {<strong>5</strong>, <strong>8</strong>}</li>
+</ul>
+<p>The below figure visualizes this example of EC point multiplication:</p>
+<p><img src="../.gitbook/assets/ecc-multiply-point-example.png" alt=""></img></p>
+<h3 id="order-and-cofactor-of-elliptic-curve"><a name="order-and-cofactor-of-elliptic-curve" class="plugin-anchor" href="#order-and-cofactor-of-elliptic-curve"><i class="fa fa-link" aria-hidden="true"></i></a>Order and Cofactor of Elliptic Curve</h3>
+<p>Аn elliptic curve over a finite field can form a finite <a href="https://en.wikipedia.org/wiki/Cyclic\_group" target="_blank"><strong>cyclic algebraic group</strong></a>, which consists of all the points on the curve. In a cyclic group, if two EC points are added or an EC point is multiplied to an integer, the result is another EC point from the same cyclic group (and on the same curve). The <strong>order of the curve</strong> is the <strong>total number of all EC points</strong> on the curve. This total number of points includes also the special point called "<a href="https://en.wikipedia.org/wiki/Point\_at\_infinity" target="_blank"><em><strong>point at infinity</strong></em></a>", which is obtained when a point is multiplied by 0.</p>
+<p>Some curves form a single <strong>cyclic group</strong> (holding all their EC points), while others form several non-overlapping <a href="https://en.wikipedia.org/wiki/Subgroup" target="_blank"><strong>cyclic subgroups</strong></a> (each holding a subset of the curve's EC points). In the second scenario the points on the curve are split into <strong>h</strong> cyclic subgroups (partitions), each of order <strong>r</strong> (each subgroup holds equal number of points). The <strong>order</strong> of entire group is <strong>n</strong> = <strong>h</strong> * <strong>r</strong> (the number of subgroups, multiplied by the number of points in each subgroup). The number of subgroups <strong>h</strong> holding the EC points is called <strong>cofactor</strong>.</p>
+<p><img src="../.gitbook/assets/elliptic-curve-subgroups.png" alt=""></img></p>
+<p>The <strong>cofactor</strong> is typically expressed by the following formula:</p>
+<ul>
+<li><strong>h</strong> = <strong>n</strong> / <strong>r</strong></li>
+</ul>
+<p>where</p>
+<ul>
+<li><strong>n</strong> is the <strong>order of the curve</strong> (the number of all its points)</li>
+<li><strong>h</strong> is the curve <strong>cofactor</strong> (the number of non-overlapping <strong>subgroups</strong> of points, which together hold all curve points)</li>
+<li><strong>r</strong> is the <strong>order of the subgroups</strong> (the number of points in each subgroup, including the <em><strong>infinity</strong></em> point for each subgroup)</li>
+</ul>
+<p>In other words, the points over an elliptic curve stay in one or several non-overlapping subsets, called <strong>cyclic subgroups</strong>. The number of subgroups is called "<strong>cofactor</strong>". The total number of points in all subgroups is called "<strong>order</strong>" of the curve and is usually denoted by <strong>n</strong>. If the curve consists of <strong>only one cyclic subgroup</strong>, its <strong>cofactor</strong> <strong>h</strong> = <strong>1</strong>. If the curve consists of several subgroups, its <strong>cofactor</strong> &gt; <strong>1</strong>.</p>
+<ul>
+<li>Example of elliptic curve having <strong>cofactor</strong> = <strong>1</strong> is <code>secp256k1</code>.</li>
+<li>Example of elliptic curve having <strong>cofactor</strong> = <strong>8</strong> is <code>Curve25519</code>.</li>
+<li>Example of elliptic curve having <strong>cofactor</strong> = <strong>4</strong> is <code>Curve448</code>.</li>
+</ul>
+<h3 id="the-generator-point-in-ecc"><a name="the-generator-point-in-ecc" class="plugin-anchor" href="#the-generator-point-in-ecc"><i class="fa fa-link" aria-hidden="true"></i></a>The "Generator" Point in ECC</h3>
+<p>For the elliptic curves over finite fields, the ECC cryptosystems define a special pre-defined (constant) EC point called <a href="https://en.wikipedia.org/wiki/Generating\_set\_of\_a\_group" target="_blank"><strong>generator point G</strong></a> (<strong>base point</strong>), which can <strong>generate any other point in its subgroup</strong> over the elliptic curve by <strong>multiplying G by some integer</strong> in the range [0...<strong>r</strong>]. The number <strong>r</strong> is called "<strong>order</strong>" of the cyclic subgroup (the total number of all points in the subgroup).</p>
+<p>For curves with <strong>cofactor</strong> = <strong>1</strong> there is <strong>only one subgroup</strong> and the order <strong>n</strong> of the curve (the total number of different points over the curve, including the <em><strong>infinity</strong></em>) is equal to the number <strong>r</strong>.</p>
+<p>When <strong>G</strong> and <strong>n</strong> are carefully selected, and the <strong>cofactor</strong> = <strong>1</strong>, all possible EC points on the curve (including the special point <em><strong>infinity</strong></em>) can be generated from the generator <strong>G</strong> by multiplying it by integer in the range [1...<strong>n</strong>]. This integer <strong>n</strong> is known as "<strong>order of the curve</strong>".</p>
+<p>It is important to know that the <strong>order r of the subgroup</strong>, obtained from certain EC generator point <strong>G</strong> (which may be different from the order of the curve) defines the <strong>total number of all possible private keys</strong> for this curve: <strong>r</strong> = <strong>n</strong> / <strong>h</strong> (curve order, divided by the curve cofactor). Cryptographers select carefully the elliptic curve domain parameters (curve equation, generator point, cofactor, etc.) to ensure that <strong>the key space is large enough</strong> for certain cryptographic strength.</p>
+<p>To summarize, in the ECC cryptography the EC points, together with the generator point <strong>G</strong> form <a href="https://en.wikipedia.org/wiki/Cyclic\_group" target="_blank"><strong>cyclic groups</strong></a> (or <a href="https://en.wikipedia.org/wiki/Subgroup" target="_blank"><strong>cyclic subgroups</strong></a>), which means that a number <strong>r</strong> exists (<strong>r</strong> &gt; 1), such that <strong>r</strong> * <strong>G</strong> = 0 * <strong>G</strong> = <em><strong>infinity</strong></em> and all points in the subgroup can be obtained by multiplying <strong>G</strong> by integer in the range [1...<strong>r</strong>]. The number <strong>r</strong> is called <strong>order</strong> of the <strong>group</strong> (or <strong>subgroup</strong>).</p>
+<p>Elliptic curve subgroups usually have <strong>many generator points</strong>, but cryptographers carefully select one of them, which generates the entire group (or subgroup) and is suitable for performance optimizations in the computations. This is the generator known as "<strong>G</strong>".</p>
+<p>It is known that for some curves different generator points generate subgroups of different order. More precisely, if the group order is <strong>n</strong>, for each prime <strong>d</strong> dividing <strong>n</strong>, there is a point <strong>Q</strong> such that <strong>d</strong> * <strong>Q</strong> = <em><strong>infinity</strong></em>. This means that some points used as generators for the same curve will generate smaller subgroups than others. if the group is small, the security is weak. This is known as <a href="https://tools.ietf.org/html/rfc2785" target="_blank"><strong>"small-subgroup" attacks</strong></a>. This is the reason why cryptographers usually choose the <strong>subgroup order</strong> <strong>r</strong> to be a <strong>prime number</strong>.</p>
+<p>For elliptic curves with cofactor <strong>h</strong> &gt; 1, different <strong>base points</strong> can generate different <strong>subgroups</strong> of EC points on the curve. By choosing a certain <strong>generator point</strong>, we choose to operate over a certain <strong>subgroup of points</strong> on the curve and most EC point operations and ECC crypto algorithms will work well. Still in some cases, special attention should be given, so it is recommended to use only proven ECC implementations, algorithms and software packages.</p>
+<h3 id="generator-point---example"><a name="generator-point---example" class="plugin-anchor" href="#generator-point---example"><i class="fa fa-link" aria-hidden="true"></i></a>Generator Point - Example</h3>
+<p>At the above example (the EC over finite field y2 ≡ x3 + <strong>7</strong> mod <strong>17</strong>), if we take the point <strong>G</strong> = {<strong>15</strong>, <strong>13</strong>} as <strong>generator</strong>, any other point from the curve can be obtained by multiplying <strong>G</strong> by some integer in the range [1...18]. Thus the <strong>order</strong> of this EC is <strong>n</strong> = <strong>18</strong> and its cofactor <strong>h</strong> = <strong>1</strong>.</p>
+<p>Note that the curve has 17 normal EC points (shown at the above figures) + one special "<em><strong>point at infinity</strong></em>", all staying in a single subgroup, and the curve order is <strong>18</strong> (not 17).</p>
+<p>Note also, that if we take the <strong>point {5, 9} as generator</strong>, it will generate <strong>just 3 EC points</strong>: {5, 8}, {5, 9} and <em><strong>infinity</strong></em>. Because the curve order is not prime number, different generators may generate subgroups of different order. This is a good example why we should not "invent" our own elliptic curves for cryptographic purposes and we should use proven curves.</p>
+<h3 id="private-key-public-key-and-the-generator-point-in-ecc"><a name="private-key-public-key-and-the-generator-point-in-ecc" class="plugin-anchor" href="#private-key-public-key-and-the-generator-point-in-ecc"><i class="fa fa-link" aria-hidden="true"></i></a>Private Key, Public Key and the Generator Point in ECC</h3>
+<p>In the <strong>ECC</strong>, when we multiply a fixed EC point <strong>G</strong> (the <strong>generator</strong> point) by certain <strong>integer k</strong> (<strong>k</strong> can be considered as <strong>private key</strong>), we obtain an EC point <strong>P</strong> (its corresponding <strong>public key</strong>).</p>
+<p>Consequently, in ECC we have:</p>
+<ul>
+<li><strong>Еlliptic curve</strong> (EC) over finite field <strong>𝔽p</strong></li>
+<li><strong>G</strong> == <strong>generator point</strong> (fixed constant, a base point on the EC)</li>
+<li><strong>k</strong> == <strong>private key</strong> (integer)</li>
+<li><strong>P</strong> == <strong>public key</strong> (point)</li>
+</ul>
+<p>It is <strong>very fast</strong> to calculate <strong>P</strong> = <strong>k</strong> * <strong>G</strong>, using the well-known <a href="https://en.wikipedia.org/wiki/Elliptic\_curve\_point\_multiplication" target="_blank">ECC multiplication algorithms</a> in time <em>log_2(</em><strong>k</strong>_), e.g. the "<a href="https://en.wikipedia.org/wiki/Elliptic\_curve\_point\_multiplication#Double-and-add" target="_blank">double-and-add algorithm</a>". For 256-bit curves, it will take just a few hundreds simple EC operations.</p>
+<p>It is <strong>extremely slow</strong> (considered infeasible for large <strong>k</strong>) to calculate <strong>k</strong> = <strong>P</strong> / <strong>G</strong>.</p>
+<p>This asymmetry (fast multiplication and infeasible slow opposite operation) is the basis of the security strength behind the ECC cryptography, also known as the <strong>ECDLP problem</strong>.</p>
+<h3 id="elliptic-curve-discrete-logarithm-problem-ecdlp"><a name="elliptic-curve-discrete-logarithm-problem-ecdlp" class="plugin-anchor" href="#elliptic-curve-discrete-logarithm-problem-ecdlp"><i class="fa fa-link" aria-hidden="true"></i></a>Elliptic-Curve Discrete Logarithm Problem (ECDLP)</h3>
+<p>The <strong>Elliptic Curve Discrete Logarithm Problem (ECDLP)</strong> in computer science is defined as follows:</p>
+<ul>
+<li>By given elliptic curve over finite field <strong>𝔽p</strong> and generator point <em><strong>G</strong></em> on the curve and point <em><strong>P</strong></em> on the curve, find the integer <em><strong>k</strong></em> (if it exists), such that <em><strong>P</strong></em> = <em><strong>k</strong></em> * <em><strong>G</strong></em></li>
+</ul>
+<p>For carefully chosen (by cryptographers) finite fields and elliptic curves, <strong>the ECDLP problem has no efficient solution</strong>.</p>
+<p>The <strong>multiplication</strong> of elliptic curve points in the group <strong>𝔽p</strong> is similar to <strong>exponentiation</strong> of integers in the group <strong>ℤp</strong> (this is known as <em>multiplicative notation</em>) and this is how the <strong>ECDLP problem</strong> is similar to the <a href="../key-exchange/diffie-hellman-key-exchange.html#discrete-logarithm-problem-dlp"><strong>DLP problem</strong></a> (discrete logarithm problem).</p>
+<p>In the ECC cryptography, many algorithms rely on the <strong>computational difficulty of the ECDLP problem</strong> over carefully chosen field <strong>𝔽p</strong> and elliptic curve, for which <strong>no efficient algorithm exists</strong>.</p>
+<h3 id="ecc-and-curve-security-strength"><a name="ecc-and-curve-security-strength" class="plugin-anchor" href="#ecc-and-curve-security-strength"><i class="fa fa-link" aria-hidden="true"></i></a>ECC and Curve Security Strength</h3>
+<p>Because the fastest known algorithm to solve the <strong>ECDLP</strong> for key of size <em><strong>k</strong></em> needs <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mrow><mi>k</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.93222em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.10778000000000004em;"></span><span class="base textstyle uncramped"><span class="mord sqrt"><span class="sqrt-sign" style="top:-0.09221999999999997em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span style="top:-0.85222em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span> steps, this means that to achieve a <em><strong>k</strong></em>-bit <strong>security strength</strong>, at least <em><strong>2*k</strong></em><strong>-bit curve</strong> is needed. Thus <strong>256-bit elliptic curves</strong> (where the field size <strong>p</strong> is 256-bit number) typically provide nearly <strong>128-bit security strength</strong>.</p>
+<p>In fact, the strength is <strong>slightly less</strong>, because the <strong>order</strong> of the curve (<strong>n</strong>) is typically less than the fields size (<strong>p</strong>) and because the curve may have cofactor <strong>h</strong> &gt; <strong>1</strong> (and subgroup order <strong>r</strong> = <strong>n</strong> / <strong>h</strong>, smaller than <strong>n</strong>) and because the number of steps is not exactly <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mrow><mi>k</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.93222em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.10778000000000004em;"></span><span class="base textstyle uncramped"><span class="mord sqrt"><span class="sqrt-sign" style="top:-0.09221999999999997em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span style="top:-0.85222em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span>, but is <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mi mathvariant="normal">.</mi><mn>8</mn><mn>8</mn><mn>6</mn><mo>∗</mo><msqrt><mrow><mi>k</mi></mrow></msqrt></mrow><annotation encoding="application/x-tex">0.886 * \sqrt{k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.93222em;"></span><span class="strut bottom" style="height:1.04em;vertical-align:-0.10778000000000004em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">0</span><span class="mord mathrm">.</span><span class="mord mathrm">8</span><span class="mord mathrm">8</span><span class="mord mathrm">6</span><span class="mbin">∗</span><span class="mord sqrt"><span class="sqrt-sign" style="top:-0.09221999999999997em;"><span class="style-wrap reset-textstyle textstyle uncramped">√</span></span><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span style="top:-0.85222em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span><span class="reset-textstyle textstyle uncramped sqrt-line"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:1em;">​</span></span>​</span></span></span></span></span></span>. A precise <strong>security strength</strong> estimation for the most popular <strong>standard elliptic curves</strong> is given here: <a href="http://safecurves.cr.yp.to/rho.html" target="_blank">http://safecurves.cr.yp.to/rho.html</a>.</p>
+<p>For example, the <code>secp256k1</code> (<em><strong>p</strong></em> = 256) curve provides ~ 128-bit security (127.8 bits to be precise) and the <code>Curve448</code> (<em><strong>p</strong></em> = 448) provides ~ 224-bit security (222.8 bits to be precise).</p>
+<h3 id="multiplication-of-ec-points---example-in-python"><a name="multiplication-of-ec-points---example-in-python" class="plugin-anchor" href="#multiplication-of-ec-points---example-in-python"><i class="fa fa-link" aria-hidden="true"></i></a>Multiplication of EC Points - Example in Python</h3>
+<p>Now, after all the concepts, let's <strong>write some code</strong>. We shall use <a href="https://github.com/alexmgr/tinyec" target="_blank">the Python library <code>tinyec</code></a>, which provides <strong>ECC</strong> primitives, such as <strong>cyclic groups</strong> (the <code>SubGroup</code> class), <strong>elliptic curves</strong> over finite fields (the <code>Curve</code> class) and EC <strong>points</strong> (the <code>Point</code> class). First, install the package <code>tinyec</code>:</p>
+<pre><code class="lang-python">pip install tinyec
+</code></pre>
+<p>We shall play with the educational curve from our previous examples y2 ≡ x3 + <strong>7</strong> (mod <strong>17</strong>), with the generator point <strong>G</strong> = {15, 13}, which has order of <strong>n</strong> = <strong>18</strong>. We shall name it <code>p1707</code>.</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> tinyec.ec <span class="hljs-keyword">import</span> SubGroup, Curve
+
+field = SubGroup(p=<span class="hljs-number">17</span>, g=(<span class="hljs-number">15</span>, <span class="hljs-number">13</span>), n=<span class="hljs-number">18</span>, h=<span class="hljs-number">1</span>)
+curve = Curve(a=<span class="hljs-number">0</span>, b=<span class="hljs-number">7</span>, field=field, name=<span class="hljs-string">'p1707'</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'curve:'</span>, curve)
+
+<span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">25</span>):
+    p = k * curve.g
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{k}</span> * G = (<span class="hljs-subst">{p.x}</span>, <span class="hljs-subst">{p.y}</span>)"</span>)
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/EC-points-in-Python" target="_blank">https://repl.it/@nakov/EC-points-in-Python</a>. The above code demonstrates the <strong>EC multiplication</strong>. It multiplies the generator point <strong>G</strong> by 0, 1, 2, ..., 24. The output from the above program is as follows:</p>
+<pre><code>curve: "p1707" =&gt; y^2 = x^3 + 0x + 7 (mod 17)
+0 * G = (None, None)
+1 * G = (15, 13)
+2 * G = (2, 10)
+3 * G = (8, 3)
+4 * G = (12, 1)
+5 * G = (6, 6)
+6 * G = (5, 8)
+7 * G = (10, 15)
+8 * G = (1, 12)
+9 * G = (3, 0)
+10 * G = (1, 5)
+11 * G = (10, 2)
+12 * G = (5, 9)
+13 * G = (6, 11)
+14 * G = (12, 16)
+15 * G = (8, 14)
+16 * G = (2, 7)
+17 * G = (15, 4)
+18 * G = (None, None)
+19 * G = (15, 13)
+20 * G = (2, 10)
+21 * G = (8, 3)
+22 * G = (12, 1)
+23 * G = (6, 6)
+24 * G = (5, 8)
+</code></pre><p>It is visible that <strong>0</strong> * <strong>G</strong> = <em><strong>infinity</strong></em>. It is also clearly visible, that the EC group is <strong>cyclic</strong> and the order of the EC group is <strong>n</strong> = <strong>18</strong>, because starting from <strong>k</strong> = <strong>18</strong>, the next points repeat the first ones:</p>
+<ul>
+<li><strong>18</strong> * <strong>G</strong> = <strong>0</strong> * <strong>G</strong> = <em>infinity</em></li>
+<li><strong>19</strong> * <strong>G</strong> = <strong>1</strong> * <strong>G</strong> = {15, 13}</li>
+<li><strong>20</strong> * <strong>G</strong> = <strong>2</strong> * <strong>G</strong> = {2, 10}</li>
+<li><strong>21</strong> * <strong>G</strong> = <strong>3</strong> * <strong>G</strong> = {8, 3}</li>
+<li>etc.</li>
+</ul>
+<p>The EC points, generated by multiplying the generator point <strong>G</strong> by 2, 3, 4, ..., 17 are shown on the figure below:</p>
+<p><img src="../.gitbook/assets/ec-generator-f17.png" alt=""></img></p>
+<p>Let's modify a bit the above example and change the generator point to be <strong>G'</strong> = {<strong>5</strong>, <strong>9</strong>}. This will change significantly the output:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> tinyec.ec <span class="hljs-keyword">import</span> SubGroup, Curve
+
+field = SubGroup(p=<span class="hljs-number">17</span>, g=(<span class="hljs-number">5</span>, <span class="hljs-number">9</span>), n=<span class="hljs-number">18</span>, h=<span class="hljs-number">1</span>)
+curve = Curve(a=<span class="hljs-number">0</span>, b=<span class="hljs-number">7</span>, field=field, name=<span class="hljs-string">'p1707'</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'curve:'</span>, curve)
+
+<span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">25</span>):
+    p = k * curve.g
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{k}</span> * G' = (<span class="hljs-subst">{p.x}</span>, <span class="hljs-subst">{p.y}</span>)"</span>)
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/EC-points-by-generator-point-in-Python" target="_blank">https://repl.it/@nakov/EC-points-by-generator-point-in-Python</a>. The output shows that the subgroup order of the new generator point is not 18, but is <strong>3</strong>. This is possible, because 18 is <strong>not prime</strong>. It is clear from the output, that <strong>3</strong> * <strong>G'</strong> = <em><strong>infinity</strong></em> and the obtained subgroup order is <strong>3</strong>:</p>
+<pre><code>curve: "p1707" =&gt; y^2 = x^3 + 0x + 7 (mod 17)
+0 * G' = (None, None)
+1 * G' = (5, 9)
+2 * G' = (5, 8)
+3 * G' = (None, None)
+4 * G' = (5, 9)
+5 * G' = (5, 8)
+6 * G' = (None, None)
+...
+</code></pre><p>The above example again confirms that designing an elliptic curve for cryptography should be done by cryptographers, not by developers. Developers should rely on well established crypto-standards and proven crypto-libraries.</p>
+<h3 id="multiplication-of-ec-points---real-world-example-in-python"><a name="multiplication-of-ec-points---real-world-example-in-python" class="plugin-anchor" href="#multiplication-of-ec-points---real-world-example-in-python"><i class="fa fa-link" aria-hidden="true"></i></a>Multiplication of EC Points - Real-World Example in Python</h3>
+<p>Now, let's write a <strong>real-world example</strong>. Instead of using our educational curve <code>p1707</code> (4-5-bit curve, p = 17), we shall use the 192-bit cryptographic curve <code>secp192r1</code> (192-bit, p = 6277101735386680763835789423207666416083908700390324961279). The below example is similar to the previous:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> tinyec <span class="hljs-keyword">import</span> registry
+
+curve = registry.get_curve(<span class="hljs-string">'secp192r1'</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'curve:'</span>, curve)
+
+<span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>):
+    p = k * curve.g
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{k}</span> * G = (<span class="hljs-subst">{p.x}</span>, <span class="hljs-subst">{p.y}</span>)"</span>)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Cofactor ="</span>, curve.field.h)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'Cyclic group order ='</span>, curve.field.n)
+
+nG = curve.field.n * curve.g
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f"n * G = (<span class="hljs-subst">{nG.x}</span>, <span class="hljs-subst">{nG.y}</span>)"</span>)
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/EC-points-in-real-world-in-Python" target="_blank">https://repl.it/@nakov/EC-points-in-real-world-in-Python</a>. The output is also similar to the previous example:</p>
+<pre><code>curve: "secp192r1" =&gt; y^2 = x^3 + 6277101735386680763835789423207666416083908700390324961276x + 2455155546008943817740293915197451784769108058161191238065 (mod 6277101735386680763835789423207666416083908700390324961279)
+0 * G = (None, None)
+1 * G = (602046282375688656758213480587526111916698976636884684818, 174050332293622031404857552280219410364023488927386650641)
+2 * G = (5369744403678710563432458361254544170966096384586764429448, 5429234379789071039750654906915254128254326554272718558123)
+3 * G = (2915109630280678890720206779706963455590627465886103135194, 2946626711558792003980654088990112021985937607003425539581)
+4 * G = (1305994880430903997305943738697779408316929565234787837114, 3981863977451150342116987835776121688410789618551673306674)
+5 * G = (410283251116784874018993562136566870110676706936762660240, 1206654674899825246688205669651974202006189255452737318561)
+6 * G = (4008504146453526025173196900303594155799995627910231899946, 3263759301305176906990806636587838100022690095020155627760)
+7 * G = (3473339081378406123852871299395262476289672479707038350589, 2152713176906603604200842901176476029776544337891569565621)
+8 * G = (1167950611014894512313033362696697441497340081390841490910, 4002177906111215127148483369584652296488769677804145538752)
+9 * G = (3176317450453705650283775811228493626776489433309636475023, 44601893774669384766793803854980115179612118075017062201)
+Cofactor = 1
+Cyclic group order = 6277101735386680763835789423176059013767194773182842284081
+n * G = (None, None)
+</code></pre><p>The curve <code>secp192r1</code> uses a <strong>cyclic group</strong> of very large order <strong>n</strong> = 6277101735386680763835789423176059013767194773182842284081 (prime number) with <strong>cofactor</strong> <strong>h</strong> = 1, and as we can expect, <strong>n</strong> * <strong>G</strong> = <em><strong>infinity</strong></em>, just like at the previous example with our educational curve.</p>
+<p>Now, let's generate a random <strong>private key</strong> <code>privKey</code> (integer in the range [0...n-1]) and its corresponding <strong>public key</strong> <code>pubKey = privKey * G</code>:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> tinyec <span class="hljs-keyword">import</span> registry
+<span class="hljs-keyword">import</span> secrets
+
+curve = registry.get_curve(<span class="hljs-string">'secp192r1'</span>)
+
+privKey = secrets.randbelow(curve.field.n)
+pubKey = privKey * curve.g
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"private key:"</span>, privKey)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"public key:"</span>, pubKey)
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/EC-points-private-public-keys-in-Python" target="_blank">https://repl.it/@nakov/EC-points-private-public-keys-in-Python</a>. The above code will produce output like this:</p>
+<pre><code>private key: 4225655318977962031264230130242180748818603147467615868902
+public key: (5396030834456770190396776530938374882273836179487834152291, 3422160588166914010077732710830109086004758012634997793937) on "secp192r1" =&gt; y^2 = x^3 + 6277101735386680763835789423207666416083908700390324961276x + 2455155546008943817740293915197451784769108058161191238065 (mod 6277101735386680763835789423207666416083908700390324961279)
+</code></pre><p>Later we shall use such <strong>pairs of ECC keys</strong> {private key, public key} to encrypt data, sign messages and verify signatures.</p>
+<p>Note that in real projects, <strong>192-bit curves are considered weak</strong>, so 256-bit curves are recommended (or more bits), where the keys are also 256-bits (or respectively more). We use 192-bit curve in the above example just to make the sample output smaller.</p>
+<h3 id="public-key-compression-in-the-elliptic-key-cryptosystems"><a name="public-key-compression-in-the-elliptic-key-cryptosystems" class="plugin-anchor" href="#public-key-compression-in-the-elliptic-key-cryptosystems"><i class="fa fa-link" aria-hidden="true"></i></a>Public Key Compression in the Elliptic Key Cryptosystems</h3>
+<p>Elliptic curves over finite fields <strong>𝔽p</strong> (in the Weierstrass form) have <strong>at most 2 points per y coordinate</strong> (odd <strong>x</strong> and even <strong>x</strong>). This property comes from the nature of the elliptic curve equation and is illustrated at the below graph:</p>
+<p><img src="../.gitbook/assets/elliptic-curve-over-f17-points-per-y-coordinate.png" alt=""></img></p>
+<p>Due to this property, an elliptic curve point (and respectively an ECC public key) <strong>P</strong> {<strong>x</strong>, <strong>y</strong>} can be <strong>compressed</strong> as <strong>C</strong> {<strong>x</strong>, <strong>odd</strong>/<strong>even</strong>). This means to erase the <strong>y</strong> coordinate from the point and represent it as 1 bit (odd <strong>y</strong> or even <strong>y</strong>).</p>
+<p><strong>Compressed EC point</strong> is an EC point {<strong>x</strong>, <strong>y</strong>} represented in its shorter form {<strong>x</strong>, <strong>odd</strong> / <strong>even</strong>}. ECC <strong>public keys</strong> are EC points, so they can also be compressed in the same way.</p>
+<p>To <strong>decompress a point</strong>, we can calculate its two possible <strong>y</strong> coordinates by the formulas:</p>
+<ul>
+<li><strong>y1</strong> = mod_sqrt(x3 + <strong>a</strong>x + <strong>b</strong>, <strong>p</strong>)</li>
+<li><strong>y2</strong> = <strong>p</strong> - mod_sqrt(x3 + <strong>a</strong>x + <strong>b</strong>, <strong>p</strong>)</li>
+</ul>
+<p>Then we take the <strong>odd</strong> or <strong>even</strong> from the above coordinates (according to the additional parity bit in the compressed representation).</p>
+<p>The <strong>modular square root</strong> (mod_sqrt) can be calculated using the <a href="https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks\_algorithm" target="_blank">Tonelli–Shanks algorithm</a>.</p>
+<p>Let's take an <strong>example</strong>: at the elliptic curve y2 ≡ x3 + <em><strong>7</strong></em> (mod <strong>17</strong>) the point <strong>P</strong> {<strong>10</strong>, <strong>15</strong>} can be <strong>compressed</strong> as <strong>C</strong> {<strong>10</strong>, <strong>odd</strong>}. For <strong>decompression</strong>, we first calculate the two possible <strong>y</strong> coordinates for <strong>x</strong> = <strong>10</strong> using the above formulas: y1 = 2 and y2 = 15. Then we choose the <strong>odd</strong> one: <strong>y</strong> = <strong>15</strong>. The decompressed point is {<strong>10</strong>, <strong>15</strong>}.</p>
+<h3 id="compressing-a-ec-point--public-key---example-in-python"><a name="compressing-a-ec-point--public-key---example-in-python" class="plugin-anchor" href="#compressing-a-ec-point--public-key---example-in-python"><i class="fa fa-link" aria-hidden="true"></i></a>Compressing a EC Point / Public Key - Example in Python</h3>
+<p>The code below implements <strong>public key compression</strong> and <strong>decompression</strong> in Python. It uses a library called <code>nummaster</code> for the "<em><strong>modular square root</strong></em>" function, which is unavailable in Python. First install the <code>nummaster</code> package:</p>
+<pre><code class="lang-python">pip install nummaster
+</code></pre>
+<p>Now implement the EC point <strong>compression</strong> and <strong>decompression</strong> functions in Python:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> nummaster.basic <span class="hljs-keyword">import</span> sqrtmod
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">compress_point</span>(<span class="hljs-params">point</span>):
+    <span class="hljs-keyword">return</span> (point[<span class="hljs-number">0</span>], point[<span class="hljs-number">1</span>] % <span class="hljs-number">2</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">uncompress_point</span>(<span class="hljs-params">compressed_point, p, a, b</span>):
+    x, is_odd = compressed_point
+    y = sqrtmod(<span class="hljs-built_in">pow</span>(x, <span class="hljs-number">3</span>, p) + a * x + b, p)
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">bool</span>(is_odd) == <span class="hljs-built_in">bool</span>(y &amp; <span class="hljs-number">1</span>):
+        <span class="hljs-keyword">return</span> (x, y)
+    <span class="hljs-keyword">return</span> (x, p - y)
+</code></pre>
+<p>Finally, compress and decompress the point {10, 15} on the curve y2 ≡ x3 + <em><strong>7</strong></em> (mod <strong>17</strong>), just as an example:</p>
+<pre><code class="lang-python">p, a, b = <span class="hljs-number">17</span>, <span class="hljs-number">0</span>, <span class="hljs-number">7</span>
+point = (<span class="hljs-number">10</span>, <span class="hljs-number">15</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f"original point = <span class="hljs-subst">{point}</span>"</span>)
+compressed_p = compress_point(point)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f"compressed = <span class="hljs-subst">{compressed_p}</span>"</span>)
+restored_p = uncompress_point(compressed_p, p, a, b)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f"uncompressed = <span class="hljs-subst">{restored_p}</span>"</span>)
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/EC-point-compression-decompression-in-Python" target="_blank">https://repl.it/@nakov/EC-point-compression-decompression-in-Python</a>. The output of the above code is:</p>
+<pre><code>original point = (10, 15)
+compressed = (10, 1)
+uncompressed = (10, 15)
+</code></pre><h3 id="elliptic-curve-domain-parameters-for-ecc"><a name="elliptic-curve-domain-parameters-for-ecc" class="plugin-anchor" href="#elliptic-curve-domain-parameters-for-ecc"><i class="fa fa-link" aria-hidden="true"></i></a>Elliptic Curve Domain Parameters for ECC</h3>
+<p>ECC elliptic curves are described by a set of elliptic curve <a href="https://en.wikipedia.org/wiki/Elliptic-curve\_cryptography#Domain\_parameters" target="_blank"><strong>domain parameters</strong></a>, such as the curve equation parameters, the field parameters and the generator point coordinates. These parameters are specified in <strong>cryptography standards</strong>, such as:</p>
+<ul>
+<li><a href="http://www.secg.org/sec2-v2.pdf" target="_blank">SEC 2: Recommended Elliptic Curve Domain Parameters</a></li>
+<li><a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf" target="_blank">NIST FIPS PUB 186-4 Digital Signature Standard (DSS)</a></li>
+<li><a href="https://tools.ietf.org/html/rfc5639" target="_blank">Brainpool ECC Standard (RFC-5639)</a></li>
+</ul>
+<p>These standards define the parameters for a set of <strong>named curves</strong>, such as <code>secp256k1</code>, <code>P-521</code> and <code>brainpoolP512t1</code>. The elliptic curves over finite fields, described in these crypto standards are well researched and analysed by cryptographers and are considered to have certain <strong>security strength</strong>, also described in these standards.</p>
+<p>Some cryptographers (like <a href="https://en.wikipedia.org/wiki/Daniel\_J.\_Bernstein" target="_blank">Daniel Bernstein</a>) believe that most of the curves, described in the official crypto-standards are "<strong>unsafe</strong>" and define their own <strong>crypto-standards</strong>, which consider the <strong>ECC security</strong> in much broader level.</p>
+<p>The Bernstein's <a href="https://safecurves.cr.yp.to" target="_blank"><strong>SafeCurves</strong></a> standard lists the curves, which are <strong>safe</strong> according to a set of ECC security requirements. The standard is available at <a href="https://safecurves.cr.yp.to" target="_blank">https://safecurves.cr.yp.to</a>.</p>
+<h3 id="choosing-an-elliptic-curve-for-ecc"><a name="choosing-an-elliptic-curve-for-ecc" class="plugin-anchor" href="#choosing-an-elliptic-curve-for-ecc"><i class="fa fa-link" aria-hidden="true"></i></a>Choosing an Elliptic Curve for ECC</h3>
+<p>To use ECC all communicating parties should agree on the EC domain parameters (all the elements defining the elliptic curve). It is highly <strong>recommended</strong> to use a <strong>named curve</strong> from the above standards with <strong>at least 256-bit</strong> modulus. Standard curves are well studied by cryptographers to guarantee their security strength.</p>
+<p><strong>Don't use own elliptic curve</strong> (with non-standard domain parameters), unless you are experienced cryptographer and you know very well what are you doing! Many curves have <strong>weaknesses</strong>, which make the ECDLP problem not so difficult and compromise the security. If you are afraid of backdoored curves, use a standard safe curve from the <a href="https://safecurves.cr.yp.to" target="_blank">SafeCurves list</a>.</p>
+<h3 id="named-curves---example"><a name="named-curves---example" class="plugin-anchor" href="#named-curves---example"><i class="fa fa-link" aria-hidden="true"></i></a>Named Curves - Example</h3>
+<p>In ECC cryptography, <strong>elliptic curves over the finite fields</strong> are used, where the modulus <em><strong>p</strong></em> and the order <em><strong>n</strong></em> are very large integers (<em><strong>n</strong></em> is usually prime number), e.g. <strong>256-bit</strong> number. The <strong>finite field</strong> of the curve is of square form of size <strong>p</strong> x <strong>p</strong>, which is incredibly large, and all possible EC points on the curve (the order of the curve <em><strong>n</strong></em>) is also a very big integer, e.g. 256-bit. For example, the <strong>domain parameters</strong> for the curve <strong><code>secp256k1</code></strong> (the Bitcoin curve) are defined as follows:</p>
+<ul>
+<li><em><strong>p</strong></em> (modulus) = <code>0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F</code></li>
+<li><em><strong>n</strong></em> (order; size; the count of all possible EC points) = <code>0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141</code></li>
+<li><em><strong>a</strong></em> (the constant "a" in y^2 ≡ x^3 + a*x + b (mod p)) = <code>0x0000000000000000000000000000000000000000000000000000000000000000</code></li>
+<li><em><strong>b</strong></em> (the constant "b" in y^2 ≡ x^3 + a*x + b (mod p)) = <code>0x0000000000000000000000000000000000000000000000000000000000000007</code></li>
+<li><em><strong>g</strong></em> (the curve generator point G {x, y}) = (<code>0x79BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798</code>, <code>0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8</code>)</li>
+<li><em><strong>h</strong></em> (cofactor, typically 1) = 01</li>
+</ul>
+<p>We already know that a 256-bit curve (which means that <em><strong>p</strong></em> and <strong>n</strong> are 256-bit numbers) provides 128-bit <strong>security strength</strong>, which means that to find the private key from the public key or signature, the best known non-quantum algorithm will take approximately 2128 operations. The above-defined ECC curve <code>secp256k1</code> has 128-bit strength.</p>
+<h3 id="python-examples-with-the-secp256k1-curve"><a name="python-examples-with-the-secp256k1-curve" class="plugin-anchor" href="#python-examples-with-the-secp256k1-curve"><i class="fa fa-link" aria-hidden="true"></i></a>Python Examples with the "secp256k1" Curve</h3>
+<p>Now let's put in action the above domain parameters for the <code>secp256k1</code> curve. Let's define the EC and calculate the public key for certain private key:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> tinyec.ec <span class="hljs-keyword">import</span> SubGroup, Curve
+
+<span class="hljs-comment"># Domain parameters for the `secp256k1` curve</span>
+<span class="hljs-comment"># (as defined in http://www.secg.org/sec2-v2.pdf)</span>
+name = <span class="hljs-string">'secp256k1'</span>
+p = <span class="hljs-number">0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f</span>
+n = <span class="hljs-number">0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141</span>
+a = <span class="hljs-number">0x0000000000000000000000000000000000000000000000000000000000000000</span>
+b = <span class="hljs-number">0x0000000000000000000000000000000000000000000000000000000000000007</span>
+g = (<span class="hljs-number">0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798</span>,
+     <span class="hljs-number">0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8</span>)
+h = <span class="hljs-number">1</span>
+curve = Curve(a, b, SubGroup(p, g, n, h), name)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'curve:'</span>, curve)
+
+privKey = <span class="hljs-built_in">int</span>(<span class="hljs-string">'0x51897b64e85c3f714bba707e867914295a1377a7463a9dae8ea6a8b914246319'</span>, <span class="hljs-number">16</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'privKey:'</span>, <span class="hljs-built_in">hex</span>(privKey)[<span class="hljs-number">2</span>:])
+
+pubKey = curve.g * privKey
+pubKeyCompressed = <span class="hljs-string">'0'</span> + <span class="hljs-built_in">str</span>(<span class="hljs-number">2</span> + pubKey.y % <span class="hljs-number">2</span>) + <span class="hljs-built_in">str</span>(<span class="hljs-built_in">hex</span>(pubKey.x)[<span class="hljs-number">2</span>:])
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'pubKey:'</span>, pubKeyCompressed)
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/secp256k1-curve-in-Python" target="_blank">https://repl.it/@nakov/secp256k1-curve-in-Python</a>. The above code defines the <code>secp256k1</code> curve through its domain parameters and calculates a <strong>public key</strong> by given <strong>private key</strong>. This is done by multiplying the curve generator <strong>G</strong> by the private key. The result is correct, like it is visible from the program output:</p>
+<pre><code>curve: "secp256k1" =&gt; y^2 = x^3 + 0x + 7 (mod 115792089237316195423570985008687907853269984665640564039457584007908834671663)
+privKey: 51897b64e85c3f714bba707e867914295a1377a7463a9dae8ea6a8b914246319
+pubKey: 02f54ba86dc1ccb5bed0224d23f01ed87e4a443c47fc690d7797a13d41d2340e1a
+</code></pre><p>The public key is compressed and encoded in the standard format (encode the <strong>y</strong> coordinate as prefix <code>02</code> or <code>03</code>).</p>
+<h2 id="edwards-curves"><a name="edwards-curves" class="plugin-anchor" href="#edwards-curves"><i class="fa fa-link" aria-hidden="true"></i></a>Edwards Curves</h2>
+<p>Elliptic curves in the elliptic curve cryptography (ECC) may be presented in several <strong>forms</strong> (representations), which are proven to be birationally equivalent (isomorphic):</p>
+<ul>
+<li><strong>Weierstrass form</strong> of elliptic curve:<ul>
+<li>y2 = x3 + _<strong>a</strong>_x + <em><strong>b</strong></em></li>
+<li>Example Weierstrass curve used in ECC is <code>secp256k1</code>, which has the form y2 = x3 + <em><strong>7</strong></em></li>
+</ul>
+</li>
+<li><strong>Montgomery form</strong> of elliptic curve:<ul>
+<li>_<strong>B</strong>_y2 = x3 + _<strong>A</strong>_x2 + x</li>
+<li>Example Montgomery curve used in ECC is <code>Curve25519</code>, which has the form y2 = x3 + _<strong>486662</strong>_x2 + x</li>
+</ul>
+</li>
+<li><strong>Edwards form</strong> of elliptic curve:<ul>
+<li>x2 + y2 = 1 + _<strong>d</strong>_x2y2</li>
+<li>Example Edwards curve used in ECC is <code>Curve448</code>, which has the form x2 + y2 = 1 - _<strong>39081</strong>_x2y2</li>
+</ul>
+</li>
+</ul>
+<p>For performance reasons elliptic curve cryptography (ECC) sometimes uses <a href="https://en.wikipedia.org/wiki/Edwards\_curve" target="_blank"><strong>Edwards curves</strong></a>, which are elliptic curves in the following form:</p>
+<ul>
+<li>x2 + y2 = 1 + _<strong>d</strong>_x2y2</li>
+</ul>
+<p>For example, if <em><strong>d</strong></em> = 300, the Edwards curve x2 + y2 = 1 + _<strong>300</strong>_x2y2 looks like this:</p>
+<p><img src="../.gitbook/assets/edwards-curve.png" alt=""></img></p>
+<p>Every <strong>Edwards curve</strong> is birationally equivalent to an <strong>elliptic curve in Weierstrass form</strong> (y2 = x3 + _<strong>a</strong>_x + <em><strong>b</strong></em>) and thus has the same properties like the classical elliptic curves.</p>
+<p><strong>Edwards curves over a finite prime field 𝔽p</strong> (where <strong>p</strong> is large prime number) provide fast integer to EC point multiplication, which has similar cryptographic properties like the classical elliptic curves, and the <strong>ECDLP</strong> problem has the same computational difficulty, suitable for cryptographic purposes.</p>
+<p><strong>Examples</strong> of well-known cryptographic elliptic <strong>Edwards curves</strong> over finite prime fields are: <strong>Curve1174</strong> (251-bit), <strong>Curve25519</strong> (255-bit), <strong>Curve383187</strong> (383-bit), <strong>Curve41417</strong> (414-bit), <strong>Curve448</strong> (448-bit), <strong>E-521</strong> (521-bit) and others.</p>
+<h3 id="curve25519-x25519-and-ed25519"><a name="curve25519-x25519-and-ed25519" class="plugin-anchor" href="#curve25519-x25519-and-ed25519"><i class="fa fa-link" aria-hidden="true"></i></a>Curve25519, X25519 and Ed25519</h3>
+<p>With carefully selected curve parameters, the <strong>Edwards curves over finite fields</strong> can implement ECC cryptosystems capable to provide ECDH <strong>key agreement</strong> schemes, <strong>digital signatures</strong> and <strong>hybrid encryption</strong> schemes, with very <strong>high performance</strong>.</p>
+<p>For example, the <a href="https://en.wikipedia.org/wiki/Curve25519" target="_blank"><code>Curve25519</code></a> is the <strong>Edwards curve</strong>, defined by the following elliptic curve equation in <a href="https://en.wikipedia.org/wiki/Montgomery\_curve" target="_blank"><strong>Montgomery form</strong></a>:</p>
+<ul>
+<li>y2 = x3 + _<strong>486662</strong>_x2 + x</li>
+</ul>
+<p>over the finite prime field <strong>𝔽p</strong>, where <em><strong>p</strong></em> = 2255 - 19 (the curve is 255-bit).</p>
+<p>In fact, the above equation does not match directly the Edwards curve equation, but it is proven to be birationally equivalent to the following <strong>twisted Edwards curve</strong> (known as <strong>edwards25519</strong>):</p>
+<ul>
+<li>-x2 + y2 = 1 + _<strong>37095705934669439343138083508754565189542113879843219016388785533085940283555</strong>_x2y2</li>
+</ul>
+<p>The elliptic curve <strong>Curve25519</strong> consists of all points {<strong>x</strong>, <strong>y</strong>} with integer coordinates, defined by the modular equation:</p>
+<ul>
+<li>y2 ≡ x3 + _<strong>486662</strong>_x2 + x (mod <em><strong>2255 - 19</strong></em>)</li>
+</ul>
+<p>The above equation has its equivalent in the classical <strong>Weierstrass form</strong> for the elliptic curves (y2 = x3 + _<strong>a</strong>_x + <em><strong>b</strong></em>), but the above form is designed especially for speed optimizations.</p>
+<p>The <strong>Curve25519</strong> is carefully engineered, by a team of cryptographers, led by Daniel Bernstein, at several levels of design and implementation to achieve <strong>very high speeds</strong> without compromising security.</p>
+<p>The <strong>Curve25519</strong> has <strong>order</strong> (in its underlying cyclic group) <strong>n</strong> = 2252 + 0x14def9dea2f79cd65812631a5cf5d3ed and <strong>cofactor</strong> <strong>h</strong> = 8 and provides <a href="http://safecurves.cr.yp.to/rho.html" target="_blank"><strong>125.8-bit security</strong> strength</a> (it is sometimes referred as ~ 128-bit security). The <strong>private keys</strong> for the Curve25519 are 251 bits and are usually encoded as <strong>256-bit integers</strong> (32 bytes, 64 hex digits). The <strong>public keys</strong> are typically encoded also as <strong>256-bit integers</strong> (255-bit y-coordinate + 1-bit x-coordinate) and this is very convenient for developers.</p>
+<p>Based on the <strong>Curve25519</strong> an <strong>ECDH function</strong> is derived, called <a href="https://en.wikipedia.org/wiki/Curve25519" target="_blank"><strong>X25519</strong></a> (used for elliptic-key Diffie–Hellman key agreement schemes) and fast <strong>digital signature scheme</strong> is derived, called <a href="https://en.wikipedia.org/wiki/EdDSA" target="_blank"><strong>Ed25519</strong></a>, based on the the <strong>EdDSA</strong> algorithm. These schemes are <strong>very fast</strong>, because they involve multiplications and other simple operations with small integers (mostly 32-bit arithmetic), which can be efficiently implemented in the modern microprocessors (CPUs). Note that X25519 and Ed25519 use <strong>different encodings for the EC points</strong>, so they are not directly compatible and require conversion if you want to use the same public-private key pairs.</p>
+<h3 id="curve448-x448-and-ed448"><a name="curve448-x448-and-ed448" class="plugin-anchor" href="#curve448-x448-and-ed448"><i class="fa fa-link" aria-hidden="true"></i></a>Curve448, X448 and Ed448</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Curve448" target="_blank"><code>Curve448</code></a> (<strong>Curve448-Goldilocks</strong>) is an untwisted <strong>Edwards curve</strong>, defined by the equation:</p>
+<ul>
+<li>x2 + y2 = 1 - _<strong>39081</strong>_x2y2</li>
+</ul>
+<p>over the finite prime field <strong>𝔽p</strong>, where <em><strong>p</strong></em> = 2448 - 2224 - 1. It has <strong>order</strong> of <strong>n</strong> = 2446 - 0x8335dc163bb124b65129c96fde933d8d723a70aadc873d6d54a7bb0d and <strong>cofactor</strong> <strong>h</strong> = 4. Like any other Edwards curve, the <strong>Curve448</strong> has equivalent in the <strong>Weierstrass form</strong> (y2 = x3 + _<strong>a</strong>_x + <em><strong>b</strong></em>), but the above Edwards form provides significant optimizations in the EC point calculations and improved performance.</p>
+<p>The <strong>Curve448</strong> provides <strong>~ 224-bit security</strong> level (more precisely <a href="http://safecurves.cr.yp.to/rho.html" target="_blank"><strong>222.8-bits</strong></a>). The <strong>private keys</strong> for the Curve448 are 446 bits and are typically encoded as <strong>448-bit integers</strong> (56 bytes, 112 hex digits). The <strong>public keys</strong> are also encoded as <strong>448-bit integers</strong>.</p>
+<p>The <strong>Curve448</strong> is suitable for ECDH <strong>key agreement</strong> (ECDH function, known as <a href="https://tools.ietf.org/html/rfc7748#section-5" target="_blank"><strong>X448</strong></a>) and for fast <strong>digital signatures</strong> (EdDSA algorithm, known as <a href="https://tools.ietf.org/html/rfc8032#section-5.2" target="_blank"><strong>Ed448</strong></a> or <strong>edwards448</strong>). Note that X448 and Ed448 use <strong>different encodings for the EC points</strong>, so they are not directly compatible and require conversion if you want to use the same public-private key pairs.</p>
+<h3 id="curve25519-or-curve448"><a name="curve25519-or-curve448" class="plugin-anchor" href="#curve25519-or-curve448"><i class="fa fa-link" aria-hidden="true"></i></a>Curve25519 or Curve448?</h3>
+<p>Prefer <strong>Curve448</strong> to <strong>Curve25519</strong> when your application needs a <strong>higher level of security</strong>, but have in mind that <strong>Curve448</strong> is about 3 times <strong>slower</strong> than <strong>Curve25519</strong> and uses longer key length and signature length.</p>
+<p>Prefer <strong>Curve25519</strong> to <strong>Curve448</strong> when you need better performance and smaller keys and signatures.</p>
+<p>Learn more about the <strong>Curve25519</strong> and <strong>Curve448</strong> from the technical perspective from:</p>
+<ul>
+<li><a href="https://tools.ietf.org/html/rfc7748" target="_blank"><strong>RFC 7748</strong> - Elliptic Curves for Security</a> - the Internet technical standard for implementing the <strong>X25519</strong> and <strong>X448</strong> key exchange protocols.</li>
+<li><a href="https://tools.ietf.org/html/rfc8032" target="_blank"><strong>RFC 8032</strong> - Edwards-Curve Digital Signature Algorithm (EdDSA)</a> - the Internet technical standard for implementing the the <strong>Ed25519</strong> and <strong>EdDSA-Ed448</strong> signature schemes.</li>
+</ul>
+<p>In the general case, have in mind that <strong>Curve25519 is faster</strong> than <strong>secp256k1</strong> and the other 256-bit standard NIST curves and is considered more secure, so it is the recommended choice for ~ 128-bit security. Similarly, the <strong>Curve448</strong> has better performance than the classical curves with similar key length, so it is the recommended curve for ~ 224-bit security.</p>
+<h3 id="curve25519---example-in-python"><a name="curve25519---example-in-python" class="plugin-anchor" href="#curve25519---example-in-python"><i class="fa fa-link" aria-hidden="true"></i></a>Curve25519 - Example in Python</h3>
+<p>To demonstrate the elliptic curve <strong>Curve25519</strong> in practice, we shall first install the <a href="https://github.com/pyca/pynacl" target="_blank"><code>pynacl</code></a> crypto library for Python:</p>
+<pre><code class="lang-python">pip install pynacl
+</code></pre>
+<p>The <a href="https://pynacl.readthedocs.io" target="_blank">Python binding to the Networking and Cryptography (NaCl) library (PyNaCl)</a> implements many modern cryptographic algorithms, including the EC point arithmetic over the <strong>Curve25519</strong> and <strong>Ed25519</strong> signatures.</p>
+<p>Next, generate a random 252-bit <strong>private key</strong> and its corresponding <strong>public key</strong> (EC point) on the <strong>Curve25519</strong> (both keys will be encoded internally as <strong>256-bit integers</strong>):</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> nacl.public <span class="hljs-keyword">import</span> PrivateKey
+<span class="hljs-keyword">import</span> binascii
+
+privKey = PrivateKey.generate()
+pubKey = privKey.public_key
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"privKey:"</span>, binascii.hexlify(<span class="hljs-built_in">bytes</span>(privKey)))
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"pubKey: "</span>, binascii.hexlify(<span class="hljs-built_in">bytes</span>(pubKey)))
+</code></pre>
+<p>Run the above code example: <a href="https://repl.it/@nakov/Curve25519-in-Python" target="_blank">https://repl.it/@nakov/Curve25519-in-Python</a>. The sample output from the above code shows that both the <strong>public</strong> and the <strong>private</strong> (secret) keys on the <strong>Curve25519</strong> are encoded as <strong>256-bit integers</strong> (64 hex digits, 32 bytes) and this simplifies the developers:</p>
+<pre><code>privKey: b'8175f7cd524a59b6efbd447985ce5d97c546b319521ff236203970e50052c641'
+pubKey:  b'cf97a96568fee4ddb232f617fd5b9df2d2e5b90e68ba7f6d5129ea92d7d8f95e'
+</code></pre><p>In fact, different crypto libraries may use different <strong>key encodings</strong> and typically X25519 ECDH keys are encoded differently than Ed25519 keys (Montgomery curve coordinates vs. twisted Edwards curve coordinates).</p>
+</body></html>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="exercises-rsa-encrypt-decrypt.html" class="navigation navigation-prev " aria-label="Previous page: Exercises: RSA Encrypt / Decrypt">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ecdh-key-exchange.html" class="navigation navigation-next " aria-label="Next page: ECDH Key Exchange">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Elliptic Curve Cryptography (ECC)","level":"1.10.4","depth":2,"next":{"title":"ECDH Key Exchange","level":"1.10.5","depth":2,"path":"asymmetric-key-ciphers/ecdh-key-exchange.md","ref":"asymmetric-key-ciphers/ecdh-key-exchange.md","articles":[]},"previous":{"title":"Exercises: RSA Encrypt / Decrypt","level":"1.10.3","depth":2,"path":"asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.md","ref":"asymmetric-key-ciphers/exercises-rsa-encrypt-decrypt.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","meta","anchors","expandable-chapters-small","katex","sitemap","scripts","adsense"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"meta":{"name":"","content":"","data":[]},"scripts":{"files":["./assets/js/repl.it-code-runner.js"]},"search":{},"adsense":{"client":"ca-pub-6178635866936443"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"meta-single":{"name":"google-site-verification","content":"66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://cryptobook.xwave.app/"},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-11309924-27"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":48,"bottom":48},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"📄 Download PDF":"dist/cryptobook.pdf","📚 Download EPUB":"dist/cryptobook.epub","📱 Download MOBI":"dist/cryptobook.mobi"}},"gitbook":"*"},"file":{"path":"asymmetric-key-ciphers/elliptic-curve-cryptography-ecc.md","mtime":"2025-09-06T17:42:10.276Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-09-06T18:31:27.936Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-scripts/8e9b40f9a31c4018d1a4d23d8ad10c11-repl.it-code-runner.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/@honkit/honkit-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
