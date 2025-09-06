@@ -25,7 +25,7 @@ The **Argon2** function has several variants:
 
 You can **play with the Argon2** password to key derivation function online here: [http://antelle.net/argon2-browser](http://antelle.net/argon2-browser).
 
-![](../.gitbook/assets/argon2-online.png)
+![](../assets/argon2-online.png)
 
 ## Argon2 Calculation in Python - Example
 

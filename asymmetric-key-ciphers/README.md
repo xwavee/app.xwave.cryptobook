@@ -33,13 +33,13 @@ To overcome the above limitations and to allow encrypting messages of any size, 
 
 This is how a large document or file can be **encrypted** by combining **public-key cryptography** and **symmetric crypto algorithm**:
 
-![](<../.gitbook/assets/hybrid-encryption (1).png>)
+![](<../assets/hybrid-encryption (1).png>)
 
 In the above diagram the encrypted symmetric key is known as **KEM block** (encapsulated key, with public key encryption) and the encrypted data file is known as **DEM block** (encapsulated data, with symmetric encryption). The encrypted message consists of these two blocks together (encapsulated key + encapsulated data).
 
 This is the corresponding **decryption** process (decrypt an encrypted large document using **public-key cryptography** and **symmetric crypto algorithm**):
 
-![](../.gitbook/assets/hybrid-decryption.png)
+![](../assets/hybrid-decryption.png)
 
 Examples of such asymmetric encryption schemes are: [**RSA-OAEP**](https://en.wikipedia.org/wiki/Optimal\_asymmetric\_encryption\_padding), [**RSA-KEM**](https://tools.ietf.org/html/rfc5990#appendix-A) and [**ECIES-KEM**](https://www.w3.org/TR/xmlsec-generic-hybrid/#sec-ecies-kem).
 

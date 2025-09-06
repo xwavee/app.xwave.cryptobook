@@ -19,7 +19,7 @@ into a large amount of **pseudorandomness**, typically for use in cryptosystems.
 
 **PRNGs** are functions that start from some **initial entropy** (seed) and calculate the next random number by some calculation which is unpredictable without knowing the seed. Such calculations are called **pseudo-random functions**.
 
-![](../.gitbook/assets/pseudo-random-function.png)
+![](../assets/pseudo-random-function.png)
 
 Pseudo-random functions (which are not secure for cryptography) usually use an internal **state**. At the start, the state is initialized by an **initial seed**. When the **next random number** is generated, it is calculated from the internal state (using some computation or formula), then the internal **state** of the pseudo-random function is changed (using some computation or formula). When the **next random number** is generated, it is again calculated based on the internal **state** of the function and this state is again changed and so on.
 
@@ -55,7 +55,7 @@ Entropy can be collected from many **hard-to-predict events** in the computer: k
 
 Application software can **collect entropy explicitly**, by asking the user to move the mouse, type something at the keyboard, say something at the microphone or move in front of the camera for a while. A great example of this is the [**bitaddress.org**](https://www.bitaddress.org) wallet app, which combines mouse moves with keyboard events to collect entropy:
 
-![](../.gitbook/assets/bitaddress-entropy.png)
+![](../assets/bitaddress-entropy.png)
 
 Once enough entropy is collected, it is used to initialize the random generator.
 
@@ -102,7 +102,7 @@ The above code will print **two equal numbers**, both depending on the current t
 
 If you run this code through a **debugger** or in a slow environment, the produced numbers may be **different**, due to **time change** between the two random generation executions. Typically the Python interpreter at the **interactive console** produces two **different numbers**. To obtain the result, similar to the above, first save the code in a script file (e.g. `insecure-rnd.py`) and then execute the Python script file:
 
-![](../.gitbook/assets/insecure-rnd-python-demo.png)
+![](../assets/insecure-rnd-python-demo.png)
 
 Basically, when the initial random seed is initialized with a predictable number like the current time, crackers can **try all possibilities within the range of +/- 5 seconds** and find the exact initial seed and then compromise the security.
 

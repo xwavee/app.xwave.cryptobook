@@ -33,7 +33,7 @@ This is what developers should know about the "[**block cipher modes of operatio
 
 The diagram below illustrates how portions (blocks) of the plaintext are encrypted one after another in the **CTR block mode** of operation using a block cipher:
 
-![](../.gitbook/assets/ctr-block-mode.png)
+![](../assets/ctr-block-mode.png)
 
 For each block in CTR mode a new unpredictable **keystream block** is generated based on the **initial vector** (IV, sometimes called "nonce") + the **current counter** (01, 02, 03, ...) + the secret **encryption key** and the **input block** is merged by **XOR** with the current keystream block to produce the **output block**. In the CTR mode the final portion of the input data can be shorter then the cipher block size, so padding is not needed. The input data (before encryption) and the output data (after encryption) have the **same length**.
 
@@ -41,7 +41,7 @@ For each block in CTR mode a new unpredictable **keystream block** is generated 
 
 The following diagram explains visually how the **GCM block mode** (Galois/Counter Mode) works:
 
-![](../.gitbook/assets/gcm-galois\_counter\_mode.png)The **GCM** mode uses a **counter**, which is increased for each block and calculated a message **authentication tag** (MAC code) after each processed block. The final authentication tag is calculated from the last block. Like all counter modes, GCM works as a **stream cipher**, and so it is essential that a **different IV** is used at the start for each stream that is encrypted.
+![](../assets/gcm-galois\_counter\_mode.png)The **GCM** mode uses a **counter**, which is increased for each block and calculated a message **authentication tag** (MAC code) after each processed block. The final authentication tag is calculated from the last block. Like all counter modes, GCM works as a **stream cipher**, and so it is essential that a **different IV** is used at the start for each stream that is encrypted.
 
 ### Choosing a Cipher Block Mode
 

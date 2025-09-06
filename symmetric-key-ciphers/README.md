@@ -8,7 +8,7 @@
 
 When the input data is encrypted, it is transformed to **encrypted ciphertext** and when the ciphertext is decrypted, it is transformed back to the original input data.
 
-![](../.gitbook/assets/symmetric-key-encryption-decryption.gif)
+![](../assets/symmetric-key-encryption-decryption.gif)
 
 ## Symmetric Encryption Uses a Set of Algorithms
 

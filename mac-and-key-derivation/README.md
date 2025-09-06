@@ -44,7 +44,7 @@ A sample scenario for using MAC codes is like this:
 * We want to be sure that the **msg** is **not tampered**, which means that both the **key** and **msg** are correct and match the MAC code.
 * In case of **tampered message**, the MAC code will be incorrect.
 
-![](../.gitbook/assets/mac-message-authentication-code.png)
+![](../assets/mac-message-authentication-code.png)
 
 ## Authenticated Encryption: Encrypt / Decrypt Messages using MAC
 

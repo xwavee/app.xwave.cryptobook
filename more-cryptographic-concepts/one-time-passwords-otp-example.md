@@ -62,7 +62,7 @@ OTP code: 284911
 
 You can install Google Authenticator from [Google Play](https://play.google.com) or [App Store](http://appstore.com) and scan the QR code below:
 
-![OTP Auth](../.gitbook/assets/one-time-passwords-otp-example-qr-code.png)
+![OTP Auth](../assets/one-time-passwords-otp-example-qr-code.png)
 
 Example validation check:
 

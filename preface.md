@@ -26,7 +26,7 @@ For the same reasons, which drive the people to build **Wikipedia** and share kn
 
 Dr. **Svetlin Nakov** ([http://www.nakov.com](http://www.nakov.com)) is a passionate **software engineer**, inspirational **technical trainer** and tech **entrepreneur** from Bulgaria, experienced in broad range of languages, software technologies and platforms. He is co-founder of several highly successful **tech startups** and non-profit organizations and is a **technical advisor** in several successful blockchain **ICO projects**. Svetlin is training, innovation and inspiration manager at [**SoftUni**](https://softuni.org) - the largest tech education provider in South-Eastern Europe.
 
-![](.gitbook/assets/svetlin-nakov-photo-face.jpg)
+![](assets/svetlin-nakov-photo-face.jpg)
 
 Svetlin Nakov has 20+ years of technical background as software engineer, software project manager, consultant, **trainer** and **entrepreneur** with rich experience with .NET, Java EE, information systems, databases, cryptography and software security, Web development, JavaScript, PHP, Python and software engineering. He is the leading **author of 15 books** on computer programming, software technologies, cryptography, C#, Java, JavaScript, Python and tens of technical and scientific publications. He is a big fan of **knowledge sharing** and is proud Wikipedia contributor, free books author and open-source supporter.
 
@@ -44,7 +44,7 @@ The book author **Svetlin Nakov** is involved with **applied cryptography** from
 
 The development of this book is supported by the [**Software University (SoftUni)**](https://softuni.org): the biggest and most respected training center for software engineering and digital skills in the South-Eastern Europe, which gives high-quality tech education, practical skills, profession and job to tens of thousands of young people.
 
-[![](.gitbook/assets/softuni-banner.jpg)](https://softuni.org)
+[![](assets/softuni-banner.jpg)](https://softuni.org)
 
 **SoftUni** teaches software engineers in the [**Software University**](https://softuni.org) program, creative and design in the [**SoftUni Creative**](https://creative.softuni.bg) program, digital marketing in the [**SoftUni Digital**](https://digital.softuni.bg) program, programming and tech skills for kids in the [**SoftUni Kids**](https://kids.softuni.bg) program, runs a high school for digital skills [**SoftUni Svetlina**](https://svetlina.softuni.bg) and shares knowledge and skills through the [**SoftUni Foundation**](http://softuni.foundation) and its [**SoftUni Free**](http://free.softuni.org) tech educational portal.
 

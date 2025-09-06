@@ -6,7 +6,7 @@
 
 Verifying the **integrity** of files / documents / messages. E.g. a **SHA256 checksum** may confirm that certain file is original (not modified after its checksum was calculated).
 
-![](../.gitbook/assets/checksum-download-openssl.png)
+![](../assets/checksum-download-openssl.png)
 
 The above screenshot demonstrates how the **SHA256 checksums** ensure the **integrity** of the OpenSSL files at the official Web site of OpenSSL.
 
@@ -14,7 +14,7 @@ The above screenshot demonstrates how the **SHA256 checksums** ensure the **inte
 
 Storing **passwords** and verification of passwords. Instead of keeping a plain-text password in the database, developers usually keep **password hashes** or more complex values derived from the password (e.g. **Scrypt**-derived value).
 
-![](../.gitbook/assets/linux-shadow-encrypted-passwords.png)
+![](../assets/linux-shadow-encrypted-passwords.png)
 
 The above example comes from the `/etc/shadow` file in a modern Linux system. The above passwords are stored as multiple-round SHA-512 hashes with salt.
 
@@ -24,7 +24,7 @@ Generate an (**almost**) **unique ID** of certain document / message. Cryptograp
 
 Usually a document is **hashed** and the **document ID** (hash value) is used later to prove the existence of the document, or to retrieve the document from a storage system. Example of hash-based unique IDs are the commit hashes in **Git** and **GitHub**, based on the content of the commit (e.g. `3c3be25bc1757ca99aba55d4157596a8ea217698`) and the **Bitcoin** addresses (e.g. `1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2`).
 
-![](../.gitbook/assets/git-commit-logs.png)
+![](../assets/git-commit-logs.png)
 
 In the above example the SHA-1 unique ID identifies a certain commit in GitHub.
 

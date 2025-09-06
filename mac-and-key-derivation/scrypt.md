@@ -41,7 +41,7 @@ In the **MyEtherWallet** crypto wallet, the default Scrypt parameters are N=8192
 
 You can play with **Scrypt** key derivation online here: [https://8gwifi.org/scrypt.jsp](https://8gwifi.org/scrypt.jsp).
 
-![](../.gitbook/assets/scrypt-key-derivation.png)
+![](../assets/scrypt-key-derivation.png)
 
 ## Scrypt Calculation in Python - Example
 

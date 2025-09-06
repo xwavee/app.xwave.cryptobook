@@ -34,7 +34,7 @@ Using **HKDF (HMAC-based key derivation)** for key derivation is **less secure**
 
 To get a better idea of **HMAC** and how it is calculated, try this online tool: [https://www.freeformatter.com/hmac-generator.html](https://www.freeformatter.com/hmac-generator.html)
 
-![](../.gitbook/assets/hmac-online.png)
+![](../assets/hmac-online.png)
 
 Play with calculating **HMAC('sample message', '12345', 'SHA256')**:
 

@@ -10,7 +10,7 @@ Let's first introduce very shortly the basic **cryptography concepts**, that dev
 
 As a simple **example**, we shall demonstrate message **encryption** + **decryption** using the **AES** encryption algorithm. Play with this online tool: [https://aesencryption.net](https://aesencryption.net).
 
-![](.gitbook/assets/encrypt-decrypt-live-demo.jpg)
+![](assets/encrypt-decrypt-live-demo.jpg)
 
 We shall learn later that behind this simple **AES encryption**, there are **many algorithms and settings** hidden inside, like password to key-derivation function and its parameters, block cipher mode, cipher initial vector, message authentication code and others.
 

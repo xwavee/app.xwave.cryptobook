@@ -1266,17 +1266,17 @@
 <ol>
 <li><strong>Algorithm parameters</strong> are selected (e.g. AES, 128-bit, CTR mode + Scrypt + Scrypt parameters + MAC algorithm). These parameters can be <strong>hard-coded</strong> in the AES algorithm implementation source code or can be specified as input for the AES encrypt and decrypt. Always use the same parameters for encryption and decryption.</li>
 <li><p>The encryption <strong>key</strong> is derived from the encryption <strong>password</strong> using a key-derivation function (<strong>KDF</strong>), e.g. <strong>Scrypt</strong> (with certain parameters):</p>
-<p><img src="../.gitbook/assets/password-kdf-key.png" alt="" data-size="original"></img></p>
+<p><img src="../assets/password-kdf-key.png" alt="" data-size="original"></img></p>
 </li>
 <li><p>The <strong>AES</strong> encryption scheme takes as <strong>input</strong> the <strong>input msg</strong> + the encryption <strong>key</strong>. It produces as output the <strong>ciphertext</strong> + the randomly generated <strong>IV</strong> (128-bit salt) + the <strong>MAC</strong> code:</p>
-<p><img src="../.gitbook/assets/aes-input-output.png" alt="" data-size="original"></img></p>
+<p><img src="../assets/aes-input-output.png" alt="" data-size="original"></img></p>
 <ul>
 <li>In case of <strong>authenticated encryption</strong> (e.g. AES-GCM), the MAC is already calculated automatically during the AES encryption process.</li>
 <li><p>If the encryption scheme is <strong>not authenticated encryption</strong> (e.g. AER-CTR), the MAC code is not calculated automatically by the AES encryption process and should be calculated additionally. The <strong>MAC code</strong> can be calculated from the <strong>input msg</strong>, using the encryption <strong>key</strong> (or some transformation of it) and some <strong>MAC function</strong> (like HMAC-SHA-256):</p>
-<p><img src="../.gitbook/assets/hmac-calculation-aes.png" alt="" data-size="original"></img></p>
+<p><img src="../assets/hmac-calculation-aes.png" alt="" data-size="original"></img></p>
 </li>
 <li><p>The <strong>ciphertext</strong> is calculated through the <strong>AES encryption algorithm</strong>. It first <strong>generates a random salt</strong> (<strong>IV</strong>) and uses it to transform the <strong>input msg</strong> using the <strong>encryption key</strong>, through the AES cipher encryption logic:</p>
-<p><img src="../.gitbook/assets/aes-encryption-process.png" alt="" data-size="original"></img></p>
+<p><img src="../assets/aes-encryption-process.png" alt="" data-size="original"></img></p>
 </li>
 </ul>
 </li>
@@ -1287,17 +1287,17 @@
 <ol>
 <li>Initialize the same AES <strong>algorithm parameters</strong> for the decryption process, exactly like the ones used during the encryption.</li>
 <li><p>Use the decryption <strong>key</strong> and the <strong>IV</strong> from the encrypted message to decrypt the <strong>ciphertext</strong> using the <strong>AES</strong> algorithm decryption logic. The output is the <strong>original message</strong> (the <strong>input msg</strong>, which was previously passed through AES encryption):</p>
-<p><img src="../.gitbook/assets/aes-decrypt-msg.png" alt="" data-size="original"></img></p>
+<p><img src="../assets/aes-decrypt-msg.png" alt="" data-size="original"></img></p>
 <ul>
 <li>In case of <strong>authenticated encryption</strong> (like AES-GCM), the integrated <strong>MAC code is verified</strong> during the decryption process.</li>
 <li>In case of <strong>unauthenticated encryption</strong> (like AES-CTR), the MAC code should be calculated and verified additionally, as it is described in the next few step.</li>
 </ul>
 </li>
 <li><p>Calculate <strong>HMAC</strong> of the original message (obtained during the decryption):</p>
-<p><img src="../.gitbook/assets/hmac-original-msg.png" alt="" data-size="original"></img></p>
+<p><img src="../assets/hmac-original-msg.png" alt="" data-size="original"></img></p>
 </li>
 <li><p>Compare the <strong>encryption MAC</strong> (the MAC of the input message, before the encryption) with the <strong>decryption MAC</strong> (the MAC of the original message, recovered by the decryption):</p>
-<p><img src="../.gitbook/assets/compare-encryption-decryption-mac.png" alt="" data-size="original"></img></p>
+<p><img src="../assets/compare-encryption-decryption-mac.png" alt="" data-size="original"></img></p>
 <ul>
 <li>If the <strong>MAC codes are the same</strong>, the decryption was correct and the original message is obtained.</li>
 <li>If the <strong>MAC codes are different</strong>, the decryption was failed and the original message is not the obtained one. This may happen due to many reasons, most likely "<em>wrong password</em>". Other reasons: incorrect ciphertext, incorrect IV, incorrect algorithm settings, incorrect KDF function or KDF parameters, etc.</li>
@@ -1348,7 +1348,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"The AES Cipher - Concepts","level":"1.9.3","depth":2,"next":{"title":"AES Encrypt / Decrypt - Examples","level":"1.9.4","depth":2,"path":"symmetric-key-ciphers/aes-encrypt-decrypt-examples.md","ref":"symmetric-key-ciphers/aes-encrypt-decrypt-examples.md","articles":[]},"previous":{"title":"Popular Symmetric Algorithms","level":"1.9.2","depth":2,"path":"symmetric-key-ciphers/popular-symmetric-algorithms.md","ref":"symmetric-key-ciphers/popular-symmetric-algorithms.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","meta","anchors","expandable-chapters-small","katex","sitemap","scripts","adsense"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"meta":{"name":"","content":"","data":[]},"scripts":{"files":["./assets/js/repl.it-code-runner.js"]},"search":{},"adsense":{"client":"ca-pub-6178635866936443"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"meta-single":{"name":"google-site-verification","content":"66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://cryptobook.xwave.app/"},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-11309924-27"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":48,"bottom":48},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"📄 Download PDF":"dist/cryptobook.pdf","📚 Download EPUB":"dist/cryptobook.epub","📱 Download MOBI":"dist/cryptobook.mobi"}},"gitbook":"*"},"file":{"path":"symmetric-key-ciphers/aes-cipher-concepts.md","mtime":"2025-09-06T17:42:10.285Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-09-06T18:31:27.936Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"The AES Cipher - Concepts","level":"1.9.3","depth":2,"next":{"title":"AES Encrypt / Decrypt - Examples","level":"1.9.4","depth":2,"path":"symmetric-key-ciphers/aes-encrypt-decrypt-examples.md","ref":"symmetric-key-ciphers/aes-encrypt-decrypt-examples.md","articles":[]},"previous":{"title":"Popular Symmetric Algorithms","level":"1.9.2","depth":2,"path":"symmetric-key-ciphers/popular-symmetric-algorithms.md","ref":"symmetric-key-ciphers/popular-symmetric-algorithms.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","meta","anchors","expandable-chapters-small","katex","sitemap","scripts","adsense"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"meta":{"name":"","content":"","data":[]},"scripts":{"files":["./assets/js/repl.it-code-runner.js"]},"search":{},"adsense":{"client":"ca-pub-6178635866936443"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"meta-single":{"name":"google-site-verification","content":"66TqznOaEKbY6hOL9vg_iv28RqZNGQY7xKSuB639n-E"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://cryptobook.xwave.app/"},"expandable-chapters-small":{},"ga":{"configuration":"auto","token":"UA-11309924-27"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":36,"left":36,"top":48,"bottom":48},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sidebar":{"📄 Download PDF":"dist/cryptobook.pdf","📚 Download EPUB":"dist/cryptobook.epub","📱 Download MOBI":"dist/cryptobook.mobi"}},"gitbook":"*"},"file":{"path":"symmetric-key-ciphers/aes-cipher-concepts.md","mtime":"2025-09-06T19:00:31.626Z","type":"markdown"},"gitbook":{"version":"6.0.3","time":"2025-09-06T19:10:23.276Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

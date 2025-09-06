@@ -6,7 +6,7 @@ In cryptography two major types of encryption schemes are widely used: **symmetr
 
 **Symmetric encryption** schemes use **the same symmetric key** (or password) to **encrypt** data and **decrypt** the encrypted data back to its original form:
 
-![](.gitbook/assets/symmetric-encryption.png)
+![](assets/symmetric-encryption.png)
 
 Symmetric encryption usually combines several crypto algorithms into an **symmetric encryption scheme**, e.g. AES-256-CTR-HMAC-SHA256. The **encryption scheme** (cipher construction) may include: password to **key derivation** algorithm (with certain parameters) + **symmetric cipher** algorithm (with certain parameters) + **cipher block mode** algorithm + **message authentication** (MAC) algorithm. This means that **the above shown diagram is simplified** and does not fully represent the process.
 
@@ -52,7 +52,7 @@ We shall give more details and code examples using the **AES** and **ChaCha20** 
 
 In order to better understand the idea behind the symmetric encryption, you can play with some **online symmetric encryption tool** to encrypt and decrypt a sample message by sample secret key (or password). You can play a bit with this site: [**https://aesencryption.net**](https://aesencryption.net).
 
-![](.gitbook/assets/aesencryption.net.png)
+![](assets/aesencryption.net.png)
 
 It demonstrates how we can encrypt and decrypt messages, using the **AES cipher** (with certain settings, more precisely AES-128-CBC) and certain password-to-key-derivation function. In the above example if we encrypt the text "_**secret msg**_" by the password "_**p@ss**_", we will get the [base64-encoded](https://en.wikipedia.org/wiki/Base64) binary data "_**jVJwOBmH+qMqHdg22KwMyg==**_" as output. After decryption with the same secret key we get back the original text "_**secret msg**_".
 
@@ -72,11 +72,11 @@ Popular **public-key cryptosystems** (asymmetric crypto algorithms) like **RSA**
 
 **Asymmetric encryption schemes** use a pair of cryptographically related **public** and **private keys** to **encrypt** the data (by the public key) and **decrypt** the encrypted data back to its original forms (by the private key). Data **encrypted by a public key** is **decrypted** by the corresponding **private key**:
 
-![](.gitbook/assets/public-key-cryptography-encrypt-decrypt.png)
+![](assets/public-key-cryptography-encrypt-decrypt.png)
 
 The encrypted data, obtained as result of encryption is called "**ciphertext**". The ciphertext is a binary sequence, unreadable by humans and by design cannot be decrypted without the decryption key.
 
-![](.gitbook/assets/asymmetric-encryption-diagram.png)
+![](assets/asymmetric-encryption-diagram.png)
 
 Note that **the above shown diagram is highly simplified** and does not fully represent the asymmetric encryption / decryption process. Typically, public-key cryptosystems can **encrypt messages of limited length** only and are slower than symmetric ciphers. For encrypting longer messages (e.g. PDF documents) usually a **public-key encryption scheme** (also known as **hybrid encryption scheme**) is used, which combines **symmetric** and **asymmetric encryption** like this:
 
@@ -91,7 +91,7 @@ Public key encryption can work also in the opposite scenario: **encrypt data by 
 
 In the context of [**digital signatures**](https://en.wikipedia.org/wiki/Digital\_signature), a message **signed by a private key** (digital signature) is later **verified** by the corresponding **public key**.
 
-![](.gitbook/assets/public-key-cryptography-sign-verify.png)
+![](assets/public-key-cryptography-sign-verify.png)
 
 [**Digital signatures**](digital-signatures/) will be explained in more details later, but in short: a message can be **signed** by certain **private key** and the obtained **signature** can be later **verified** by the corresponding **public key**. A **signed message** cannot be altered after signing. A message signature proves that certain message (e.g. blockchain transaction) is created by the owner of certain public key. Digital signatures provide message **authentication**, message **integrity** and **non-repudiation**.
 
@@ -170,7 +170,7 @@ Popular **asymmetric encryption schemes** are: [**RSA-OAEP**](https://en.wikiped
 
 In order to better understand the idea behind the **asymmetric encryption**, you can play with some online public key encryption tool to encrypt / decrypt a sample message by sample RSA private / public key. You can play a bit with this site: [http://travistidwell.com/jsencrypt/demo/](http://travistidwell.com/jsencrypt/demo/).
 
-![](.gitbook/assets/asymmetric-encryption-online-demo-jsencrypt.png)
+![](assets/asymmetric-encryption-online-demo-jsencrypt.png)
 
 In the above online demo you can **generate RSA public / private key pairs** and **encrypt** / **decrypt** text messages. Note that **the message size is limited** by the key length, so you can't encrypt long text. You will get an error if you try. Internally, the above Web site uses the **RSAES-PKCS1-v1\_5** public key encryption scheme as specified in [RFC3447](https://tools.ietf.org/html/rfc3447).
 

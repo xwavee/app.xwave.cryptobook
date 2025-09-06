@@ -24,7 +24,7 @@ This is the color exchange **scenario**, step by step:
 * **Alice** and **Bob** separately select a **secret color** that they keep to themselves (e.g. _red_ and _sea green_).
 * Finally **Alice** and **Bob** **mix** their secret color together with their mutually shared color. The obtained mixed colors area ready for public exchange (in our case _orange_ and _light sky blue_).
 
-![](../.gitbook/assets/key-exchange-by-color-mixing-part-1.png)
+![](../assets/key-exchange-by-color-mixing-part-1.png)
 
 The next steps in the color exchanging scenario are as follows:
 
@@ -34,7 +34,7 @@ The next steps in the color exchanging scenario are as follows:
   * The result is the **final color mixture** (_yellow-brown_) which is identical to the partner's color mixture.
   * It is the **securely exchanged shared key**.
 
-![](../.gitbook/assets/key-exchange-by-color-mixing-part-2.png)
+![](../assets/key-exchange-by-color-mixing-part-2.png)
 
 If a third parties have intercepted the color exchanging process, it would be computationally difficult for them to determine the secret colors.
 
@@ -74,7 +74,7 @@ In cryptography, many algorithms rely on the **computational difficulty of the D
 
 Now, after we are familiar with the above mathematical properties of the modular exponentiations, we are ready to explain **the DHKE protocol**. This is how it works:
 
-![](../.gitbook/assets/diffie-hellman-key-exchange-protocol.png)
+![](../assets/diffie-hellman-key-exchange-protocol.png)
 
 Let's explain each step of this key-exchange process:
 
@@ -110,7 +110,7 @@ Finally, note that the integers **g**, **p**, **a** and **p** are typically very
 
 As live example, you can play with this online DHKE tool: [http://www.irongeek.com/diffie-hellman.php](http://www.irongeek.com/diffie-hellman.php)
 
-![](../.gitbook/assets/diffie-hellman-online.png)
+![](../assets/diffie-hellman-online.png)
 
 ### ECDH - Elliptic Curves-based Diffie-Hellman Key Exchange Protocol
 

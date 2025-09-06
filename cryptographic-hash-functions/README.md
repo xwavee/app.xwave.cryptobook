@@ -32,7 +32,7 @@ Run the above code example: [https://repl.it/@nakov/SHA3-256-hello-in-JS](https:
 
 The process of calculating the value of certain hash function is called "**hashing**".
 
-![](../.gitbook/assets/hash-function.jpg)
+![](../assets/hash-function.jpg)
 
 In the above example the text `John Smith` is hashed to the hash value `02` and `Lisa Smith` is hashed to `01`. The input texts `John Smith` and `Sandra Dee` both are hashed to `02` and this is called "**collision**".
 
@@ -46,7 +46,7 @@ A **naive hash function** is just to sum the bytes of the input data / text. It 
 
 In cryptography, **hash functions** transform **input data** of arbitrary size (e.g. a text message) to a **result** of fixed size (e.g. 256 bits), which is called **hash value** (or hash code, message digest, or simply hash). Hash functions (hashing algorithms) used in computer cryptography are known as "**cryptographic hash functions**". Examples of such functions are **SHA-256** and **SHA3-256**, which transform arbitrary input to 256-bit output.
 
-![](../.gitbook/assets/crypto-hash-function.jpg)
+![](../assets/crypto-hash-function.jpg)
 
 ### Cryptographic Hash Functions - Examples
 
@@ -79,6 +79,6 @@ SHA3-512("hello") = "75d527c368f2efe848ecf6b073a36767800805e9eef2b1857d5f984f036
 
 **Play** with most popular cryptographic hash functions **online**: [https://www.fileformat.info/tool/hash.htm](https://www.fileformat.info/tool/hash.htm).
 
-![](../.gitbook/assets/hash-functions-online.png)
+![](../assets/hash-functions-online.png)
 
 **Cryptographic hash functions** are widely used in cryptography, in computer programming and in blockchain systems.

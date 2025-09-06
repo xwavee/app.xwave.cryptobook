@@ -14,7 +14,7 @@
 
 **Digital signature** schemes typically use a **public-key cryptosystem** (such as RSA or ECC) and use a **public / private key pairs**. A message is signed by a private key and the signature is verified by the corresponding public key:
 
-![](../.gitbook/assets/public-key-cryptography-sign-verify.png)
+![](../assets/public-key-cryptography-sign-verify.png)
 
 Messages are **signed** by the sender using a **private key** (signing key). Typically the input message is **hashed** and then the **signature** is calculated by the signing algorithm. Most signature algorithms perform some calculation with the message hash + the signing key in a way that the result cannot be calculated without the signing key. The result from message signing is the **digital signature** (one or more integers):
 
@@ -27,7 +27,7 @@ Message **signatures** are **verified** by the corresponding **public key** (ver
 A **message signature** mathematically guarantees that certain message was signed by certain (secret) **private key**, which corresponds to certain (non-secret) **public key**. After a message is signed, the message and **the signature cannot be modified** and thus message **authentication** and **integrity** is guaranteed. Anyone, who knows the **public key** of the message signer, can **verify the signature**. Аfter signing the signature author cannot reject the act of signing (this is known as **non-repudiation**).
 
 Most signature schemes work like it is shown at the following diagram:\
-![](../.gitbook/assets/signature-sign-verify.png)At **signing**, the input message is **hashed** (either alone, or together with the public key and other input parameters), then some **computation** (based on elliptic curves, discrete logarithms or other cryptographic primitive) calculates the **digital signature**. The produced **signed message** consists of the original message + the calculated signature.
+![](../assets/signature-sign-verify.png)At **signing**, the input message is **hashed** (either alone, or together with the public key and other input parameters), then some **computation** (based on elliptic curves, discrete logarithms or other cryptographic primitive) calculates the **digital signature**. The produced **signed message** consists of the original message + the calculated signature.
 
 At **signature verification**, the message for verification is **hashed** (either alone or together with the public key) and some computations are performed between the message **hash**, the **digital signature** and the **public key**, and finally a **comparison** decides whether the signature is valid or not.
 

@@ -53,18 +53,18 @@ The entire **AES encryption** process (password-based authenticated encryption) 
 1. **Algorithm parameters** are selected (e.g. AES, 128-bit, CTR mode + Scrypt + Scrypt parameters + MAC algorithm). These parameters can be **hard-coded** in the AES algorithm implementation source code or can be specified as input for the AES encrypt and decrypt. Always use the same parameters for encryption and decryption.
 2.  The encryption **key** is derived from the encryption **password** using a key-derivation function (**KDF**), e.g. **Scrypt** (with certain parameters):
 
-    <img src="../.gitbook/assets/password-kdf-key.png" alt="" data-size="original">
+    <img src="../assets/password-kdf-key.png" alt="" data-size="original">
 3.  The **AES** encryption scheme takes as **input** the **input msg** + the encryption **key**. It produces as output the **ciphertext** + the randomly generated **IV** (128-bit salt) + the **MAC** code:
 
-    <img src="../.gitbook/assets/aes-input-output.png" alt="" data-size="original">
+    <img src="../assets/aes-input-output.png" alt="" data-size="original">
 
     * In case of **authenticated encryption** (e.g. AES-GCM), the MAC is already calculated automatically during the AES encryption process.
     *   If the encryption scheme is **not authenticated encryption** (e.g. AER-CTR), the MAC code is not calculated automatically by the AES encryption process and should be calculated additionally. The **MAC code** can be calculated from the **input msg**, using the encryption **key** (or some transformation of it) and some **MAC function** (like HMAC-SHA-256):
 
-        <img src="../.gitbook/assets/hmac-calculation-aes.png" alt="" data-size="original">
+        <img src="../assets/hmac-calculation-aes.png" alt="" data-size="original">
     *   The **ciphertext** is calculated through the **AES encryption algorithm**. It first **generates a random salt** (**IV**) and uses it to transform the **input msg** using the **encryption key**, through the AES cipher encryption logic:
 
-        <img src="../.gitbook/assets/aes-encryption-process.png" alt="" data-size="original">
+        <img src="../assets/aes-encryption-process.png" alt="" data-size="original">
 4. Finally, the encrypted output is generated. It holds the **ciphertext** + **IV** + **MAC**. Optionally, it holds also the algorithm settings.
 
 ## The AES Decryption Process
@@ -74,16 +74,16 @@ The opposite **AES decryption** process (password-based authenticated decryption
 1. Initialize the same AES **algorithm parameters** for the decryption process, exactly like the ones used during the encryption.
 2.  Use the decryption **key** and the **IV** from the encrypted message to decrypt the **ciphertext** using the **AES** algorithm decryption logic. The output is the **original message** (the **input msg**, which was previously passed through AES encryption):
 
-    <img src="../.gitbook/assets/aes-decrypt-msg.png" alt="" data-size="original">
+    <img src="../assets/aes-decrypt-msg.png" alt="" data-size="original">
 
     * In case of **authenticated encryption** (like AES-GCM), the integrated **MAC code is verified** during the decryption process.
     * In case of **unauthenticated encryption** (like AES-CTR), the MAC code should be calculated and verified additionally, as it is described in the next few step.
 3.  Calculate **HMAC** of the original message (obtained during the decryption):
 
-    <img src="../.gitbook/assets/hmac-original-msg.png" alt="" data-size="original">
+    <img src="../assets/hmac-original-msg.png" alt="" data-size="original">
 4.  Compare the **encryption MAC** (the MAC of the input message, before the encryption) with the **decryption MAC** (the MAC of the original message, recovered by the decryption):
 
-    <img src="../.gitbook/assets/compare-encryption-decryption-mac.png" alt="" data-size="original">
+    <img src="../assets/compare-encryption-decryption-mac.png" alt="" data-size="original">
 
     * If the **MAC codes are the same**, the decryption was correct and the original message is obtained.
     * If the **MAC codes are different**, the decryption was failed and the original message is not the obtained one. This may happen due to many reasons, most likely "_wrong password_". Other reasons: incorrect ciphertext, incorrect IV, incorrect algorithm settings, incorrect KDF function or KDF parameters, etc.

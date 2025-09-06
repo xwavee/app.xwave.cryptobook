@@ -2,7 +2,7 @@
 
 **Different input** messages are expected to produce **different output** hash values (message digest).
 
-![](../.gitbook/assets/crypto-hash-function-examples.jpg)
+![](../assets/crypto-hash-function-examples.jpg)
 
 ## Hash Collisions
 

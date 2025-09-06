@@ -6,7 +6,7 @@
 
 You can play with **Bcrypt** here: [https://www.dailycred.com/article/bcrypt-calculator](https://www.dailycred.com/article/bcrypt-calculator).
 
-![](../.gitbook/assets/bcrypt-online-example.png)
+![](../assets/bcrypt-online-example.png)
 
 ## Storing Algorithm Settings + Salt + Hash Together
 

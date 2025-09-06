@@ -56,7 +56,7 @@ By default the key-derivation function is scrypt and uses **weak scrypt paramete
 
 To learn better the file format behind the Ethereum UTC / JSON keystore files, play with **MyEtherWallet**.
 
-![](../.gitbook/assets/myetherwallet.png)
+![](../assets/myetherwallet.png)
 
 Follow the steps below to create a new **random Ethereum crypto wallet** and view its encrypted JSON content:
 

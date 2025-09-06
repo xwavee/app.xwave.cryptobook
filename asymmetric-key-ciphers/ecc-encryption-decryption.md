@@ -4,17 +4,17 @@ In this section we shall explain how to implement **elliptic-curve based public-
 
 Assume we have a ECC **private-public key pair**. We want to encrypt and decrypt data using these keys. By definition, **asymmetric encryption** works as follows: if we **encrypt data by a public key**, we will be able to **decrypt** the ciphertext later by the corresponding **private key**:
 
-![](../.gitbook/assets/asymmetric-encryption-diagram.png)
+![](../assets/asymmetric-encryption-diagram.png)
 
 The above process can be directly applied for the **RSA** cryptosystem, but not for the **ECC**. The elliptic curve cryptography (ECC) **does not directly provide encryption** method. Instead, we can design a **hybrid encryption scheme** by using the **ECDH** (Elliptic Curve Diffie–Hellman) key exchange scheme to derive a **shared secret key** for symmetric data encryption and decryption.
 
 This is how most **hybrid encryption schemes** works (the encryption process):
 
-![](../.gitbook/assets/hybrid-encryption.png)
+![](../assets/hybrid-encryption.png)
 
 This is how most **hybrid encryption schemes** works (the decryption process):
 
-![](<../.gitbook/assets/hybrid-decryption (1).png>)
+![](<../assets/hybrid-decryption (1).png>)
 
 Let's get into details how to design and implement an **ECC-based hybrid encryption scheme**.
 

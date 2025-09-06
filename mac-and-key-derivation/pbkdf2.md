@@ -30,7 +30,7 @@ The **output data** is the **derived key** of requested length (e.g. 256 bits).
 
 Try **PBKDF2 key derivation** online here: [https://asecuritysite.com/encryption/PBKDF2z](https://asecuritysite.com/encryption/PBKDF2z).
 
-![](../.gitbook/assets/pbkdf2-calculator.png)
+![](../assets/pbkdf2-calculator.png)
 
 Try to **increase the iterations count** to see how this affects the speed of key derivation.
 
